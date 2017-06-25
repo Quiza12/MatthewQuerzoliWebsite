@@ -1,0 +1,31 @@
+* {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+}
+
+hr {
+  height: 6px;
+  width: 30%;
+	background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;
+  border: 0;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.bio-picture {
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+}
+
+.byline {
+  color: grey;
+}
+
+.bio {
+  padding-left: 200px;
+  padding-right: 200px;
+  padding-bottom: 20px;
+  padding-top: 10px;
+}
