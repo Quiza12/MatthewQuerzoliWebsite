@@ -16,39 +16,42 @@
 </head>
 
 <header>
-  <h1 class="nav-letter">Q</h1>
+  <h1 id="nav-letter">Q</h1>
   <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Writing</a></li>
-    <li><a href="#">Projects</a></li>
-    <li><a href="#">About</a></li>
+    <li class="nav-item"><a href="#">Writing</a></li>
+    <li class="nav-item"><a href="#">Projects</a></li>
+    <li class="nav-item"><a href="#">Testimonials</a></li>
   </ul>
 </header>
 
 <body>
-
-  <div class="bio">
-    <div class="bio-group">
-      <div class="bio-picture-wrapper">
-        <img class="bio-picture" src="images/picture.png"/>
-      </div>
-      <div class="bio-text">
-        <h2>Hi, I'm Matt Querzoli</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis sapien efficitur, scelerisque ipsum eu, congue tellus. Donec massa est, tristique ut mauris sit amet, lacinia sollicitudin massa. Fusce at enim nisl.</p>
+    <div id="bio">
+      <div id="bio-group">
+        <div id="bio-picture-wrapper">
+          <img id="bio-picture" src="images/picture.png"/>
+        </div>
+        <div id="bio-text">
+          <h2>Hi, I'm Matt Querzoli</h2>
+          <p>I'm a software developer and a writer. Currently, I'm a graduate at the Reserve Bank of Australia, and writing my first novel. I am also a Violent Soho fanatic.</p>
+          <p><b>Feel free to <a href="mailto:Quiza12@live.com?Subject=Hey">contact me</a> with regards to my writing or for project work.</b></p>
+        </div>
       </div>
     </div>
-  </div>
-
-
 </body>
 
 <footer>
-  <p class="credit">Made with lust by Q</p>
-  <div class="social-media">
-    <img class="icon" src="images/icons/facebook.svg"/>
-    <img class="icon" src="images/icons/at-sign.svg"/>
-    <img class="icon" src="images/icons/medium.png"/>
+  <p id="credit-static">Made</p>
+  <p id="credit">with lust by Q</p>
+  <div id="social-media">
+    <ul>
+      <li class="nav-item"><a href="https://medium.com/@mattq" target="_blank">Blog</a></li>
+      <li class="nav-item"><a href="mailto:Quiza12@live.com?Subject=Hey">Email</a></li>
+      <li class="nav-item"><a href="https://www.facebook.com/Quiza12" target="_blank">Facebook</a></li>
+    </ul>
   </div>
 </footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/scripts.js"></script>
 
 </html>
