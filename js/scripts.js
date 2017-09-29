@@ -79,18 +79,48 @@ function getRandomInt(min, max) {
 }
 
 //Page Content Switcher
+
+var homeLink = document.getElementById("nav-letter");
 var writingLink = document.getElementsByClassName("nav-item")[0];
 var projectLink = document.getElementsByClassName("nav-item")[1];
 var testimonialLink = document.getElementsByClassName("nav-item")[2];
 
+$(homeLink).click(function(){
+  showHomeContent();
+});
+
 $(writingLink).click(function(){
-  $("#bio").replaceWith("<div class=\"bio\"><h2>Writing Content</h2></div>");
+  showWritingContent();
 });
 
 $(projectLink).click(function(){
-    $("#bio").replaceWith("<div class=\"bio\"><h2>Project Content</h2></div>");
+    showProjectContent();
 });
 
 $(testimonialLink).click(function(){
-    $("#bio").replaceWith("<div class=\"bio\"><h2>Testimonial Content</h2></div>");
+    showTestimonialContent();
 });
+
+function showHomeContent() {
+    $.get("pages/home.html", function(data) {
+      $("#bio").html(data);
+    });
+}
+
+function showWritingContent() {
+    $.get("pages/writing.html", function(data) {
+      $("#bio").html(data);
+    });
+}
+
+function showProjectContent() {
+    $.get("pages/project.html", function(data) {
+      $("#bio").html(data);
+    });
+}
+
+function showTestimonialContent() {
+    $.get("pages/testimonials.html", function(data) {
+      $("#bio").html(data);
+    });
+}
