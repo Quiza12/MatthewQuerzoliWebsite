@@ -8,6 +8,7 @@
 
 @media screen and (max-width: 750px) {
 
+    /*Home*/
     div#bio {
       margin-top: -210px;
     }
@@ -27,6 +28,39 @@
       text-align: center;
     }
 
+    /*Writing*/
+    div#writing {
+      margin-top: -210px;
+    }
+
+    div#writing-group {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    div#writing-content {
+      order: 1;
+      width: 50%;
+      text-align: center;
+    }
+
+    /*Project*/
+    div#projects {
+      margin-top: -150px;
+    }
+
+    div#project-group {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    div#project-content {
+      order: 1;
+      width: 50%;
+      text-align: center;
+    }
+
+    /*Other*/
     footer {
       text-align: center;
     }
@@ -108,6 +142,53 @@ header li a:hover {
 #bio-text {
   flex-grow: 1;
   margin-left: 20px;
+}
+
+/*Pages*/
+
+/*Writing*/
+#writing {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -350px;
+}
+
+#writing-group {
+  width: 700px;
+  height: 200px;
+  display: flex;
+}
+
+#writing-content {
+  text-align: left;
+}
+
+#writing-quote {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/*Projects*/
+
+#projects {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -130px;
+  margin-left: -350px;
+}
+
+#project-group {
+  width: 700px;
+  height: 200px;
+  display: flex;
+}
+
+#project-content {
+  text-align: left;
 }
 
 /*Footer*/
