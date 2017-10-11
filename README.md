@@ -6,16 +6,6 @@ My portfolio/personal site. I will be using a range of technologies to try and b
 
 This is my experimentation of my own portfolio and personal website.
 
-Feel free to fork it and use it as a starting point for your own!
-
-## History
-
-29/4/16 - Created index.html and fixed README.md.
-
-## Credits
-
-To be added to as I use tutorials etc.
-
 ## License
 
 MIT License
