@@ -60,6 +60,22 @@
       text-align: center;
     }
 
+    /*Project*/
+    div#testimonials {
+      margin-top: -210px;
+    }
+
+    div#testimonial-group {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    div#testimonial-content {
+      order: 1;
+      width: 50%;
+      text-align: center;
+    }
+
     /*Other*/
     footer {
       text-align: center;
