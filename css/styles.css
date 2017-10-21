@@ -10,12 +10,17 @@
 
     /*Home*/
     div#bio {
-      margin-top: -210px;
+      margin-top: -180px;
     }
 
     div#bio-group {
       flex-direction: column;
       align-items: center;
+    }
+
+    img#bio-picture {
+      width: 140px;
+      height: 140px;
     }
 
     div#bio-picture-wrapper {
@@ -108,6 +113,11 @@ header {
 #nav-letter {
   font-weight: 700;
   margin: 10px 0px 10px 0px;
+  text-decoration: none;
+}
+
+h1#nav-letter a {
+  text-decoration: none;
 }
 
 #nav-letter:hover {
