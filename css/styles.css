@@ -2,15 +2,21 @@
 
 * {
   font-family: 'Quicksand', Helvetica, sans-serif;
-  font-size: 300;
   color: black;
 }
 
+/*Media*/
+
 @media screen and (max-width: 750px) {
+
+    /*Header*/
+    header {
+      font-size: 14px;
+    }
 
     /*Home*/
     div#bio {
-      margin-top: -180px;
+      margin-top: -160px;
     }
 
     div#bio-group {
@@ -31,6 +37,7 @@
       order: 2;
       width: 50%;
       text-align: center;
+      font-size: 14px;
     }
 
     /*Writing*/
@@ -47,6 +54,7 @@
       order: 1;
       width: 50%;
       text-align: center;
+      font-size: 14px;
     }
 
     /*Project*/
@@ -63,6 +71,7 @@
       order: 1;
       width: 50%;
       text-align: center;
+      font-size: 14px;
     }
 
     /*Project*/
@@ -76,6 +85,7 @@
     }
 
     div#testimonial-content {
+      font-size: 14px;
       order: 1;
       width: 50%;
       text-align: center;
@@ -83,6 +93,7 @@
 
     /*Other*/
     footer {
+      font-size: 14px;
       text-align: center;
     }
 
@@ -105,7 +116,7 @@
 header {
   width: 100%;
   height: 60px;
-  position: relative;
+  position: fixed;
   top: 0px;
   text-align: center;
 }
