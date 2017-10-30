@@ -1,10 +1,6 @@
 # portfolio-website
 
-My portfolio/personal site. I will be using a range of technologies to try and become accustomed to them; expanding my technical knowledge throughout.
-
-## Usage
-
-This is my experimentation of my own portfolio and personal website.
+My portfolio/personal website. Blogging is handled by Medium - yet this will provide a simple ladning page for interested parties. A business card of sorts for the web.
 
 ## License
 
