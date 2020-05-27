@@ -1,6 +1,6 @@
 # portfolio-website
 
-My portfolio/personal website. Blogging is handled by Medium - yet this will provide a simple ladning page for interested parties. A business card of sorts for the web.
+My portfolio/personal website. Blogging is handled by Medium - yet this will provide a simple landing page for interested parties. A business card of sorts for the web.
 
 ## License
 

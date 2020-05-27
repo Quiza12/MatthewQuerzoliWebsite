@@ -84,6 +84,7 @@ var homeLink = document.getElementById("nav-letter");
 var writingLink = document.getElementsByClassName("nav-item")[0];
 var projectLink = document.getElementsByClassName("nav-item")[1];
 var testimonialLink = document.getElementsByClassName("nav-item")[2];
+var theGoodBookLink = document.getElementsByClassName("nav-item")[3];
 
 $(homeLink).click(function(){
   showHomeContent();
@@ -99,6 +100,10 @@ $(projectLink).click(function(){
 
 $(testimonialLink).click(function(){
     showTestimonialContent();
+});
+
+$(theGoodBookLink).click(function(){
+    showTheGoodBookContent();
 });
 
 function showHomeContent() {
@@ -121,6 +126,12 @@ function showProjectContent() {
 
 function showTestimonialContent() {
     $.get("pages/testimonials.html", function(data) {
+      $("#bio").html(data);
+    });
+}
+
+function showTheGoodBookContent() {
+    $.get("pages/the-good-book.html", function(data) {
       $("#bio").html(data);
     });
 }

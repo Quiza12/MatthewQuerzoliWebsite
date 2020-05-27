@@ -74,7 +74,7 @@
       font-size: 14px;
     }
 
-    /*Project*/
+    /*Testimonials*/
     div#testimonials {
       margin-top: -210px;
     }
@@ -85,6 +85,23 @@
     }
 
     div#testimonial-content {
+      font-size: 14px;
+      order: 1;
+      width: 50%;
+      text-align: center;
+    }
+
+    /*The Good Book*/
+    div#the-good-book {
+      margin-top: -210px;
+    }
+
+    div#the-good-book-group {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    div#the-good-book-content {
       font-size: 14px;
       order: 1;
       width: 50%;
