@@ -25,8 +25,8 @@
     }
 
     img#bio-picture {
-      width: 140px;
-      height: 140px;
+      width: 200px;
+      height: 200px;
     }
 
     div#bio-picture-wrapper {
@@ -93,7 +93,10 @@
 
     /*The Good Book*/
     div#the-good-book {
-      margin-top: -210px;
+      /* margin-top: -210px; */
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
     }
 
     div#the-good-book-group {
@@ -104,7 +107,7 @@
     div#the-good-book-content {
       font-size: 14px;
       order: 1;
-      width: 50%;
+      /* width: 50%; */
       text-align: center;
     }
 
@@ -112,6 +115,7 @@
     footer {
       font-size: 14px;
       text-align: center;
+      background-color: #fff;
     }
 
     div#social-media {
@@ -136,12 +140,17 @@ header {
   position: fixed;
   top: 0px;
   text-align: center;
+  background-color: #fff;
 }
 
 #nav-letter {
   font-weight: 700;
   margin: 10px 0px 10px 0px;
   text-decoration: none;
+}
+
+#nav-items {
+  background-color: #fff;
 }
 
 h1#nav-letter a {
@@ -153,7 +162,7 @@ h1#nav-letter a {
   cursor: pointer;
 }
 
-ul  {
+ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -189,8 +198,8 @@ header li a:hover {
 }
 
 #bio-picture {
-  width: 200px;
-  height: 200px;
+  width: 225px;
+  height: 225px;
 }
 
 #bio-text {
@@ -216,7 +225,7 @@ header li a:hover {
 }
 
 #writing-content {
-  text-align: left;
+  text-align: center;
 }
 
 #writing-quote {
@@ -226,7 +235,6 @@ header li a:hover {
 }
 
 /*Projects*/
-
 #projects {
   position: fixed;
   top: 50%;
@@ -242,7 +250,7 @@ header li a:hover {
 }
 
 #project-content {
-  text-align: left;
+  text-align: center;
 }
 
 /*Testimonials*/
@@ -261,7 +269,7 @@ header li a:hover {
 }
 
 #testimonial-content {
-  text-align: left;
+  text-align: center;
 }
 
 .testimonial {
@@ -272,6 +280,28 @@ header li a:hover {
 
 .testimonial-author {
   text-align: right;
+}
+
+/*The Good Book*/
+#the-good-book {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 120px;
+}
+
+#the-good-book-group {
+  width: 600px;
+}
+
+#the-good-book-content {
+  text-align: center;
+}
+
+#the-good-book-content ul {
+  text-align: center;
+  list-style: none;
+  display: inherit;
 }
 
 /*Footer*/

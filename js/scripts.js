@@ -108,30 +108,30 @@ $(theGoodBookLink).click(function(){
 
 function showHomeContent() {
     $.get("pages/home.html", function(data) {
-      $("#bio").html(data);
+      $("#container").html(data);
     });
 }
 
 function showWritingContent() {
     $.get("pages/writing.html", function(data) {
-      $("#bio").html(data);
+      $("#container").html(data);
     });
 }
 
 function showProjectContent() {
     $.get("pages/project.html", function(data) {
-      $("#bio").html(data);
+      $("#container").html(data);
     });
 }
 
 function showTestimonialContent() {
     $.get("pages/testimonials.html", function(data) {
-      $("#bio").html(data);
+      $("#container").html(data);
     });
 }
 
 function showTheGoodBookContent() {
     $.get("pages/the-good-book.html", function(data) {
-      $("#bio").html(data);
+      $("#container").html(data);
     });
 }
