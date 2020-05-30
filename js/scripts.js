@@ -10,7 +10,10 @@ var madeWith = [
     " with beers by Q",
     " with trepidation by Q",
     " with no help from Netflix by Q",
-    " with the knowledge of his insignificance by Q"
+    " with the knowledge of his insignificance by Q",
+    " with the help of Nick Davis' four final quarter goals by Q",
+    " with his parent's love and support by Q",
+    " better during the COVID-19 pandemic by Q"
 ];
 var container = document.getElementById("credit");
 var t = -1;
