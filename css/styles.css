@@ -76,7 +76,12 @@
 
     /*Testimonials*/
     div#testimonials {
-      margin-top: -210px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-left: 20px;
+      padding-right: 20px;
+
     }
 
     div#testimonial-group {
@@ -87,13 +92,11 @@
     div#testimonial-content {
       font-size: 14px;
       order: 1;
-      width: 50%;
       text-align: center;
     }
 
     /*The Good Book*/
     div#the-good-book {
-      /* margin-top: -210px; */
       display: flex;
       align-items: flex-start;
       justify-content: center;
@@ -107,7 +110,6 @@
     div#the-good-book-content {
       font-size: 14px;
       order: 1;
-      /* width: 50%; */
       text-align: center;
     }
 
@@ -255,17 +257,22 @@ header li a:hover {
 
 /*Testimonials*/
 #testimonials {
-  position: fixed;
+  /* position: fixed;
   top: 50%;
   left: 50%;
   margin-top: -180px;
-  margin-left: -350px;
+  margin-left: -350px; */
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 120px;
 }
 
 #testimonial-group {
-  width: 700px;
+  /* width: 700px;
   height: 200px;
-  display: flex;
+  display: flex; */
+  width: 600px;
 }
 
 #testimonial-content {
@@ -274,11 +281,12 @@ header li a:hover {
 
 .testimonial {
   margin-top: 30px;
-  margin-bottom: 30px;
-  text-align: center;
+  margin-bottom: 10px;
+  text-align: left;
 }
 
 .testimonial-author {
+  margin-top: 0px;
   text-align: right;
 }
 
