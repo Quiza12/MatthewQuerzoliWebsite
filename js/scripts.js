@@ -11,7 +11,9 @@ var madeWith = [
     " with an apple a day by Q",
     " with Stack Overflow by Q",
     " without dial-up by Q",
-    " thanks to evolution by Q"
+    " thanks to evolution by Q",
+    " with a couple Stone & Woods by Q",
+    " because why not by Q"
 ];
 var container = document.getElementById("credit");
 var t = -1;
