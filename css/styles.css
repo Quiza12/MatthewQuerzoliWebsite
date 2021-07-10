@@ -42,7 +42,12 @@
 
     /*Writing*/
     div#writing {
-      margin-top: -210px;
+      /* margin-top: -210px; */
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-left: 20px;
+      padding-right: 20px;
     }
 
     div#writing-group {
@@ -51,10 +56,13 @@
     }
 
     div#writing-content {
-      order: 1;
+      /* order: 1;
       width: 50%;
       text-align: center;
+      font-size: 14px; */
       font-size: 14px;
+      order: 1;
+      text-align: center;
     }
 
     /*Project*/
