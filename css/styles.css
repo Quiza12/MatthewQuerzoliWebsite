@@ -42,7 +42,6 @@
 
     /*Writing*/
     div#writing {
-      /* margin-top: -210px; */
       display: flex;
       align-items: flex-start;
       justify-content: center;
@@ -56,10 +55,6 @@
     }
 
     div#writing-content {
-      /* order: 1;
-      width: 50%;
-      text-align: center;
-      font-size: 14px; */
       font-size: 14px;
       order: 1;
       text-align: center;
@@ -119,6 +114,23 @@
       font-size: 14px;
       order: 1;
       text-align: center;
+    }
+
+    /*Nano Narratives*/
+    div#nn {
+      margin-top: -150px;
+    }
+
+    div#nn-group {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    div#nn-content {
+      order: 1;
+      width: 50%;
+      text-align: center;
+      font-size: 14px;
     }
 
     /*Other*/
@@ -221,11 +233,6 @@ header li a:hover {
 
 /*Writing*/
 #writing {
-  /* position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-top: -150px;
-  margin-left: -350px; */
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -233,9 +240,6 @@ header li a:hover {
 }
 
 #writing-group {
-  /* width: 700px;
-  height: 200px;
-  display: flex; */
   width: 600px;
 }
 
@@ -270,11 +274,6 @@ header li a:hover {
 
 /*Testimonials*/
 #testimonials {
-  /* position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-top: -180px;
-  margin-left: -350px; */
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -282,9 +281,6 @@ header li a:hover {
 }
 
 #testimonial-group {
-  /* width: 700px;
-  height: 200px;
-  display: flex; */
   width: 600px;
 }
 
@@ -325,8 +321,46 @@ header li a:hover {
   display: inherit;
 }
 
-/*Footer*/
+#the-good-book-content a {
+  padding: 0px 0px 0px 0px;
+  text-decoration: underline;
+}
 
+/*Nano Narratives*/
+#nn {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -220px;
+  margin-left: -350px;
+}
+
+#nn-group {
+  width: 700px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+}
+
+#nn-content {
+  text-align: center;
+}
+
+#nn-frame {
+  width: 350px;
+}
+
+#nano-narrative-date {
+  margin-top: 60px;
+  text-align: center;
+}
+
+#nano-narrative {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/*Footer*/
 #credit {
   display: inline-block;
   padding: 10px 0px 10px 0px;
