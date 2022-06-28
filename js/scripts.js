@@ -1,11 +1,11 @@
 // Credit Generator
 
 var madeWith = [
-    " with lust by Q",
+    " with great trepidation by Q",
     " with lots of coffee by Q",
     " with Jesus' love by Q",
     " without Satan's help by Q",
-    " with beers by Q",
+    " with the help of beers by Q",
     " with faltering motivation by Q",
     " with no help from Netflix by Q",
     " with an apple a day by Q",
