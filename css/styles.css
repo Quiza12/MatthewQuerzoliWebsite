@@ -255,21 +255,34 @@ header li a:hover {
 
 /*Projects*/
 #projects {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-top: -130px;
-  margin-left: -350px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 120px;
 }
 
 #project-group {
-  width: 700px;
-  height: 200px;
-  display: flex;
+  width: 600px;
 }
 
 #project-content {
   text-align: center;
+}
+
+#project-content li {
+  list-style: none; 
+}
+
+#project-content ul {
+  text-align: center;
+  list-style: none;
+  display: inherit;
+}
+
+#project-content li a { 
+  display: inline-block;
+  text-decoration: underline;
+  padding: 0px;
 }
 
 /*Testimonials*/
