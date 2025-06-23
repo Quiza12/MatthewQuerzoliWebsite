@@ -1,9 +1,27 @@
-# Matthew Querzoli Website/Portfolio
+# MatthewQuerzoli
 
-My portfolio/personal website. Blogging is handled by Medium - yet this will provide a simple landing page for interested parties. A business card of sorts for the web.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.8.
 
-## Cheers (Big Ears)
+## Development server
 
-Cheers to the following legends for Google-guidance:
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-- Using Javascript CDN in an Angular app: [ngdevelop.tech](https://www.ngdevelop.techloading-external-libraries-from-cdn-in-angular-application/)
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
