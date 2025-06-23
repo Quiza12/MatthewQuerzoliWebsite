@@ -1,0 +1,21 @@
+body {
+  background: #332f35;
+  font-family: roboto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+  color: white;
+}
+
+h1, p, h4, a, li  {
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+

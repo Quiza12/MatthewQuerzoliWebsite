@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+  background: #332f35;
+  font-family: roboto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+h1, li, a {
+  color: white;
+}
+h4, a {
+  color: #ccc8ce;
+  margin-bottom: 5px;
+}
+input[type=radio] {
+  position: absolute;
+  visibility: hidden;
+  display: none;
+}
+label {
+  color: #9a929e;
+  display: inline-block;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 5px 20px;
+}
+input[type=radio]:checked + label {
+  color: #ccc8ce;
+  background: #675f6b;
+}
+label + input[type=radio] + label {
+  border-left: solid 3px #675f6b;
+}
+.radio-group {
+  border: solid 3px #675f6b;
+  display: inline-block;
+  margin: 20px 20px 5px 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.styled-select {
+  background: transparent;
+  text-align: center;
+  outline: none;
+  width: 268px;
+  height: 40px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1;
+  border: solid 3px #675f6b;
+  border-radius: 10px;
+  color: #9a929e;
+  font-weight: bold;
+  -webkit-appearance: none;
+}
+ul {
+  list-style-type: none;
+  margin-bottom: 25px;
+  padding: 0;
+}
+.date-heading {
+  font-weight: bold;
+  margin-bottom: 7px;
+}
+.daily-forecast {
+  text-align: center;
+}
+@media screen and (max-width: 750px) {
+  label {
+    display: block;
+    cursor: pointer;
+  }
+  label + input[type=radio] + label {
+    border-left: none;
+    border-top: solid 3px #675f6b;
+  }
+}

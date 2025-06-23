@@ -1,0 +1,12 @@
+å#how-much, #alcohol-percentage, #volume-group, #price-group, #results-group {
+  display: none;
+}
+
+a { 
+  text-decoration: underline;
+  color: black;
+}
+
+ul {
+  list-style-position: inside;
+}

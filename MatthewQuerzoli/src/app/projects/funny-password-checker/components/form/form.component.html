@@ -1,0 +1,13 @@
+<input #inputTarget class="passwordForm" (keyup)="onKey($event)" class="form-control" type="{{formType}}" placeholder="Get it hard" autofocus>
+
+<button class="showPassword"
+type="button"
+name="showPasswordButton"
+(click)="showOrHidePassword()">{{hideOrShowButtonTag}} Password</button>
+
+<button class="copyPassword"
+type="button"
+name="copyPasswordButton"
+[disabled]="copyButtonDisabled"
+(click)="copyText(inputTarget.value)"
+(cbOnSuccess)="copySuccess()">{{copiedStatus}}</button>

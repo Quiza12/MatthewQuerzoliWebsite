@@ -1,0 +1,23 @@
+<body>
+
+    <div class="container text-center">
+        
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h4 class="heading">Answers</h4>
+                <br>
+                <div class="results-collection">
+                    <p *ngFor="let reasons of getReasonsAndAnswers()">
+                        <i>{{reasons.reason}}</i>&nbsp;<b>{{reasons.answer}}</b>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+        <br><br>
+
+    </div>
+
+</body>

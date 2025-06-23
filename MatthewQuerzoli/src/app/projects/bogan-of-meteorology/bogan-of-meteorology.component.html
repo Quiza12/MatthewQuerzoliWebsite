@@ -1,0 +1,76 @@
+
+<body>
+
+  <div class="container text-center">
+
+    <div class="row">
+      <div class="col">
+        <div class="page-header">
+          <h1><a routerLink="/app" routerLinkActive="active" id="heading">Bogan of Meteorology</a></h1>
+          <div id="menu">
+            <h4>By deadset drongo, <a href="https://www.matthewquerzoli.com" target="_blank">Matthew Querzoli</a></h4>
+            <h4> 🌦️ </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <form *ngIf="displayStateSelection" (change)="stateOptionChange()">
+          <div class="radio-group">
+            <input type="radio" id="nsw" [(ngModel)]="stateOption" name="nsw" value="nsw">
+            <label for="nsw" class="radio-label">NSW/ACT</label>
+            <input type="radio" id="qld" [(ngModel)]="stateOption" name="qld" value="qld">
+            <label for="qld" class="radio-label">QLD</label>
+            <input type="radio" id="nt" [(ngModel)]="stateOption" name="nt" value="nt">
+            <label for="nt" class="radio-label">NT</label>
+            <input type="radio" id="sa" [(ngModel)]="stateOption" name="sa" value="sa">
+            <label for="sa" class="radio-label">SA</label>
+            <input type="radio" id="tas" [(ngModel)]="stateOption" name="tas" value="tas">
+            <label for="tas" class="radio-label">TAS</label>
+            <input type="radio" id="wa" [(ngModel)]="stateOption" name="wa" value="wa">
+            <label for="wa" class="radio-label">WA</label>
+            <input type="radio" id="vic" [(ngModel)]="stateOption" name="vic" value="vic">
+            <label for="vic" class="radio-label">VIC</label>
+          </div>
+        </form>
+
+        <br />
+
+        <div *ngIf="loadingSpinner" class="spinner-border text-light" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+
+        <div class="select-group" [formGroup]="locationSelectionForm">
+          <div *ngIf="displayLocationList">
+            <select class="styled-select" name="locationList" formControlName="locationFormControl">
+              <option [ngValue]="null" selected="selected" hidden>{{dropdownDefault}}</option>
+              <option *ngFor="let location of chosenLocationList" style='color: #332f35' [ngValue]="location">
+                {{location}}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="daily-forecast">
+          <div *ngIf="displayDailyForecast">
+            <ul *ngFor="let result of resultsArray; let i = index">
+              <li class="date-heading">{{result.date}}</li>
+              <li>📝 Summary: {{result.boganisedPrecis}}</li>
+              <li *ngIf="i != 0">⬆️ High: {{result.airTempMax}} - {{result.boganisedAirTempMax}}</li>
+              <li *ngIf="i != 0">⬇️ Low: {{result.airTempMin}} - {{result.boganisedAirTempMin}}</li>
+              <li>🌧️ Rain: {{result.pop}} - {{result.boganisedPop}}</li>
+            </ul>
+          </div>
+        </div>
+
+        <br><br>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>

@@ -1,3 +1,18 @@
+/* New */
+
+/* General */
+.container {
+  margin-top: 125px;
+}
+
+/* Home */
+.bio-picture {
+  width: 300px;
+  height: 300px;
+}
+
+/* ----------------------------- */
+
 /*General*/
 
 * {
@@ -184,7 +199,7 @@
     cursor: pointer;
   }
   
-  ul {
+  #navbar-nav ul {
       list-style-type: none;
       margin: 0;
       padding: 0;
@@ -192,7 +207,7 @@
       justify-content: center;
   }
   
-  li a {
+  #navbar-nav li a {
       display: block;
       text-align: center;
       text-decoration: none;
@@ -219,10 +234,7 @@
     display: flex;
   }
   
-  #bio-picture {
-    width: 225px;
-    height: 225px;
-  }
+
   
   #bio-text {
     flex-grow: 1;
@@ -232,7 +244,7 @@
   /*Pages*/
   
   /*Writing*/
-  #writing {
+  /* #writing {
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -251,7 +263,7 @@
     margin-top: 30px;
     margin-bottom: 30px;
     text-align: center;
-  }
+  } */
   
   /*Projects*/
   #projects {
