@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  emailUser = 'me';
+  emailDomain = 'matthewquerzoli.com';
+  get emailHref() {
+    return `mailto:${this.emailUser}@${this.emailDomain}?Subject=Hey%21`;
+  }
+
 }

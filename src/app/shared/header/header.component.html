@@ -2,29 +2,29 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
             <a class="navbar-brand mb-0 h1" routerLink="/home">Q</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11"
-                aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#standardNavbar"
+                aria-expanded="false" data-bs-auto-close="inside" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse text-center" id="navbarsExample11">
+            <div class="collapse navbar-collapse text-center" id="standardNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" routerLink="/writing">Writing</a>
+                        <a class="nav-link" routerLink="/writing" (click)="collapseNavbar('standardNavbar')">Writing</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/projects">Projects</a>
+                        <a class="nav-link" routerLink="/projects" (click)="collapseNavbar('standardNavbar')">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/blog">Blog</a>
+                        <a class="nav-link" routerLink="/blog" (click)="collapseNavbar('standardNavbar')">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/nano-narratives">Nano Narratives</a>
+                        <a class="nav-link" routerLink="/nano-narratives" (click)="collapseNavbar('standardNavbar')">Nano Narratives</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/the-good-book">The Good Book</a>
+                        <a class="nav-link" routerLink="/the-good-book" (click)="collapseNavbar('standardNavbar')">The Good Book</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/testimonials">Testimonials</a>
+                        <a class="nav-link" routerLink="/testimonials" (click)="collapseNavbar('standardNavbar')">Testimonials</a>
                     </li>
                 </ul>
             </div>
@@ -44,23 +44,23 @@
 
             <!-- Middle text -->
             <div class="position-absolute start-50 translate-middle-x">
-                <a class="navbar-brand" routerLink="/projects/funny-password-checker">The Big One FAQ</a>
+                <a class="navbar-brand" routerLink="/projects/the-big-one">The Big One FAQ</a>
             </div>
 
             <!-- Toggle button for right-side links -->
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#rightNav"
-                aria-controls="rightNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#theBigOneNav"
+                aria-controls="theBigOneNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <!-- Right side -->
-            <div class="collapse navbar-collapse justify-content-end" id="rightNav">
+            <div class="collapse navbar-collapse justify-content-end" id="theBigOneNav">
                 <div class="d-flex flex-column flex-lg-row gap-3">
-                    <a class="navbar-text" routerLink="/projects/the-big-one" fragment="faqs">FAQ</a>
-                    <a class="navbar-text" routerLink="/projects/the-big-one" fragment="stats">Stats</a>
-                    <a class="navbar-text" routerLink="/projects/the-big-one" fragment="graphs">Graphs</a>
-                    <a class="navbar-text" routerLink="/projects/the-big-one" fragment="photos">Photos</a>
-                    <a class="navbar-text" routerLink="/projects/the-big-one" fragment="awards">Awards</a>
+                    <a class="navbar-text" routerLink="/projects/the-big-one" fragment="faqs" (click)="collapseNavbar('theBigOneNav')">FAQ</a>
+                    <a class="navbar-text" routerLink="/projects/the-big-one" fragment="stats" (click)="collapseNavbar('theBigOneNav')">Stats</a>
+                    <a class="navbar-text" routerLink="/projects/the-big-one" fragment="graphs" (click)="collapseNavbar('theBigOneNav')">Graphs</a>
+                    <a class="navbar-text" routerLink="/projects/the-big-one" fragment="photos" (click)="collapseNavbar('theBigOneNav')">Photos</a>
+                    <a class="navbar-text" routerLink="/projects/the-big-one" fragment="awards" (click)="collapseNavbar('theBigOneNav')">Awards</a>
                 </div>
             </div>
         </div>
@@ -81,7 +81,7 @@
 
             <!-- Middle text -->
             <div class="position-absolute start-50 translate-middle-x">
-                <a class="navbar-brand" routerLink="/projects/funny-password-checker">Tappy Standard Time</a>
+                <a class="navbar-brand" routerLink="/projects/tappy-os/tappy-standard-time">Tappy Standard Time</a>
             </div>
 
         </div>
@@ -104,11 +104,17 @@
                 <a class="navbar-brand" routerLink="/projects/bogan-of-meteorology">Bogan of Meteorology</a>
             </div>
 
+            <!-- Toggle button for right-side links -->
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#boganOfMeteorologyNav"
+                aria-controls="boganOfMeteorologyNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
             <!-- Right side -->
-            <div class="collapse navbar-collapse justify-content-end" id="rightNav">
+            <div class="collapse navbar-collapse justify-content-end" id="boganOfMeteorologyNav">
                 <div class="d-flex flex-column flex-lg-row gap-3">
-                    <a class="navbar-text" routerLink="/projects/bogan-of-meteorology/">App</a>
-                    <a class="navbar-text" routerLink="/projects/bogan-of-meteorology/about">About</a>
+                    <a class="navbar-text" routerLink="/projects/bogan-of-meteorology/"  (click)="collapseNavbar('boganOfMeteorologyNav')">App</a>
+                    <a class="navbar-text" routerLink="/projects/bogan-of-meteorology/about" (click)="collapseNavbar('boganOfMeteorologyNav')">About</a>
                 </div>
             </div>
 
@@ -129,7 +135,7 @@
 
             <!-- Middle text -->
             <div class="position-absolute start-50 translate-middle-x">
-                <a class="navbar-brand" routerLink="/projects/funny-password-checker">Rip Me A New One</a>
+                <a class="navbar-brand" routerLink="/projects/rio-me-a-new-one">Rip Me A New One</a>
             </div>
 
         </div>
@@ -149,7 +155,7 @@
 
             <!-- Middle text -->
             <div class="position-absolute start-50 translate-middle-x">
-                <a class="navbar-brand" routerLink="/projects/funny-password-checker">It's Five O'Clock Somewhere</a>
+                <a class="navbar-brand" routerLink="/projects/its-five-oclock-somewhere">It's Five O'Clock Somewhere</a>
             </div>
 
         </div>
@@ -169,7 +175,7 @@
 
             <!-- Middle text -->
             <div class="position-absolute start-50 translate-middle-x">
-                <a class="navbar-brand" routerLink="/projects/funny-password-checker">Tappy Season Time</a>
+                <a class="navbar-brand" routerLink="/projects/tappy-os/tappy-season-time">Tappy Season Time</a>
             </div>
 
         </div>
@@ -183,8 +189,6 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <!-- Left side -->
-            <!-- <a class="navbar-text px-2 order-lg-0" routerLink="/projects">Projects</a> -->
-
             <a class="navbar-text d-none d-lg-block" routerLink="/projects" id="leftLink">Projects</a>
             <a class="navbar-brand d-lg-none" routerLink="/projects" id="leftEmoji">📚</a>
 
@@ -194,18 +198,18 @@
             </div>
 
             <!-- Toggle button for right-side links -->
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#rightNav"
-                aria-controls="rightNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#funnyPasswordCheckerNav"
+                aria-controls="funnyPasswordCheckerNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <!-- Right side -->
-            <div class="collapse navbar-collapse justify-content-end" id="rightNav">
+            <div class="collapse navbar-collapse justify-content-end" id="funnyPasswordCheckerNav">
                 <div class="d-flex flex-column flex-lg-row gap-3">
-                    <a class="navbar-text" routerLink="/projects/funny-password-checker/">App</a>
-                    <a class="navbar-text" routerLink="/projects/funny-password-checker/about">About</a>
-                    <a class="navbar-text" routerLink="/projects/funny-password-checker/answers">Answers</a>
-                    <a class="navbar-text" routerLink="/projects/funny-password-checker/info">But seriously...</a>
+                    <a class="navbar-text" routerLink="/projects/funny-password-checker/"  (click)="collapseNavbar('funnyPasswordCheckerNav')">App</a>
+                    <a class="navbar-text" routerLink="/projects/funny-password-checker/about"  (click)="collapseNavbar('funnyPasswordCheckerNav')">About</a>
+                    <a class="navbar-text" routerLink="/projects/funny-password-checker/answers"  (click)="collapseNavbar('funnyPasswordCheckerNav')">Answers</a>
+                    <a class="navbar-text" routerLink="/projects/funny-password-checker/info"  (click)="collapseNavbar('funnyPasswordCheckerNav')">But seriously...</a>
                 </div>
             </div>
         </div>

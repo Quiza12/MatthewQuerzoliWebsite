@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { Collapse } from 'bootstrap';
 
 @Component({
   selector: 'app-header',
@@ -20,7 +21,7 @@ export class HeaderComponent {
   itsFiveOclockSomewhereRoute: boolean = false;
   funnyPasswordCheckerRoute: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.router.events.pipe(
@@ -28,7 +29,7 @@ export class HeaderComponent {
     ).subscribe(() => {
       this.currentRoute = this.router.url;
       this.determineRoute(this.currentRoute);
-      
+
     });
   }
 
@@ -46,27 +47,35 @@ export class HeaderComponent {
     this.tappySeasonTimeRoute = currentRoute.includes('tappy-season-time') ? true : false;
     this.funnyPasswordCheckerRoute = currentRoute.includes('funny-password-checker') ? true : false;
 
-    
-    this.standardRoute = 
-    !this.theBigOneRoute && 
-    !this.tappyStandardTimeRoute && 
-    !this.boganOfMeteorologyRoute && 
-    !this.ripMeANewOneRoute && 
-    !this.itsFiveOclockSomewhereRoute && 
-    !this.tappySeasonTimeRoute &&
-    !this.funnyPasswordCheckerRoute;
+
+    this.standardRoute =
+      !this.theBigOneRoute &&
+      !this.tappyStandardTimeRoute &&
+      !this.boganOfMeteorologyRoute &&
+      !this.ripMeANewOneRoute &&
+      !this.itsFiveOclockSomewhereRoute &&
+      !this.tappySeasonTimeRoute &&
+      !this.funnyPasswordCheckerRoute;
 
   }
 
   resetRoutes() {
     this.standardRoute = false;
-    this.theBigOneRoute  = false;
+    this.theBigOneRoute = false;
     this.boganOfMeteorologyRoute = false;
     this.ripMeANewOneRoute = false;
-    this.tappyStandardTimeRoute  = false;
+    this.tappyStandardTimeRoute = false;
     this.itsFiveOclockSomewhereRoute = false;
     this.tappySeasonTimeRoute = false;
     this.funnyPasswordCheckerRoute = false;
+  }
+
+  collapseNavbar(navToCollapse: string) {
+    const navbar = document.getElementById(navToCollapse);
+    if (navbar?.classList.contains('show')) {
+      const bsCollapse = Collapse.getInstance(navbar) || new Collapse(navbar);
+      bsCollapse.hide();
+    }
   }
 
 }
