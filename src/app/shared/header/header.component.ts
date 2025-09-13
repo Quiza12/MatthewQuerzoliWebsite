@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Collapse } from 'bootstrap';
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +12,7 @@ import { Collapse } from 'bootstrap';
 })
 export class HeaderComponent {
 
+  faCoffee = faCoffee;
   currentRoute: string = '';
 
   standardRoute: boolean = false;
@@ -20,6 +23,7 @@ export class HeaderComponent {
   ripMeANewOneRoute: boolean = false;
   itsFiveOclockSomewhereRoute: boolean = false;
   funnyPasswordCheckerRoute: boolean = false;
+  quietNearALittleStreamRoute: boolean = false;
 
   constructor(private router: Router) { }
 
@@ -46,6 +50,7 @@ export class HeaderComponent {
     this.itsFiveOclockSomewhereRoute = currentRoute.includes('its-five-oclock-somewhere') ? true : false;
     this.tappySeasonTimeRoute = currentRoute.includes('tappy-season-time') ? true : false;
     this.funnyPasswordCheckerRoute = currentRoute.includes('funny-password-checker') ? true : false;
+    this.quietNearALittleStreamRoute = currentRoute.includes('quiet-near-a-little-stream') ? true : false;
 
 
     this.standardRoute =
@@ -55,7 +60,8 @@ export class HeaderComponent {
       !this.ripMeANewOneRoute &&
       !this.itsFiveOclockSomewhereRoute &&
       !this.tappySeasonTimeRoute &&
-      !this.funnyPasswordCheckerRoute;
+      !this.funnyPasswordCheckerRoute &&
+      !this.quietNearALittleStreamRoute;
 
   }
 
@@ -68,6 +74,7 @@ export class HeaderComponent {
     this.itsFiveOclockSomewhereRoute = false;
     this.tappySeasonTimeRoute = false;
     this.funnyPasswordCheckerRoute = false;
+    this.quietNearALittleStreamRoute = false;
   }
 
   collapseNavbar(navToCollapse: string) {

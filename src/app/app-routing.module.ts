@@ -23,6 +23,7 @@ import { FpcAboutComponent } from './projects/funny-password-checker/components/
 import { BomAboutComponent } from './projects/bogan-of-meteorology/components/bom-about/bom-about.component';
 import { TappyOsComponent } from './projects/tappy-os/tappy-os.component';
 import { BlogDetailComponent } from './blog/blog-detail/blog-detail.component';
+import { QuietNearALittleStreamComponent } from './projects/quiet-near-a-little-stream/quiet-near-a-little-stream.component';
 
 
 const routes: Routes =[
@@ -51,6 +52,8 @@ const routes: Routes =[
   { path: 'projects/tappy-os',                       component: TappyOsComponent },
   { path: 'projects/tappy-os/tappy-standard-time',   component: TappyStandardTimeComponent },
   { path: 'projects/tappy-os/tappy-season-time',     component: TappySeasonTimeComponent },
+
+  { path: 'projects/quiet-near-a-little-stream',     component: QuietNearALittleStreamComponent },
   
 ];
 

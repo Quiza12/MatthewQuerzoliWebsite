@@ -67,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "MatthewQuerzoli:build:production"
+              "buildTarget": "MatthewQuerzoli:build:production"
             },
             "development": {
-              "browserTarget": "MatthewQuerzoli:build:development"
+              "buildTarget": "MatthewQuerzoli:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "MatthewQuerzoli:build"
+            "buildTarget": "MatthewQuerzoli:build"
           }
         },
         "test": {
