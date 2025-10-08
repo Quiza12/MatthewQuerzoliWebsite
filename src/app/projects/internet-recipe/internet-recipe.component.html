@@ -1,0 +1,11 @@
+<div
+  class="scroll-container"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="150"
+  (scrolled)="onScroll()"
+>
+  <div *ngFor="let item of items" class="item">
+    {{ item }}
+  </div>
+</div>

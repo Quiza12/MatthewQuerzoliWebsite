@@ -1,0 +1,11 @@
+.scroll-container {
+  height: 400px;
+  overflow: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.item {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}

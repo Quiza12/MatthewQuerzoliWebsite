@@ -2,11 +2,13 @@
     <div class="d-flex flex-column">
         <div class="container text-center">
             <div>
-                <img src="/assets/images/quiet-near-a-little-stream/quiet-by-a-river-pixelated.gif" class="img-fluid">
-                <audio autoplay loop>
+                <img src="/assets/images/quiet-near-a-little-stream/quiet-by-a-river.gif" class="img-fluid">
+                <!-- <audio autoplay loop>
                     <source src="/assets/audio/quiet-near-a-little-stream/water-small-stream-25614.mp3"
                         type="audio/mpeg">
-                </audio>
+                </audio> -->
+
+                <audio loop #audioRef [src]="audioSrc"></audio>
             </div>
             <br>
 
@@ -14,6 +16,9 @@
                 <h4>Everybody should be quiet near a little stream and listen.</h4>
             </div>
             <br>
+
+            <button *ngIf="!playing" class="play-button" (click)="playAudio()">Play</button>
+            <button *ngIf="playing" class="pause-button" (click)="pauseAudio()">Pause</button>
             
             <div><a href="#credits" class="btn btn-outline-secondary btn-sm">See Credits</a></div>
 

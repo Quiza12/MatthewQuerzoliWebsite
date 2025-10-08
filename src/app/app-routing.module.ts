@@ -24,6 +24,8 @@ import { BomAboutComponent } from './projects/bogan-of-meteorology/components/bo
 import { TappyOsComponent } from './projects/tappy-os/tappy-os.component';
 import { BlogDetailComponent } from './blog/blog-detail/blog-detail.component';
 import { QuietNearALittleStreamComponent } from './projects/quiet-near-a-little-stream/quiet-near-a-little-stream.component';
+import { InternetRecipeComponent } from './projects/internet-recipe/internet-recipe.component';
+
 
 
 const routes: Routes =[
@@ -54,6 +56,8 @@ const routes: Routes =[
   { path: 'projects/tappy-os/tappy-season-time',     component: TappySeasonTimeComponent },
 
   { path: 'projects/quiet-near-a-little-stream',     component: QuietNearALittleStreamComponent },
+
+  { path: 'projects/internet-recipe',     component: InternetRecipeComponent },
   
 ];
 
