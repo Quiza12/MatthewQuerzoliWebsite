@@ -18,11 +18,13 @@ export class QuietNearALittleStreamComponent {
   }
 
   pauseAudio() {
+    console.log("Audio paused");
     this.playing = false;
     this.audioElement.nativeElement.pause();
   }
 
   playAudio() {
+    console.log("Audio playing");
     this.playing = true;
     this.audioElement.nativeElement.play();
   }
