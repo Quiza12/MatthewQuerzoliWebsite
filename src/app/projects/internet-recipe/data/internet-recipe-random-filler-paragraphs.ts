@@ -1,0 +1,4 @@
+export const fillerParagraphs: string[] = [
+      'A quick aside - how good\'s the movie Ratatouille? I reckon that\'s what inspired me to feed the local rats the good cheese.',
+      'Of course, the war changed not only the foundation of the world, but the base of the entire INTERNET RECIPE. Suddenly, my great-grandmother had to change from using beef stock to veegtable stock, which was a matter of necessity more than anything else. She also did away with using a dismantled gun barrel to stir INTERNET RECIPE while it lay simmering away; she could go back to using her trusty wooden spoon.'
+    ];

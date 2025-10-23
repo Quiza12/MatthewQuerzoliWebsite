@@ -24,6 +24,7 @@ export class HeaderComponent {
   itsFiveOclockSomewhereRoute: boolean = false;
   funnyPasswordCheckerRoute: boolean = false;
   quietNearALittleStreamRoute: boolean = false;
+  internetRecipeRoute: boolean = false;
 
   constructor(private router: Router) { }
 
@@ -51,6 +52,7 @@ export class HeaderComponent {
     this.tappySeasonTimeRoute = currentRoute.includes('tappy-season-time') ? true : false;
     this.funnyPasswordCheckerRoute = currentRoute.includes('funny-password-checker') ? true : false;
     this.quietNearALittleStreamRoute = currentRoute.includes('quiet-near-a-little-stream') ? true : false;
+    this.internetRecipeRoute = currentRoute.includes('internet-recipe') ? true : false;
 
 
     this.standardRoute =
@@ -61,7 +63,8 @@ export class HeaderComponent {
       !this.itsFiveOclockSomewhereRoute &&
       !this.tappySeasonTimeRoute &&
       !this.funnyPasswordCheckerRoute &&
-      !this.quietNearALittleStreamRoute;
+      !this.quietNearALittleStreamRoute &&
+      !this.internetRecipeRoute;
 
   }
 
@@ -75,6 +78,7 @@ export class HeaderComponent {
     this.tappySeasonTimeRoute = false;
     this.funnyPasswordCheckerRoute = false;
     this.quietNearALittleStreamRoute = false;
+    this.internetRecipeRoute = false;
   }
 
   collapseNavbar(navToCollapse: string) {
