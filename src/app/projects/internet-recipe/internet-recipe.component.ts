@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { initialParagraphs } from './data/internet-recipe-initial-paragraphs';
@@ -19,11 +19,9 @@ export class InternetRecipeComponent {
   sum = 1;
   throttle = 300;
   scrollDistance = 1;
-  // scrollUpDistance = 1;
   direction = "";
 
   constructor() {
-
     this.initialParagraphs = initialParagraphs;
     this.fillerParagraphs = fillerParagraphs;
     this.sum = this.initialParagraphs.length;
@@ -43,46 +41,45 @@ export class InternetRecipeComponent {
     }
   }
 
-  addItems(startIndex: any, endIndex: any, _method: any) {
-    for (let i = 0; i < this.sum; ++i) {
-      this.array[_method]([this.getRandomFillerParagraph()].join(""));
-    }
+  addItems(itemsToAdd: number, _method: any) {
+    this.array[_method](...this.getRandomEntryNoRepeat(this.fillerParagraphs, itemsToAdd));
   }
 
-  appendItems(startIndex: any, endIndex: any) {
-    this.addItems(startIndex, endIndex, "push");
-  }
-
-  prependItems(startIndex: any, endIndex: any) {
-    this.addItems(startIndex, endIndex, "unshift");
+  appendItems(itemsToAppend: number) {
+    this.addItems(itemsToAppend, "push");
   }
 
   onScrollDown() {
     console.log("scrolled down");
 
-    // add another 20 items
-    const start = this.sum;
-    this.sum += 20;
-    this.appendItems(start, this.sum);
+    // add another 5 items
+    const itemsToAppend = 5;
+    this.appendItems(itemsToAppend);
 
     this.direction = "down";
   }
 
-  onUp() {
-    console.log("scrolled up");
-    const start = this.sum;
-    this.sum += 20;
-    this.prependItems(start, this.sum);
+  getRandomEntryNoRepeat(array: any[], itemsToAdd: number) {
+    let randomNum: number = 0;
+    let prevRandomNum: number = 0;
+    let randomNumArray: number[] = [];
+    let randomList: string[] = [];
 
-    this.direction = "up";
-  }
+    // if (itemsToAdd > array.length) {
+      itemsToAdd = array.length; //avoids an overflow
+    // }
 
-  // generateWord() {
-  //   return "word" + Math.floor((Math.random() * 100) + 1);
-  // }
-
-  getRandomFillerParagraph() {
-    return this.fillerParagraphs[Math.floor(Math.random() * this.fillerParagraphs.length)];
+    for (let i = 0; randomNumArray.length < itemsToAdd; ++i) {
+      randomNum = Math.floor(Math.random() * array.length);
+      if ((prevRandomNum != randomNum) && (!randomNumArray.includes(randomNum))) {
+        prevRandomNum = randomNum;
+        randomNumArray.push(randomNum);
+        randomList.push(array[randomNum]);
+        
+      }
+    }
+    console.log(randomList);
+    return randomList;
   }
 
 }
