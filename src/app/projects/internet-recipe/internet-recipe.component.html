@@ -37,7 +37,7 @@
 
           <ng-container *ngFor="let item of array">
             <p *ngIf="item.type === 'text'">{{ item.value }}</p>
-            <img *ngIf="item.type === 'image'" [src]="item.value" alt="Random image" class="my-3" />
+            <img *ngIf="item.type === 'image'" [src]="item.value" alt="Random image" class="img-fluid" />
           </ng-container>
 
         </div>
