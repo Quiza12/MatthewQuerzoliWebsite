@@ -19,7 +19,7 @@
             recipe - this is just for SEO optimisation purposes! It also allows me to serve a few more ads your way,
             which allows me to produce more recipes more often for YOU! Thanks in advance for reading and I hope you
             enjoy! All units below are in metric.</p>
-          
+
           <span class="d-inline-block" id="tooltip" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
             data-bs-placement="top" data-bs-content="This is broken at the moment! Sorry!">
             <button type="button" class="btn btn-primary btn-sm" disabled>Jump to recipe ▼</button>
@@ -27,14 +27,19 @@
           <button type="button" class="btn btn-primary btn-sm">Share</button>
 
           <br> <br>
-          <img src="/assets/images/internet-recipe/FOOD.jpg" class="img-fluid">
+          <img src="/assets/images/internet-recipe/INTERNET-RECIPE.jpg" class="img-fluid">
 
         </div>
         <br>
-        <div class="scroll-container" infiniteScroll [infiniteScrollDistance]="scrollDistance" [infiniteScrollThrottle]="throttle" (scrolled)="onScrollDown()">
-          <p *ngFor="let i of array">
-            {{ i }}
-          </p>
+
+        <div class="scroll-container" infiniteScroll [infiniteScrollDistance]="scrollDistance"
+          [infiniteScrollThrottle]="throttle" (scrolled)="onScrollDown()">
+
+          <ng-container *ngFor="let item of array">
+            <p *ngIf="item.type === 'text'">{{ item.value }}</p>
+            <img *ngIf="item.type === 'image'" [src]="item.value" alt="Random image" class="my-3" />
+          </ng-container>
+
         </div>
       </div>
       <div class="col-md-3"></div>

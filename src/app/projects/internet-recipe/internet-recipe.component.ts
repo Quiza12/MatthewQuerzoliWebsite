@@ -1,9 +1,16 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { initialParagraphs } from './data/internet-recipe-initial-paragraphs';
-import { fillerParagraphs } from './data/internet-recipe-random-filler-paragraphs';
+import { initialParagraphs } from './data/initial-paragraphs';
+import { fillerParagraphs } from './data/random-filler-paragraphs';
+import { getRandomEntry } from '../../shared/libs/common';
+import { imageIndex } from './data/image-index';
 import { Popover } from 'bootstrap';
+
+interface ContentItem {
+  type: 'text' | 'image';
+  value: string;
+}
 
 @Component({
   selector: 'app-internet-recipe',
@@ -13,17 +20,21 @@ import { Popover } from 'bootstrap';
   styleUrl: './internet-recipe.component.css'
 })
 export class InternetRecipeComponent {
-  array: any[] = [];
+  array: ContentItem[] = [];
   initialParagraphs: string[] = [];
   fillerParagraphs: string[] = [];
+  imageIndex: string[] = [];
   sum = 1;
   throttle = 300;
   scrollDistance = 1;
   direction = "";
+  imageGenerationChance = 0.5; // 50% chance
 
   constructor() {
     this.initialParagraphs = initialParagraphs;
     this.fillerParagraphs = fillerParagraphs;
+    this.imageIndex = imageIndex;
+    
     this.sum = this.initialParagraphs.length;
     this.loadInitialItems("push");
   }
@@ -35,14 +46,17 @@ export class InternetRecipeComponent {
     });
   }
 
-  loadInitialItems(_method: any) {
-    for (let i = 0; i < this.initialParagraphs.length; ++i) {
-      this.array[_method]([this.initialParagraphs[i]].join(""));
-    }
+  loadInitialItems(_method: string) {
+    const items: ContentItem[] = this.initialParagraphs.map(p => ({
+      type: 'text',
+      value: p
+    }));
+
+    this.array['push'](...items);
   }
 
   addItems(itemsToAdd: number, _method: any) {
-    this.array[_method](...this.getRandomEntryNoRepeat(this.fillerParagraphs, itemsToAdd));
+    this.array['push'](...this.getRandomParagraphsNoRepeatWithRandomImage(this.fillerParagraphs, itemsToAdd));
   }
 
   appendItems(itemsToAppend: number) {
@@ -52,34 +66,53 @@ export class InternetRecipeComponent {
   onScrollDown() {
     console.log("scrolled down");
 
-    // add another 5 items
-    const itemsToAppend = 5;
+    const itemsToAppend = 7;
     this.appendItems(itemsToAppend);
 
     this.direction = "down";
   }
 
-  getRandomEntryNoRepeat(array: any[], itemsToAdd: number) {
+  getRandomParagraphsNoRepeatWithRandomImage(array: string[], itemsToAdd: number) {
     let randomNum: number = 0;
     let prevRandomNum: number = 0;
     let randomNumArray: number[] = [];
-    let randomList: string[] = [];
+    let randomList: ContentItem[] = [];
 
-    // if (itemsToAdd > array.length) {
+    if (itemsToAdd > array.length) {
       itemsToAdd = array.length; //avoids an overflow
-    // }
+    }
 
+    //Text items (add every time)
     for (let i = 0; randomNumArray.length < itemsToAdd; ++i) {
       randomNum = Math.floor(Math.random() * array.length);
       if ((prevRandomNum != randomNum) && (!randomNumArray.includes(randomNum))) {
         prevRandomNum = randomNum;
         randomNumArray.push(randomNum);
-        randomList.push(array[randomNum]);
-        
+        randomList.push({
+          type: 'text',
+          value: array[randomNum]
+        });
       }
     }
+
+    //Image item (add at random intervals)
+    const imageItem = this.getRandomImage();
+    if (imageItem) {
+      randomList.push(imageItem);
+    }
+
     console.log(randomList);
     return randomList;
+  }
+
+  getRandomImage(): ContentItem | undefined {
+    if (Math.random() < this.imageGenerationChance) { 
+      return ({
+        type: 'image',
+        value: getRandomEntry(this.imageIndex),
+      });
+    }
+    return undefined;
   }
 
 }

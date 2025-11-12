@@ -25,6 +25,7 @@ import { TappyOsComponent } from './projects/tappy-os/tappy-os.component';
 import { BlogDetailComponent } from './blog/blog-detail/blog-detail.component';
 import { QuietNearALittleStreamComponent } from './projects/quiet-near-a-little-stream/quiet-near-a-little-stream.component';
 import { InternetRecipeComponent } from './projects/internet-recipe/internet-recipe.component';
+import { InternetRecipeAboutComponent } from './projects/internet-recipe/components/ir-about/ir-about.component';
 
 
 
@@ -58,6 +59,7 @@ const routes: Routes =[
   { path: 'projects/quiet-near-a-little-stream',     component: QuietNearALittleStreamComponent },
 
   { path: 'projects/internet-recipe',     component: InternetRecipeComponent },
+  { path: 'projects/internet-recipe/about',     component: InternetRecipeAboutComponent },
   
 ];
 

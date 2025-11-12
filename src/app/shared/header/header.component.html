@@ -253,6 +253,14 @@
                 <a class="navbar-brand" routerLink="/projects/internet-recipe">INTERNET RECIPE</a>
             </div>
 
+            <!-- Right side -->
+            <div class="collapse navbar-collapse justify-content-end" id="internetRecipeNav">
+                <div class="d-flex flex-column flex-lg-row gap-3">
+                    <a class="navbar-text" routerLink="/projects/internet-recipe/"  (click)="collapseNavbar('internetRecipeNav')">Recipe</a>
+                    <a class="navbar-text" routerLink="/projects/internet-recipe/about" (click)="collapseNavbar('internetRecipeNav')">About</a>
+                </div>
+            </div>
+
         </div>
 
     </nav>
