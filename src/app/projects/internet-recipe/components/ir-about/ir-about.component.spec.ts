@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IrAboutComponent } from './ir-about.component';
+import { InternetRecipeAboutComponent } from './ir-about.component';
 
 describe('IrAboutComponent', () => {
-  let component: IrAboutComponent;
-  let fixture: ComponentFixture<IrAboutComponent>;
+  let component: InternetRecipeAboutComponent;
+  let fixture: ComponentFixture<InternetRecipeAboutComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [IrAboutComponent]
+      imports: [InternetRecipeAboutComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(IrAboutComponent);
+    fixture = TestBed.createComponent(InternetRecipeAboutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

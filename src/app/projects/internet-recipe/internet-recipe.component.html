@@ -24,7 +24,7 @@
             data-bs-placement="top" data-bs-content="This is broken at the moment! Sorry!">
             <button type="button" class="btn btn-primary btn-sm" disabled>Jump to recipe ▼</button>
           </span>
-          <button type="button" class="btn btn-primary btn-sm">Share</button>
+          <!-- <button type="button" class="btn btn-primary btn-sm">Share</button> -->
 
           <br> <br>
           <img src="/assets/images/internet-recipe/INTERNET-RECIPE.jpg" class="img-fluid">
@@ -32,9 +32,15 @@
         </div>
         <br>
 
-        <div class="scroll-container" infiniteScroll [infiniteScrollDistance]="scrollDistance"
-          [infiniteScrollThrottle]="throttle" (scrolled)="onScrollDown()">
 
+
+        <div class="scroll-container" infiniteScroll [infiniteScrollDistance]="scrollDistance"
+          [infiniteScrollThrottle]="throttle" [alwaysCallback]="false" (scrolled)="onScrollDown()">
+
+          <ng-container *ngFor="let item of initialArray">
+            <p *ngIf="item.type === 'text'">{{ item.value }}</p>
+          </ng-container>
+          
           <ng-container *ngFor="let item of array">
             <p *ngIf="item.type === 'text'">{{ item.value }}</p>
             <img *ngIf="item.type === 'image'" [src]="item.value" alt="Random image" class="img-fluid" />

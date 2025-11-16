@@ -1,16 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { initialParagraphs } from './data/initial-paragraphs';
-import { fillerParagraphs } from './data/random-filler-paragraphs';
-import { getRandomEntry } from '../../shared/libs/common';
+import { initialParagraphs, fillerParagraphs } from './data/paragraphs';
 import { imageIndex } from './data/image-index';
 import { Popover } from 'bootstrap';
-
-interface ContentItem {
-  type: 'text' | 'image';
-  value: string;
-}
+import { ContentItem } from './interfaces/ir-interfaces';
 
 @Component({
   selector: 'app-internet-recipe',
@@ -20,22 +14,22 @@ interface ContentItem {
   styleUrl: './internet-recipe.component.css'
 })
 export class InternetRecipeComponent {
+  initialArray: ContentItem[] = [];
   array: ContentItem[] = [];
-  initialParagraphs: string[] = [];
-  fillerParagraphs: string[] = [];
   imageIndex: string[] = [];
   sum = 1;
   throttle = 300;
-  scrollDistance = 1;
+  scrollDistance = 2;
   direction = "";
-  imageGenerationChance = 0.5; // 50% chance
+  imageGenerationChance = 0.6; // % chance of image appearing on each scroll down
+  prevIndex = 0;
+  itemsToAppend = 7;
+  imgBaseSlug ='/assets/images/internet-recipe/';
 
   constructor() {
-    this.initialParagraphs = initialParagraphs;
-    this.fillerParagraphs = fillerParagraphs;
     this.imageIndex = imageIndex;
-    
-    this.sum = this.initialParagraphs.length;
+
+    this.sum = initialParagraphs.length;
     this.loadInitialItems("push");
   }
 
@@ -47,16 +41,11 @@ export class InternetRecipeComponent {
   }
 
   loadInitialItems(_method: string) {
-    const items: ContentItem[] = this.initialParagraphs.map(p => ({
-      type: 'text',
-      value: p
-    }));
-
-    this.array['push'](...items);
+    this.initialArray['push'](...initialParagraphs);
   }
 
   addItems(itemsToAdd: number, _method: any) {
-    this.array['push'](...this.getRandomParagraphsNoRepeatWithRandomImage(this.fillerParagraphs, itemsToAdd));
+    this.array['push'](...this.getRandomParagraphsNoRepeatWithRandomImage(fillerParagraphs, itemsToAdd));
   }
 
   appendItems(itemsToAppend: number) {
@@ -64,15 +53,12 @@ export class InternetRecipeComponent {
   }
 
   onScrollDown() {
-    console.log("scrolled down");
-
-    const itemsToAppend = 7;
-    this.appendItems(itemsToAppend);
+    this.appendItems(this.itemsToAppend);
 
     this.direction = "down";
   }
 
-  getRandomParagraphsNoRepeatWithRandomImage(array: string[], itemsToAdd: number) {
+  getRandomParagraphsNoRepeatWithRandomImage(array: ContentItem[], itemsToAdd: number) {
     let randomNum: number = 0;
     let prevRandomNum: number = 0;
     let randomNumArray: number[] = [];
@@ -88,31 +74,39 @@ export class InternetRecipeComponent {
       if ((prevRandomNum != randomNum) && (!randomNumArray.includes(randomNum))) {
         prevRandomNum = randomNum;
         randomNumArray.push(randomNum);
-        randomList.push({
-          type: 'text',
-          value: array[randomNum]
-        });
+        randomList.push(array[randomNum]);
       }
     }
 
     //Image item (add at random intervals)
-    const imageItem = this.getRandomImage();
+    const imageItem = this.getRandomImageNoRepeat();
     if (imageItem) {
       randomList.push(imageItem);
     }
 
-    console.log(randomList);
     return randomList;
   }
 
-  getRandomImage(): ContentItem | undefined {
-    if (Math.random() < this.imageGenerationChance) { 
+  getRandomImageNoRepeat(): ContentItem | undefined {
+    if (Math.random() < this.imageGenerationChance) {
       return ({
         type: 'image',
-        value: getRandomEntry(this.imageIndex),
+        value: this.getRandomImageIndexNoRepeat(),
       });
     }
     return undefined;
+  }
+
+  getRandomImageIndexNoRepeat() {
+    let index = Math.floor(Math.random() * imageIndex.length);
+    for (let i = 0; i < imageIndex.length; i++) {
+      if (index != this.prevIndex) {
+        this.prevIndex = index;
+        console.log(this.imgBaseSlug + imageIndex[index]);
+        return this.imgBaseSlug + imageIndex[index];
+      }
+    }
+    return '';
   }
 
 }
