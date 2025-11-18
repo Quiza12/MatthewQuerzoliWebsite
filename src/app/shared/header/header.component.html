@@ -1,10 +1,10 @@
 <header *ngIf="standardRoute">
-<!-- <div *ngIf="standardRoute"> -->
+    <!-- <div *ngIf="standardRoute"> -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
             <a class="navbar-brand mb-0 h1" routerLink="/home">Q</a>
-            <button class="navbar-toggler" type="button" data-bs-target="#standardNavbar"
-                aria-expanded="false" data-bs-toggle="collapse" data-bs-auto-close="true" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-target="#standardNavbar" aria-expanded="false"
+                data-bs-toggle="collapse" data-bs-auto-close="true" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 <!-- <fa-icon [icon]="faCoffee"></fa-icon> -->
             </button>
@@ -18,22 +18,26 @@
                         <a class="nav-link" routerLink="/blog" (click)="collapseNavbar('standardNavbar')">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/nano-narratives" (click)="collapseNavbar('standardNavbar')">Nano Narratives</a>
+                        <a class="nav-link" routerLink="/nano-narratives"
+                            (click)="collapseNavbar('standardNavbar')">Nano Narratives</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/projects" (click)="collapseNavbar('standardNavbar')">Projects</a>
+                        <a class="nav-link" routerLink="/projects"
+                            (click)="collapseNavbar('standardNavbar')">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/the-good-book" (click)="collapseNavbar('standardNavbar')">The Good Book</a>
+                        <a class="nav-link" routerLink="/the-good-book" (click)="collapseNavbar('standardNavbar')">The
+                            Good Book</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/testimonials" (click)="collapseNavbar('standardNavbar')">Testimonials</a>
+                        <a class="nav-link" routerLink="/testimonials"
+                            (click)="collapseNavbar('standardNavbar')">Testimonials</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-<!-- </div> -->
+    <!-- </div> -->
 </header>
 
 <div *ngIf="theBigOneRoute">
@@ -51,19 +55,25 @@
             </div>
 
             <!-- Toggle button for right-side links -->
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#theBigOneNav"
-                aria-controls="theBigOneNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                data-bs-target="#theBigOneNav" aria-controls="theBigOneNav" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <!-- Right side -->
             <div class="collapse navbar-collapse justify-content-end" id="theBigOneNav">
                 <div class="d-flex flex-column flex-lg-row gap-3">
-                    <a class="navbar-text" routerLink="/projects/the-big-one" fragment="faqs" (click)="collapseNavbar('theBigOneNav')">FAQ</a>
-                    <a class="navbar-text" routerLink="/projects/the-big-one" fragment="stats" (click)="collapseNavbar('theBigOneNav')">Stats</a>
-                    <a class="navbar-text" routerLink="/projects/the-big-one" fragment="graphs" (click)="collapseNavbar('theBigOneNav')">Graphs</a>
-                    <a class="navbar-text" routerLink="/projects/the-big-one" fragment="photos" (click)="collapseNavbar('theBigOneNav')">Photos</a>
-                    <a class="navbar-text" routerLink="/projects/the-big-one" fragment="awards" (click)="collapseNavbar('theBigOneNav')">Awards</a>
+                    <a class="navbar-text" routerLink="/projects/the-big-one" fragment="faqs"
+                        (click)="collapseNavbar('theBigOneNav')">FAQ</a>
+                    <a class="navbar-text" routerLink="/projects/the-big-one" fragment="stats"
+                        (click)="collapseNavbar('theBigOneNav')">Stats</a>
+                    <a class="navbar-text" routerLink="/projects/the-big-one" fragment="graphs"
+                        (click)="collapseNavbar('theBigOneNav')">Graphs</a>
+                    <a class="navbar-text" routerLink="/projects/the-big-one" fragment="photos"
+                        (click)="collapseNavbar('theBigOneNav')">Photos</a>
+                    <a class="navbar-text" routerLink="/projects/the-big-one" fragment="awards"
+                        (click)="collapseNavbar('theBigOneNav')">Awards</a>
                 </div>
             </div>
         </div>
@@ -108,16 +118,19 @@
             </div>
 
             <!-- Toggle button for right-side links -->
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#boganOfMeteorologyNav"
-                aria-controls="boganOfMeteorologyNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                data-bs-target="#boganOfMeteorologyNav" aria-controls="boganOfMeteorologyNav" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <!-- Right side -->
             <div class="collapse navbar-collapse justify-content-end" id="boganOfMeteorologyNav">
                 <div class="d-flex flex-column flex-lg-row gap-3">
-                    <a class="navbar-text" routerLink="/projects/bogan-of-meteorology/"  (click)="collapseNavbar('boganOfMeteorologyNav')">App</a>
-                    <a class="navbar-text" routerLink="/projects/bogan-of-meteorology/about" (click)="collapseNavbar('boganOfMeteorologyNav')">About</a>
+                    <a class="navbar-text" routerLink="/projects/bogan-of-meteorology/"
+                        (click)="collapseNavbar('boganOfMeteorologyNav')">App</a>
+                    <a class="navbar-text" routerLink="/projects/bogan-of-meteorology/about"
+                        (click)="collapseNavbar('boganOfMeteorologyNav')">About</a>
                 </div>
             </div>
 
@@ -167,6 +180,26 @@
 
 </div>
 
+<div *ngIf="orkisimsRoute">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <!-- Left side -->
+
+            <a class="navbar-text d-none d-lg-block" routerLink="/projects/tappy-os" id="leftLink">Tappy OS</a>
+            <a class="navbar-brand d-lg-none" routerLink="/projects" id="leftEmoji">📚</a>
+
+            <!-- Middle text -->
+            <div class="position-absolute start-50 translate-middle-x">
+                <a class="navbar-brand" routerLink="/projects/tappy-os/orkinisms">Orkinisms</a>
+            </div>
+
+        </div>
+
+    </nav>
+
+</div>
+
 <div *ngIf="tappySeasonTimeRoute">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -201,18 +234,23 @@
             </div>
 
             <!-- Toggle button for right-side links -->
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#funnyPasswordCheckerNav"
-                aria-controls="funnyPasswordCheckerNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                data-bs-target="#funnyPasswordCheckerNav" aria-controls="funnyPasswordCheckerNav" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <!-- Right side -->
             <div class="collapse navbar-collapse justify-content-end" id="funnyPasswordCheckerNav">
                 <div class="d-flex flex-column flex-lg-row gap-3">
-                    <a class="navbar-text" routerLink="/projects/funny-password-checker/"  (click)="collapseNavbar('funnyPasswordCheckerNav')">App</a>
-                    <a class="navbar-text" routerLink="/projects/funny-password-checker/about"  (click)="collapseNavbar('funnyPasswordCheckerNav')">About</a>
-                    <a class="navbar-text" routerLink="/projects/funny-password-checker/answers"  (click)="collapseNavbar('funnyPasswordCheckerNav')">Answers</a>
-                    <a class="navbar-text" routerLink="/projects/funny-password-checker/info"  (click)="collapseNavbar('funnyPasswordCheckerNav')">But seriously...</a>
+                    <a class="navbar-text" routerLink="/projects/funny-password-checker/"
+                        (click)="collapseNavbar('funnyPasswordCheckerNav')">App</a>
+                    <a class="navbar-text" routerLink="/projects/funny-password-checker/about"
+                        (click)="collapseNavbar('funnyPasswordCheckerNav')">About</a>
+                    <a class="navbar-text" routerLink="/projects/funny-password-checker/answers"
+                        (click)="collapseNavbar('funnyPasswordCheckerNav')">Answers</a>
+                    <a class="navbar-text" routerLink="/projects/funny-password-checker/info"
+                        (click)="collapseNavbar('funnyPasswordCheckerNav')">But seriously...</a>
                 </div>
             </div>
         </div>
@@ -254,16 +292,19 @@
             </div>
 
             <!-- Toggle button for right-side links -->
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#internetRecipeNav"
-                aria-controls="internetRecipeNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                data-bs-target="#internetRecipeNav" aria-controls="internetRecipeNav" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <!-- Right side -->
             <div class="collapse navbar-collapse justify-content-end" id="internetRecipeNav">
                 <div class="d-flex flex-column flex-lg-row gap-3">
-                    <a class="navbar-text" routerLink="/projects/internet-recipe/"  (click)="collapseNavbar('internetRecipeNav')">Recipe</a>
-                    <a class="navbar-text" routerLink="/projects/internet-recipe/about" (click)="collapseNavbar('internetRecipeNav')">About</a>
+                    <a class="navbar-text" routerLink="/projects/internet-recipe/"
+                        (click)="collapseNavbar('internetRecipeNav')">Recipe</a>
+                    <a class="navbar-text" routerLink="/projects/internet-recipe/about"
+                        (click)="collapseNavbar('internetRecipeNav')">About</a>
                 </div>
             </div>
 

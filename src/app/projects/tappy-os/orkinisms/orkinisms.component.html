@@ -1,0 +1,36 @@
+<body>
+
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <h3>Orkinisms</h3>
+        <h5>A dictionary for the ad-lib Orkins.</h5>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <form>
+          <div class="input-group mb-3">
+            <input class="form-control form-control-lg" type="text" placeholder="Search Orkinisms..."
+              aria-label="Search Orkinisms" #filter>
+            <button type="button" class="btn btn-primary" (click)="filterResults(filter.value)">Search</button>
+          </div>
+          <div class="results">
+            @for (orkinism of filteredOrkinismList; track $index) {
+            <p><b>{{ orkinism.word }}</b> | {{ orkinism.type }} | {{ orkinism.phonetic }}</p>
+            <p>{{ orkinism.definition }}</p>
+            }
+          </div>
+        </form>
+
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+    <br><br>
+  </div>
+
+</body>

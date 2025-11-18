@@ -26,6 +26,7 @@ import { BlogDetailComponent } from './blog/blog-detail/blog-detail.component';
 import { QuietNearALittleStreamComponent } from './projects/quiet-near-a-little-stream/quiet-near-a-little-stream.component';
 import { InternetRecipeComponent } from './projects/internet-recipe/internet-recipe.component';
 import { InternetRecipeAboutComponent } from './projects/internet-recipe/components/ir-about/ir-about.component';
+import { OrkinismsComponent } from './projects/tappy-os/orkinisms/orkinisms.component';
 
 
 
@@ -55,6 +56,7 @@ const routes: Routes =[
   { path: 'projects/tappy-os',                       component: TappyOsComponent },
   { path: 'projects/tappy-os/tappy-standard-time',   component: TappyStandardTimeComponent },
   { path: 'projects/tappy-os/tappy-season-time',     component: TappySeasonTimeComponent },
+  { path: 'projects/tappy-os/orkinisms',             component: OrkinismsComponent },
 
   { path: 'projects/quiet-near-a-little-stream',     component: QuietNearALittleStreamComponent },
 

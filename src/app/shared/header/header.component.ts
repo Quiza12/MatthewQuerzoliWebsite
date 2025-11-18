@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Collapse } from 'bootstrap';
-// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -25,6 +24,7 @@ export class HeaderComponent {
   funnyPasswordCheckerRoute: boolean = false;
   quietNearALittleStreamRoute: boolean = false;
   internetRecipeRoute: boolean = false;
+  orkisimsRoute: boolean = false;
 
   constructor(private router: Router) { }
 
@@ -53,7 +53,7 @@ export class HeaderComponent {
     this.funnyPasswordCheckerRoute = currentRoute.includes('funny-password-checker') ? true : false;
     this.quietNearALittleStreamRoute = currentRoute.includes('quiet-near-a-little-stream') ? true : false;
     this.internetRecipeRoute = currentRoute.includes('internet-recipe') ? true : false;
-
+    this.orkisimsRoute = currentRoute.includes('orkinisms') ? true : false;
 
     this.standardRoute =
       !this.theBigOneRoute &&
@@ -64,7 +64,8 @@ export class HeaderComponent {
       !this.tappySeasonTimeRoute &&
       !this.funnyPasswordCheckerRoute &&
       !this.quietNearALittleStreamRoute &&
-      !this.internetRecipeRoute;
+      !this.internetRecipeRoute &&
+      !this.orkisimsRoute;
 
   }
 
@@ -79,6 +80,7 @@ export class HeaderComponent {
     this.funnyPasswordCheckerRoute = false;
     this.quietNearALittleStreamRoute = false;
     this.internetRecipeRoute = false;
+    this.orkisimsRoute = false;
   }
 
   collapseNavbar(navToCollapse: string) {
