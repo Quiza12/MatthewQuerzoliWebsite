@@ -11,8 +11,8 @@
     </div>
     <br>
     <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-6">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
         <form>
           <div class="input-group mb-3">
             <input class="form-control form-control-lg" type="text" placeholder="Search Orkinisms..."
@@ -21,14 +21,13 @@
           </div>
           <div class="results">
             @for (orkinism of filteredOrkinismList; track $index) {
-            <p><b>{{ orkinism.word }}</b> | {{ orkinism.type }} | {{ orkinism.phonetic }}</p>
-            <p>{{ orkinism.definition }}</p>
+            <p><b>{{ orkinism.word }}</b> | {{ orkinism.type }} | {{ orkinism.phonetic }} | {{ orkinism.definition }}</p>
             }
           </div>
         </form>
 
       </div>
-      <div class="col-md-3"></div>
+      <div class="col-md-1"></div>
     </div>
     <br><br>
   </div>

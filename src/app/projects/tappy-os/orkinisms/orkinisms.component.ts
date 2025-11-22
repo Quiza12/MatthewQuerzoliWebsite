@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Orkinism } from './classes/orkinism';
 import { orkinisms } from './data/orkinisms';
+import { sortObjectArray } from '../../../shared/libs/common';
 
 @Component({
   selector: 'app-orkinisms',
@@ -15,7 +16,7 @@ export class OrkinismsComponent {
   filteredOrkinismList: Orkinism[] = [];
 
   constructor() {
-    this.orkinismList = orkinisms
+    this.orkinismList = sortObjectArray(orkinisms, 'word');
     this.filteredOrkinismList = this.orkinismList;
   }
 
@@ -24,9 +25,11 @@ export class OrkinismsComponent {
       this.filteredOrkinismList = this.orkinismList;
       return;
     }
-    this.filteredOrkinismList = this.orkinismList.filter((orkinism) =>
+    this.filteredOrkinismList = sortObjectArray(this.orkinismList.filter((orkinism) =>
       orkinism.word.includes(text.toLowerCase()),
-    );
+    ), "word");
   }
+
+
 
 }

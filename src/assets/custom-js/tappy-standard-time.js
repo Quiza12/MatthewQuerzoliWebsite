@@ -55,6 +55,12 @@ const reasons =
   'she was making Matt use mouthwash in a way that looked suspiciously like water-boarding',
   'she bolted her acai bowl and was feeling sick',
   'she got a cosmelan peel',
+  'she was trying to decide between Nikes and Sambas.',
+  'she was stressing about her costume choice.',
+  'she decided it was suddnely time to shave her legs even or wash her hair.',
+  'she decided it was suddenly a great time to clean the second wardrobe (it should be noted that she has had ample time to clean it over the last 6 months).',
+  'she was stewing over one or more of the DAWGS.',
+  'she decided to rearrange the furniture for the entire house.'
 ];
 
 function start() {

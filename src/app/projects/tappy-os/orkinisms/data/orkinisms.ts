@@ -38,7 +38,65 @@ export const orkinisms: Orkinism[] = [
         '[took-A-look]',
         'How Chloe refers to one of the clan (can be any of the siblings).'
     ),
+    new Orkinism(
+        'shinkalink',
+        'noun',
+        '[]',
+        ''
+    ),
+    new Orkinism(
+        'doodle',
+        'noun',
+        '[]',
+        ''
+    ),
+    new Orkinism(
+        'niggie',
+        'noun',
+        '[]',
+        ''
+    ),
+    new Orkinism(
+        'tooksie',
+        'noun',
+        '[]',
+        'Used interghangeably with \'tookie\''
+    ),
+    new Orkinism(
+        'puggles',
+        'noun',
+        '[]',
+        'The pug.'
+    ),
+    new Orkinism(
+        '',
+        'noun',
+        '[]',
+        ''
+    ),
+    new Orkinism(
+        'rookie',
+        'noun',
+        '[]',
+        'A misspelling of tookie/wookie. Also a televsion show.'
+    ),
+    new Orkinism(
+        '👍🏼',
+        'noun',
+        '[]',
+        'Hilton\'s standard emoji response, for the affirmative.'
+    ),
+    new Orkinism(
+        '🖕🏼',
+        'noun',
+        '[]',
+        'Hilton\'s standard emoji response, for the defensive.'
+    ),
 ];
 
 
-//noonkie, tookalook, twinkie, master jack
+// See you on the Christmas tree
+// Shinkies
+// Shinkalink
+// Shinks
+// Drama llama
