@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class TestimonialsComponent {
 
+  birthYear: number = 1995;
+  age: number = 0; 
+
+  constructor() {
+    this.age = this.getAge();
+  }
+
+  getAge() {
+    return new Date().getFullYear() - this.birthYear;
+  }
+
 }
