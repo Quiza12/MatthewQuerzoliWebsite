@@ -7,7 +7,7 @@ import { LocationForecast } from './classes/location-forecast';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
- 
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-bogan-of-meteorology',
@@ -17,7 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   styleUrl: './bogan-of-meteorology.component.css'
 })
 export class BoganOfMeteorologyComponent implements OnInit {
-  title = 'bogan-of-meterology';
+  title: string = '🌦️ Bogan of Meteorology - Projects'
 
   dropdownDefault = 'Where the bloody hell are ya? ⬇'
 
@@ -43,10 +43,11 @@ export class BoganOfMeteorologyComponent implements OnInit {
 
   locationSelectionForm: FormGroup;
 
-  constructor(private bomDataService: BomDataService, private boganService: BoganService, private fb: FormBuilder) {
+  constructor(private bomDataService: BomDataService, private boganService: BoganService, private fb: FormBuilder, private titleService: Title) {
     this.locationSelectionForm = new FormGroup({
       location: new FormControl('')
     });
+    titleService.setTitle(this.title);
   }
 
   ngOnInit() {

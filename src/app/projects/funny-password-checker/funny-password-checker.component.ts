@@ -3,6 +3,7 @@ import { StrengthsService } from './services/strengths/strengths.service';
 import { PasswordService } from './services/password/password.service';
 import { FormComponent } from './components/form/form.component';
 import { CommonModule } from '@angular/common';
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-funny-password-checker',
@@ -13,15 +14,17 @@ import { CommonModule } from '@angular/common';
 })
 export class FunnyPasswordCheckerComponent implements OnInit {
 
-  title = 'app';
+  title: string = '🔑 Funny Password Checker - Projects'
   tempReasons: any[] = [];
-  password:any;
-  passwordStrength:any = this.passwordService.passwordStrength;
-  strengthListLength:number = 0;
-  tempListLength:number = 0;
+  password: any;
+  passwordStrength: any = this.passwordService.passwordStrength;
+  strengthListLength: number = 0;
+  tempListLength: number = 0;
   reasons: string[] = [];
-
-  constructor(private strengthsService:StrengthsService, private passwordService:PasswordService) { }
+  
+  constructor(private strengthsService: StrengthsService, private passwordService: PasswordService, private titleService: Title) { 
+    titleService.setTitle(this.title);
+  }
 
   ngOnInit() {
     this.strengthsService.setCountsToZero();

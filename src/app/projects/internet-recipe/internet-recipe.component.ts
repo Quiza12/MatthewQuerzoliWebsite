@@ -5,6 +5,8 @@ import { initialParagraphs, fillerParagraphs } from './data/paragraphs';
 import { imageIndex } from './data/image-index';
 import { Popover } from 'bootstrap';
 import { ContentItem } from './interfaces/ir-interfaces';
+import { Title } from "@angular/platform-browser";
+
 
 @Component({
   selector: 'app-internet-recipe',
@@ -14,6 +16,7 @@ import { ContentItem } from './interfaces/ir-interfaces';
   styleUrl: './internet-recipe.component.css'
 })
 export class InternetRecipeComponent {
+  title: string = '🍝 INTERNET RECIPE - Projects'
   initialArray: ContentItem[] = [];
   array: ContentItem[] = [];
   imageIndex: string[] = [];
@@ -26,8 +29,9 @@ export class InternetRecipeComponent {
   itemsToAppend = 7;
   imgBaseSlug ='/assets/images/internet-recipe/';
 
-  constructor() {
+  constructor(titleService: Title) {
     this.imageIndex = imageIndex;
+    titleService.setTitle(this.title);
 
     this.sum = initialParagraphs.length;
     this.loadInitialItems("push");

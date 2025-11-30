@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExternalJavascriptCdnPreloadService } from '../../../services/external-js-preload/external-javascript-cdn-preload.service';
+import { Title } from "@angular/platform-browser";
 
 const preloadJsCdns: string[] = ['moment','tappystandardtime'];
 
@@ -14,7 +15,11 @@ declare var window: any; // Global JS window handle.
 })
 export class TappyStandardTimeComponent implements OnInit {
 
-  constructor(private externalJsCdnPreloadService: ExternalJavascriptCdnPreloadService) {  }
+  title: string = '⏰ Tappy Standard Time - Tappy OS - Projects'
+
+  constructor(private externalJsCdnPreloadService: ExternalJavascriptCdnPreloadService, titleService: Title) {  
+    titleService.setTitle(this.title);
+  }
 
   ngOnInit(): void {
     this.preloadExternalCdnsOnLoad();

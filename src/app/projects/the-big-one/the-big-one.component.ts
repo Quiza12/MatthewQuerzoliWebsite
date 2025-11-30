@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ExternalJavascriptCdnPreloadService } from '../../services/external-js-preload/external-javascript-cdn-preload.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { Title } from "@angular/platform-browser";
 
 const preloadJsCdns: string[] = ['chart', 'thebigone'];
 
@@ -13,11 +14,14 @@ const preloadJsCdns: string[] = ['chart', 'thebigone'];
   encapsulation: ViewEncapsulation.None //disable global Bootstrap
 })
 export class TheBigOneComponent implements OnInit {
+  title: string = '🌏 The Big One FAQ - Projects'
 
   constructor(
     private externalJsCdnPreloadService: ExternalJavascriptCdnPreloadService,
-    private route: ActivatedRoute
-  ) {  }
+    private route: ActivatedRoute,
+    private titleService: Title
+
+  ) { titleService.setTitle(this.title); }
 
   ngOnInit(): void {
     this.preloadExternalCdnsOnLoad();

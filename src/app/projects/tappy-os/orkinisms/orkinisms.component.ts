@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Orkinism } from './classes/orkinism';
 import { orkinisms } from './data/orkinisms';
 import { sortObjectArray } from '../../../shared/libs/common';
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-orkinisms',
@@ -14,10 +15,12 @@ export class OrkinismsComponent {
 
   orkinismList: Orkinism[] = [];
   filteredOrkinismList: Orkinism[] = [];
+  title: string = '📖 Orkinisms - Tappy OS - Projects'
 
-  constructor() {
+  constructor(private titleService: Title) {
+    titleService.setTitle(this.title);
     this.orkinismList = sortObjectArray(orkinisms, 'word');
-    this.filteredOrkinismList = this.orkinismList;
+    this.filteredOrkinismList = this.orkinismList; 
   }
 
   filterResults(text: string) {

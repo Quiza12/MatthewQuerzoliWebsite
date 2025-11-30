@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-quiet-near-a-little-stream',
@@ -10,8 +11,14 @@ import { CommonModule } from '@angular/common';
 })
 export class QuietNearALittleStreamComponent {
   @ViewChild('audioRef') audioElement!: ElementRef<HTMLAudioElement>;
-  audioSrc: string = '/assets/audio/quiet-near-a-little-stream/water-small-stream-25614.mp3'; // Replace with your audio file path
+  audioSrc: string = '/assets/audio/quiet-near-a-little-stream/water-small-stream-25614.mp3';
   playing: boolean = true;
+
+  title: string = '💧 Be Quiet Near a Little Stream and Listen - Projects'
+
+  constructor(private titleService: Title) {  
+    titleService.setTitle(this.title);
+  }
 
   ngAfterViewInit() {
     this.audioElement.nativeElement.play(); // Auto-play 

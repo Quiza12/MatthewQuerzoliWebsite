@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExternalJavascriptCdnPreloadService } from '../../services/external-js-preload/external-javascript-cdn-preload.service';
+import { Title } from "@angular/platform-browser";
 
 const preloadJsCdns: string[] = ['ripmeanewone'];
 
@@ -14,8 +15,12 @@ declare var window: any; // Global JS window handle.
 })
 export class RipMeANewOneComponent implements OnInit {
 
-  constructor(private externalJsCdnPreloadService: ExternalJavascriptCdnPreloadService) {  }
-  
+  title: string = '🍻 Rip Me A New One - Projects'
+
+  constructor(private externalJsCdnPreloadService: ExternalJavascriptCdnPreloadService, private titleService: Title) {  
+    titleService.setTitle(this.title);
+  }
+
   ngOnInit(): void {
     this.preloadExternalCdnsOnLoad();
   }

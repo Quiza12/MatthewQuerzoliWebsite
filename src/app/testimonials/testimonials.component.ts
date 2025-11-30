@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-testimonials',
@@ -9,9 +10,11 @@ export class TestimonialsComponent {
 
   birthYear: number = 1995;
   age: number = 0; 
+  title: string = 'Testimonials - Matthew Querzoli'
 
-  constructor() {
+  constructor(titleService: Title) {
     this.age = this.getAge();
+    titleService.setTitle(this.title);
   }
 
   getAge() {

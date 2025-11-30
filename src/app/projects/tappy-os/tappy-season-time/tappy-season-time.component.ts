@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-tappy-season-time',
@@ -36,6 +37,12 @@ export class TappySeasonTimeComponent implements OnInit {
     month: 'long',
     day: 'numeric'
   };
+
+  title: string = '🌸 Tappy Season Time - Tappy OS - Projects'
+
+  constructor(private titleService: Title) {
+    titleService.setTitle(this.title);
+  }
 
   ngOnInit(): void {
     this.determineSeason();
