@@ -3,10 +3,22 @@ import { Orkinism } from '../classes/orkinism';
 //word, type, phonetic, definition
 export const orkinisms: Orkinism[] = [
     new Orkinism(
-        'tookie; wookie',
+        'tookie; wookie; tysie; pug; puggles; puglet; the pug; pugloot; little face; handsome; bobbinhead; zootie',
         'noun',
         '[tuuK-kie]',
-        'The family dog/prince/icon, Tyson Orkin, or Taryn\'s boyfriend, Matt.'
+        'The family dog/prince/icon, Tyson Orkin.'
+    ),
+    new Orkinism(
+        'shink; shinkies; shinkalink; shinkadink; shinkalinky',
+        'noun',
+        '[]',
+        'Shannon Orkin.'
+    ),
+    new Orkinism(
+        'taps; tips; tapsy; tipson',
+        'noun',
+        '[]',
+        'Taryn Orkin.'
     ),
     new Orkinism(
         'noonkie',
@@ -31,18 +43,6 @@ export const orkinisms: Orkinism[] = [
         'noun',
         '[took-A-look]',
         'How Chloe refers to one of the clan (can be any of the siblings).'
-    ),
-    new Orkinism(
-        'shink; shinkalink; shinkadink',
-        'noun',
-        '[]',
-        'Shannon Orkin.'
-    ),
-    new Orkinism(
-        'taps; tips; tapsy; tipson',
-        'noun',
-        '[]',
-        'Taryn Orkin.'
     ),
     new Orkinism(
         'shamin',
@@ -74,12 +74,7 @@ export const orkinisms: Orkinism[] = [
         '[]',
         'Used interchangeably with \'tookie\''
     ),
-    new Orkinism(
-        'puggles; puglet; the pug; pugloot; little face; handsome',
-        'noun',
-        '[]',
-        'The pug.'
-    ),
+
     new Orkinism(
         'rookie',
         'noun',
@@ -153,7 +148,7 @@ export const orkinisms: Orkinism[] = [
         'A detestable term for Hilton.'
     ),
     new Orkinism(
-        'milton; biltong; eaton; pigeon; guilton; elton; hamilton; elton; ',
+        'milton; biltong; eaton; pigeon; guilton; elton; hamilton; elton; clinton',
         'noun',
         '[]',
         'Hilton Orkin\'s names (at the altar, various coffee shops, etc).'
@@ -224,6 +219,67 @@ export const orkinisms: Orkinism[] = [
         '[]',
         'Giraffes (not to be confused with baby giraffes).'
     ),
+    new Orkinism(
+        '"what\'s that screaming?"',
+        'phrase',
+        '[]',
+        'Uttered whenever Hilton is playing his music.'
+    ),
+    new Orkinism(
+        'just quickly',
+        'phrase',
+        '[]',
+        'Slowly.'
+    ),
+    new Orkinism(
+        'duck walk',
+        'phrase',
+        '[]',
+        'When Tappy Time has concluded and time must be made up.'
+    ),
+    new Orkinism(
+        'little',
+        'phrase',
+        '[]',
+        'Can be used to refer to anything from tiny to huge (example: A tiny coffee could be a quick takeaway or a long sit-down lunch).'
+    ),
+    new Orkinism(
+        'tappy time',
+        'phrase',
+        '[]',
+        'When someone is late (refer tappy).'
+    ),
+    new Orkinism(
+        'the red thing',
+        'phrase',
+        '[]',
+        'Tysie\'s doodle (refer doodle).'
+    ),
+    new Orkinism(
+        'mommying',
+        'phrase',
+        '[]',
+        'Sleeping on your back and not moving - mostly for Hilton.'
+    ),
+    new Orkinism(
+        'na brah',
+        'phrase',
+        '[]',
+        'No.'
+    ),
+    new Orkinism(
+        'googles; goggaloos',
+        'phrase',
+        '[]',
+        'Glasses (Chloe).'
+    ),
+    new Orkinism(
+        '"thanks mum!"',
+        'phrase',
+        '[]',
+        'Appreciation for something done by Hilton.'
+    ),
+
 ];
 
 
@@ -232,4 +288,3 @@ export const orkinisms: Orkinism[] = [
 // Shinkies
 // Shinkalink
 // Shinks
-// Drama llama
