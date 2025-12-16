@@ -15,9 +15,9 @@
       <div class="col-md-10">
         <form>
           <div class="input-group mb-3">
-            <input class="form-control form-control-lg" type="text" placeholder="Search Orkinisms..."
+            <input class="form-control form-control-lg" (keydown)="filterResults(filter.value)" type="text" placeholder="Search Orkinisms..."
               aria-label="Search Orkinisms" #filter>
-            <button type="button" class="btn btn-primary" (click)="filterResults(filter.value)">Search</button>
+            <!-- <button type="button" class="btn btn-primary" (click)="filterResults(filter.value)">Search</button> -->
           </div>
           <div class="results">
             @for (orkinism of filteredOrkinismList; track $index) {
