@@ -3,9 +3,9 @@ import { Orkinism } from '../classes/orkinism';
 //word, type, phonetic, definition
 export const orkinisms: Orkinism[] = [
     new Orkinism(
-        'tookie; wookie; tysie; pug; puggles; puglet; the pug; pugloot; little face; handsome; bobbinhead; zootie',
+        'tookie; wookie; tysie; tooksie; pug; puggles; puglet; the pug; pugloot; little face; handsome; bobbinhead; zootie',
         'noun',
-        '[tuuK-kie]',
+        '[tuuk-ee]',
         'The family dog/prince/icon, Tyson Orkin.'
     ),
     new Orkinism(
@@ -17,19 +17,19 @@ export const orkinisms: Orkinism[] = [
     new Orkinism(
         'taps; tips; tapsy; tipson',
         'noun',
-        '[]',
+        '[taps]',
         'Taryn Orkin.'
     ),
     new Orkinism(
         'noonkie',
         'noun',
-        '[noon-Kee]',
+        '[noon-kee]',
         'I\'m not even sure anymore.'
     ),
     new Orkinism(
         'twinkie',
         'noun',
-        '[twin-KIE]',
+        '[twin-kee]',
         'A twinkie.'
     ),
     new Orkinism(
@@ -69,13 +69,6 @@ export const orkinisms: Orkinism[] = [
         'When the pug poops, the last person to yell this out has to pick up the poo.'
     ),
     new Orkinism(
-        'tooksie',
-        'noun',
-        '[took-see]',
-        'Used interchangeably with \'tookie\''
-    ),
-
-    new Orkinism(
         'rookie',
         'noun',
         '[rook-ee]',
@@ -83,19 +76,19 @@ export const orkinisms: Orkinism[] = [
     ),
     new Orkinism(
         '👍🏼',
-        'noun',
+        'emoji',
         '[N/A]',
         'Hilton\'s standard emoji response, for the affirmative.'
     ),
     new Orkinism(
         '🖕🏼',
-        'noun',
+        'emoji',
         '[N/A]',
         'Hilton\'s standard emoji response, for the defensive.'
     ),
     new Orkinism(
         'hoolamachala',
-        'noun',
+        'verb',
         '[hoo-la-mach-uh-lah]',
         'Hurry up - get on your bicycles!'
     ),
@@ -103,23 +96,23 @@ export const orkinisms: Orkinism[] = [
         'kom eetem de spraken',
         'phrase',
         '[N/A]',
-        'Come eat!'
+        'Come eat! (Afrikaans)'
     ),
     new Orkinism(
         'padoonkie',
-        'phrase',
+        'noun',
         '[pad-oon-ee]',
         'A poop, typically human.'
     ),
     new Orkinism(
         '...chicken scratch...',
-        'noun',
+        'sound',
         '[N/A]',
-        'Undefinable, more of a noise.'
+        'Undefinable, more of a noise. Used to alert other and Tysie to the fact he is sniffing around in bushes, or scratching himself.'
     ),
     new Orkinism(
-        'YOU {INSERT WORD/PHRASE}',
-        'noun',
+        '"YOU {INSERT WORD/PHRASE}"',
+        'phrase',
         '[N/A]',
         'Used to fire something back at someone (example: "Are you ready?" No, YOU ready!)'
     ),
@@ -155,13 +148,13 @@ export const orkinisms: Orkinism[] = [
     ),
     new Orkinism(
         'W',
-        'noun',
+        'letter',
         '[duhb-uhl-yoo]',
         'When you can\'t say the the work \'walk\' in front of Tysie.'
     ),
     new Orkinism(
-        'dramatic pug; drama llama',
-        'noun',
+        '"Dramatic pug"; "Drama llama"',
+        'phrase',
         '[druh-mat-ik puhg]',
         'When someone is being dramatic.'
     ),
@@ -173,39 +166,39 @@ export const orkinisms: Orkinism[] = [
     ),
     new Orkinism(
         'NOIIIICCEEE',
-        'noun',
+        'adjective',
         '[nooooois]',
         'Historically, appreciation of a Christmas present.'
     ),
     new Orkinism(
-        'swipe swipe, swipe swipe',
-        'noun',
+        '"Swipe swipe, swipe swipe"',
+        'phrase/sing-a-long',
         '[swahyp swahyp, swahyp swahyp]',
         'Appreciation of a Christmas present; Hilton\'s contribution to said present.'
     ),
     new Orkinism(
-        'See you on the Christmas tree',
+        '"See you on the Christmas tree"',
         'phrase',
-        '[]',
-        'Gran - ?'
+        '[N/A]',
+        'Something Gran says (undefinable).'
     ),
     new Orkinism(
         'funny-face',
         'noun',
         '[fuhn-ee feys]',
-        'Gran - ?'
+        'When Gran reckons you have a funny face.'
     ),
     new Orkinism(
         'fat-face',
         'noun',
         '[fat-feys]',
-        'Gran - '
+        'When Gran reckons you have a fat face/are scratching too much in the cupboards.'
     ),
     new Orkinism(
         'weenie',
         'noun',
         '[ween-ee]',
-        'Scaredy-cat (do not say to Chloe Orkin).'
+        'Scaredy-cat (do NOT say to Chloe Orkin).'
     ),
     new Orkinism(
         'dookie',
@@ -232,46 +225,46 @@ export const orkinisms: Orkinism[] = [
         'Slowly.'
     ),
     new Orkinism(
-        'duck walk',
+        '"Duck walk"',
         'phrase',
         '[duhk wawk]',
         'When Tappy Time has concluded and time must be made up.'
     ),
     new Orkinism(
         'little',
-        'phrase',
+        'adjective',
         '[lit-l]',
         'Can be used to refer to anything from tiny to huge (example: A tiny coffee could be a quick takeaway or a long sit-down lunch).'
     ),
     new Orkinism(
-        'tappy time',
+        '"Tappy time"',
         'phrase',
         '[tap-ee tahym]',
         'When someone is late (refer tappy).'
     ),
     new Orkinism(
-        'the red thing; red rocket',
+        '"The red thing"; "Red rocket"',
         'phrase',
         '[thee red thing]',
         'Tysie\'s doodle (refer doodle).'
     ),
     new Orkinism(
         'mommying',
-        'phrase',
+        'noun',
         '[mom-ee-ing]',
         'Sleeping on your back and not moving - mostly for Hilton.'
     ),
     new Orkinism(
-        'na brah',
+        '"Na brah"',
         'phrase',
         '[nah brah]',
         'No.'
     ),
     new Orkinism(
         'goggles; goggaloos',
-        'phrase',
+        'noun',
         '[gog-uhls]',
-        'Glasses (Chloe).'
+        'What Chloe refers to as glasses.'
     ),
     new Orkinism(
         '"Thanks Mum!"',

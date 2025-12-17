@@ -15,7 +15,7 @@ import { Title } from "@angular/platform-browser";
 export class FunnyPasswordCheckerComponent implements OnInit {
 
   title: string = '🔑 Funny Password Checker - Projects'
-  tempReasons: any[] = [];
+  filteredReasons: any[] = [];
   password: any;
   passwordStrength: any = this.passwordService.passwordStrength;
   strengthListLength: number = 0;
@@ -46,7 +46,7 @@ export class FunnyPasswordCheckerComponent implements OnInit {
   }
 
   getPasswordStrength() {
-    this.tempReasons = this.strengthsService.tempReasons;
+    this.filteredReasons = this.strengthsService.tempReasons;
     return this.strengthListLength - this.tempListLength;
   }
 
@@ -60,9 +60,9 @@ export class FunnyPasswordCheckerComponent implements OnInit {
   }
 
   getTempReasonsLength() {
-    this.tempReasons = this.strengthsService.tempReasons;
-    if ((this.tempReasons.length) !== undefined) {
-      return this.tempReasons.length;
+    this.filteredReasons = this.strengthsService.tempReasons;
+    if ((this.filteredReasons.length) !== undefined) {
+      return this.filteredReasons.length;
     } else {
       return 0;
     }

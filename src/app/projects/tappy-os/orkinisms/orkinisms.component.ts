@@ -24,6 +24,7 @@ export class OrkinismsComponent {
   }
 
   filterResults(text: string) {
+    console.log(text);
     if (!text) {
       this.filteredOrkinismList = this.orkinismList;
       return;
@@ -32,7 +33,5 @@ export class OrkinismsComponent {
       orkinism.word.includes(text.toLowerCase()),
     ), "word");
   }
-
-
 
 }
