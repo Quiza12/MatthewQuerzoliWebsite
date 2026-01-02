@@ -4,7 +4,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MarkdownModule } from 'ngx-markdown';
 import { HttpClientModule } from '@angular/common/http';
 import { ClipboardModule } from 'ngx-clipboard';
-// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
@@ -37,8 +36,7 @@ import { TappyOsComponent } from './projects/tappy-os/tappy-os.component';
     ClipboardModule,
     AppRoutingModule,
     NgbModule,
-    // FontAwesomeModule,
-    HttpClientModule, // Include HttpClientModule here
+    HttpClientModule,
     MarkdownModule.forRoot({ loader: HttpClientModule }) // Pass HttpClientModule here
   ],
   providers: [],

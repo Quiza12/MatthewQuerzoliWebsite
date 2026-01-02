@@ -8,7 +8,9 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-blog-detail',
   standalone: true,
-  imports: [CommonModule, RouterModule, HttpClientModule, MarkdownModule],
+  imports: [
+    CommonModule, RouterModule, HttpClientModule, MarkdownModule
+  ],
   templateUrl: './blog-detail.component.html',
   styleUrl: './blog-detail.component.css'
 })
@@ -26,3 +28,4 @@ export class BlogDetailComponent implements OnInit {
       });
   }
 }
+

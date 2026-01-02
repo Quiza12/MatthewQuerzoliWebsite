@@ -1,0 +1,32 @@
+## Digital Admin Day
+
+
+- Reply
+  - [ ] To all unanswered messages
+- Update
+  - [ ] OS
+  - [ ] Applications
+  - [ ] Weak passwords
+  - [ ] Framework versions in side projects
+  - [ ] Package versions in side projects, especially when flagged as security vulnerabilities
+- Cleanup
+  - [ ] Calendar events
+  - [ ] Email folders, categorisation
+  - [ ] Bookmarks
+- Delete
+  - [ ] Unused applications
+  - [ ] Old photos - i.e. duplicates, unneeded screenshots
+  - [ ] Old notes
+- Clean
+  - [ ] Screens with microfibre cloth
+  - [ ] Keyboard
+  - [ ] Mouse
+- Purge
+  - [ ] Recycle bin/junk items.
+  - [ ] Spam and junk email
+- Cancel
+  - [ ] Unused or unwanted accounts or subscriptions
+- Close
+  - [ ] Old tabs
+- Pop
+  - [ ] Notification bubbles (i.e. mark all as read, or actually read them all)
