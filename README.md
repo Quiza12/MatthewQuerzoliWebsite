@@ -1,6 +1,35 @@
-# MatthewQuerzoli
+# Matthew Querzoli Website
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.8.
+[Matthew Querzoli](https://matthewquerzoli.com/)
+
+I'm a human being and I contain multitudes, so it would be wrong of me to try and summarise it in a couple of sentences, but here we go:
+
+To earn a crust I've recently traded in software development for middle management. I enjoy writing and pumping out web projects in my spare time, as well as waiting for the Swans to reverse their premiership fortunes.
+
+- Writing
+- Blog
+- Nano Narratives
+- Projects
+  - Internal Projects
+    - The Big One FAQ
+    - Bogan of Meteorology
+    - Funny Password Checker
+    - It's Five O'Clock Somewhere
+    - Rip Me A New One
+    - Tappy OS
+      - Tappy Standard Time
+      - Tappy Season Time
+      - Orkinisms
+    - Be Quiet Near a Little Stream and Listen
+    - INTERNET RECIPE
+  - External Projects
+    - Orkin Brown and Associates
+    - Palisi's Persistent Pursuit of Places FAQ
+    - Path to Peace (on pause since October 2025)
+- The Good Book
+- Testimonials
+
+***
 
 ## Development server
 
