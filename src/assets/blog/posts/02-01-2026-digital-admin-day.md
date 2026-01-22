@@ -27,8 +27,11 @@
 - [ ] recycle bin/junk items.
 - [ ] spam and junk email
 - Cancel
-- [ ] unused or unwanted accounts or subscriptions
+- [ ] unused or unwanted accounts/subscriptions
 - Close
 - [ ] old tabs
 - Pop
 - [ ] notification bubbles (i.e. mark all as read, or actually read them all)
+- Setup
+- [ ] MFA, 2FA
+- [ ] a password manager
