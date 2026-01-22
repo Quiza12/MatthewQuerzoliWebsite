@@ -1,32 +1,34 @@
+
 ## Digital Admin Day
 
+<br/>
 
-- Reply
-  - [ ] To all unanswered messages
 - Update
-  - [ ] OS
-  - [ ] Applications
-  - [ ] Weak passwords
-  - [ ] Framework versions in side projects
-  - [ ] Package versions in side projects, especially when flagged as security vulnerabilities
+- [ ] OS
+- [ ] applications
+- [ ] weak passwords
+- [ ] framework versions in side projects
+- [ ] package versions in side projects, especially when flagged as security vulnerabilities
 - Cleanup
-  - [ ] Calendar events
-  - [ ] Email folders, categorisation
-  - [ ] Bookmarks
+- [ ] calendar events
+- [ ] email folders, categorisation
+- [ ] bookmarks
 - Delete
-  - [ ] Unused applications
-  - [ ] Old photos - i.e. duplicates, unneeded screenshots
-  - [ ] Old notes
+- [ ] unused applications
+- [ ] old photos - i.e. duplicates, unneeded screenshots
+- [ ] old notes
 - Clean
-  - [ ] Screens with microfibre cloth
-  - [ ] Keyboard
-  - [ ] Mouse
+- [ ] screens with microfibre cloth
+- [ ] keyboard
+- [ ] mouse
+- Reply
+- [ ] to all unanswered messages
 - Purge
-  - [ ] Recycle bin/junk items.
-  - [ ] Spam and junk email
+- [ ] recycle bin/junk items.
+- [ ] spam and junk email
 - Cancel
-  - [ ] Unused or unwanted accounts or subscriptions
+- [ ] unused or unwanted accounts or subscriptions
 - Close
-  - [ ] Old tabs
+- [ ] old tabs
 - Pop
-  - [ ] Notification bubbles (i.e. mark all as read, or actually read them all)
+- [ ] notification bubbles (i.e. mark all as read, or actually read them all)

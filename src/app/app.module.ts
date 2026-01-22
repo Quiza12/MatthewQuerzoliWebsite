@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MarkdownModule } from 'ngx-markdown';
 import { HttpClientModule } from '@angular/common/http';
 import { ClipboardModule } from 'ngx-clipboard';
 
@@ -36,8 +35,7 @@ import { TappyOsComponent } from './projects/tappy-os/tappy-os.component';
     ClipboardModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule,
-    MarkdownModule.forRoot({ loader: HttpClientModule }) // Pass HttpClientModule here
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-3"></div>
     <div class="col-sm-6">
-      <markdown [data]="markdownContent"></markdown>
+      <div class="markdown-body" [innerHTML]="safeMarkdown"></div>
     </div>
     <div class="col-sm-3"></div>
   </div>
