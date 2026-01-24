@@ -1,28 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-blog',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, RouterModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './blog.component.html',
   styleUrl: './blog.component.css'
 })
-export class BlogComponent implements OnInit {
-  blogPosts: any[] = [];
-  title: string = 'Blog - Matthew Querzoli'
+export class BlogComponent {
+  private http = inject(HttpClient);
+  private titleService = inject(Title);
 
-  constructor(private http: HttpClient, titleService: Title) {
-    titleService.setTitle(this.title);
-  }
+  blogPosts = signal<any[]>([]);
 
-  ngOnInit() {
-    this.http.get<any[]>('assets/blog/blog-index.json').subscribe(data => {
-      this.blogPosts = data;
-    });
+  constructor() {
+    this.titleService.setTitle('Blog - Matthew Querzoli');
+
+    this.http.get<any[]>('assets/blog/blog-index.json').subscribe(posts => this.blogPosts.set(posts));
   }
 
 }

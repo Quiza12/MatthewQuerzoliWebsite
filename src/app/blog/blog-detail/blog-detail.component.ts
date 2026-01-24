@@ -1,6 +1,6 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { marked } from 'marked';
@@ -8,18 +8,20 @@ import { marked } from 'marked';
 @Component({
   selector: 'app-blog-detail',
   standalone: true,
-  imports: [CommonModule, RouterModule, HttpClientModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './blog-detail.component.html',
   styleUrl: './blog-detail.component.css'
 })
-export class BlogDetailComponent implements OnInit {
-  safeMarkdown: SafeHtml = '';
+export class BlogDetailComponent {
+  // safeMarkdown: SafeHtml = '';
+  safeMarkdown = signal<SafeHtml>('' as SafeHtml);
+
 
   private http = inject(HttpClient);
   private route = inject(ActivatedRoute);
   private sanitizer = inject(DomSanitizer);
 
-  ngOnInit() {
+  constructor() {
     const renderer = new marked.Renderer();
 
     // To render checkboxes interactive
@@ -51,7 +53,7 @@ export class BlogDetailComponent implements OnInit {
       .get(`assets/blog/posts/${slug}.md`, { responseType: 'text' })
       .subscribe(data => {
         const rawHtml = marked.parse(data) as string;
-        this.safeMarkdown = this.sanitizer.bypassSecurityTrustHtml(rawHtml);
+        this.safeMarkdown.set(this.sanitizer.bypassSecurityTrustHtml(rawHtml));
       });
   }
 }
