@@ -46,8 +46,13 @@ export class FunnyPasswordCheckerComponent implements OnInit {
   }
 
   getPasswordStrength() {
-    this.filteredReasons = this.strengthsService.tempReasons;
-    return this.strengthListLength - this.tempListLength;
+    if (this.getPasswordLength() == 0) {
+      return 0;
+    } else {
+      this.filteredReasons = this.strengthsService.tempReasons;
+      return this.strengthListLength - this.filteredReasons.length;
+    }
+    
   }
 
   getPasswordLength() {

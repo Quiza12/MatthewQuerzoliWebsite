@@ -1,0 +1,45 @@
+<body>
+
+
+    <div class="container text-center">
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <select class="form-select form-select-lg mb-3" id="cards" required (change)="onCardChange($event)">
+                        @for (card of cards; track $index) {
+                        <option [value]="card">{{ card }}</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+        <br><br>
+
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+
+                @if (isCardSelected()) {
+                <div class="bingo-grid">
+                    @for (row of values; let r = $index; track r) {
+                    @for (cell of row; let c = $index; track c) {
+                    <div class="cell" [class.selected]="isSelected(r, c)" (click)="toggle(r, c)">
+                        {{ cell }}
+                    </div>
+                    }
+                    }
+                </div>
+                }
+
+            </div>
+            <div class="col-md-3"></div>
+
+        </div>
+        <br><br>
+    </div>
+
+</body>

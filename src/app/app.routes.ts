@@ -1,7 +1,4 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { CommonModule, } from '@angular/common';
-import { BrowserModule  } from '@angular/platform-browser';
+import { Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { ProjectsComponent } from './projects/projects.component';
@@ -27,53 +24,43 @@ import { QuietNearALittleStreamComponent } from './projects/quiet-near-a-little-
 import { InternetRecipeComponent } from './projects/internet-recipe/internet-recipe.component';
 import { InternetRecipeAboutComponent } from './projects/internet-recipe/components/ir-about/ir-about.component';
 import { OrkinismsComponent } from './projects/tappy-os/orkinisms/orkinisms.component';
+import { TrottadvisorComponent } from './projects/trottadvisor/trottadvisor.component';
+import { BingoComponent } from './projects/bingo/bingo.component';
 
-
-
-const routes: Routes =[
+export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home',               component: HomeComponent },
-  { path: 'writing',            component: WritingComponent },
-  { path: 'projects',           component: ProjectsComponent },
-  { path: 'testimonials',       component: TestimonialsComponent },
-  { path: 'the-good-book',      component: TheGoodBookComponent },
-  { path: 'nano-narratives',    component: NanoNarrativesComponent },
-  { path: 'blog',               component: BlogComponent },
-  { path: 'blog/:slug',         component: BlogDetailComponent },
 
-  { path: 'projects/the-big-one',               component: TheBigOneComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'writing', component: WritingComponent },
+  { path: 'projects', component: ProjectsComponent },
+  { path: 'testimonials', component: TestimonialsComponent },
+  { path: 'the-good-book', component: TheGoodBookComponent },
+  { path: 'nano-narratives', component: NanoNarrativesComponent },
+  { path: 'blog', component: BlogComponent },
+  { path: 'blog/:slug', component: BlogDetailComponent },
+
+  { path: 'projects/the-big-one', component: TheBigOneComponent },
   { path: 'projects/its-five-oclock-somewhere', component: ItsFiveOclockSomewhereComponent },
-  { path: 'projects/rip-me-a-new-one',          component: RipMeANewOneComponent },
-  
-  { path: 'projects/funny-password-checker',          component: FunnyPasswordCheckerComponent },
-  { path: 'projects/funny-password-checker/info',     component: FpcInfoComponent },
-  { path: 'projects/funny-password-checker/answers',  component: FpcAnswersComponent },
-  { path: 'projects/funny-password-checker/about',    component: FpcAboutComponent },
+  { path: 'projects/rip-me-a-new-one', component: RipMeANewOneComponent },
 
-  { path: 'projects/bogan-of-meteorology',          component: BoganOfMeteorologyComponent },
-  { path: 'projects/bogan-of-meteorology/about',    component: BomAboutComponent },
+  { path: 'projects/funny-password-checker', component: FunnyPasswordCheckerComponent },
+  { path: 'projects/funny-password-checker/info', component: FpcInfoComponent },
+  { path: 'projects/funny-password-checker/answers', component: FpcAnswersComponent },
+  { path: 'projects/funny-password-checker/about', component: FpcAboutComponent },
 
-  { path: 'projects/tappy-os',                       component: TappyOsComponent },
-  { path: 'projects/tappy-os/tappy-standard-time',   component: TappyStandardTimeComponent },
-  { path: 'projects/tappy-os/tappy-season-time',     component: TappySeasonTimeComponent },
-  { path: 'projects/tappy-os/orkinisms',             component: OrkinismsComponent },
+  { path: 'projects/bogan-of-meteorology', component: BoganOfMeteorologyComponent },
+  { path: 'projects/bogan-of-meteorology/about', component: BomAboutComponent },
 
-  { path: 'projects/quiet-near-a-little-stream',     component: QuietNearALittleStreamComponent },
+  { path: 'projects/tappy-os', component: TappyOsComponent },
+  { path: 'projects/tappy-os/tappy-standard-time', component: TappyStandardTimeComponent },
+  { path: 'projects/tappy-os/tappy-season-time', component: TappySeasonTimeComponent },
+  { path: 'projects/tappy-os/orkinisms', component: OrkinismsComponent },
 
-  { path: 'projects/internet-recipe',     component: InternetRecipeComponent },
-  { path: 'projects/internet-recipe/about',     component: InternetRecipeAboutComponent },
-  
+  { path: 'projects/quiet-near-a-little-stream', component: QuietNearALittleStreamComponent },
+
+  { path: 'projects/internet-recipe', component: InternetRecipeComponent },
+  { path: 'projects/internet-recipe/about', component: InternetRecipeAboutComponent },
+
+  { path: 'projects/trottadvisor', component: TrottadvisorComponent },
+  { path: 'projects/bingo', component: BingoComponent },
 ];
-
-@NgModule({
-  imports: [
-    CommonModule,
-    BrowserModule,
-    RouterModule.forRoot(routes,{
-      useHash: true,
-      scrollPositionRestoration: 'top', 
-      anchorScrolling: 'enabled',       
-    })],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }

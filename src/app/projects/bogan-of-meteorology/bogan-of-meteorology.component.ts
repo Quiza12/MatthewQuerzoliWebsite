@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BomDataService } from './services/bom-data.service';
@@ -43,7 +43,9 @@ export class BoganOfMeteorologyComponent implements OnInit {
 
   locationSelectionForm: FormGroup;
 
-  constructor(private bomDataService: BomDataService, private boganService: BoganService, private fb: FormBuilder, private titleService: Title) {
+  constructor(private bomDataService: BomDataService, private boganService: BoganService, private fb: FormBuilder, private titleService: Title,
+    private cdr: ChangeDetectorRef
+  ) {
     this.locationSelectionForm = new FormGroup({
       location: new FormControl('')
     });
@@ -56,7 +58,12 @@ export class BoganOfMeteorologyComponent implements OnInit {
       this.subscribeToFormChanges();
       this.loadingSpinner = false;
       this.displayStateSelection = true;
+      this.detectChanges();
     });
+  }
+
+  detectChanges() {
+    this.cdr.detectChanges();
   }
 
   setFormToNull() {

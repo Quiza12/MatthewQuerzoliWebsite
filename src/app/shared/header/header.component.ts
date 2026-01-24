@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, RouterLink, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Collapse } from 'bootstrap';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faLessThanEqual } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+  imports: [ RouterLink ],
+  standalone: true,
 })
 export class HeaderComponent {
 
@@ -25,6 +27,8 @@ export class HeaderComponent {
   quietNearALittleStreamRoute: boolean = false;
   internetRecipeRoute: boolean = false;
   orkisimsRoute: boolean = false;
+  trottadvisorRoute: boolean = false;
+  bingoRoute: boolean = false;
 
   constructor(private router: Router) { }
 
@@ -54,6 +58,8 @@ export class HeaderComponent {
     this.quietNearALittleStreamRoute = currentRoute.includes('quiet-near-a-little-stream') ? true : false;
     this.internetRecipeRoute = currentRoute.includes('internet-recipe') ? true : false;
     this.orkisimsRoute = currentRoute.includes('orkinisms') ? true : false;
+    this.trottadvisorRoute = currentRoute.includes('trottadvisor') ? true : false;
+    this.bingoRoute = currentRoute.includes('bingo') ? true : false;
 
     this.standardRoute =
       !this.theBigOneRoute &&
@@ -65,7 +71,9 @@ export class HeaderComponent {
       !this.funnyPasswordCheckerRoute &&
       !this.quietNearALittleStreamRoute &&
       !this.internetRecipeRoute &&
-      !this.orkisimsRoute;
+      !this.orkisimsRoute &&
+      !this.trottadvisorRoute &&
+      !this.bingoRoute;
 
   }
 
@@ -81,6 +89,8 @@ export class HeaderComponent {
     this.quietNearALittleStreamRoute = false;
     this.internetRecipeRoute = false;
     this.orkisimsRoute = false;
+    this.trottadvisorRoute = false;
+    this.bingoRoute = false;
   }
 
   collapseNavbar(navToCollapse: string) {

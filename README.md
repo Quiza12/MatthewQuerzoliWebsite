@@ -2,6 +2,8 @@
 
 [Matthew Querzoli](https://matthewquerzoli.com/)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e8543cc4-a97d-4db4-a96f-951769e09f87/deploy-status)](https://app.netlify.com/projects/matthew-querzoli/deploys)
+
 I'm a human being and I contain multitudes, so it would be wrong of me to try and summarise it in a couple of sentences, but here we go:
 
 To earn a crust I've recently traded in software development for middle management. I enjoy writing and pumping out web projects in my spare time, as well as waiting for the Swans to reverse their premiership fortunes.

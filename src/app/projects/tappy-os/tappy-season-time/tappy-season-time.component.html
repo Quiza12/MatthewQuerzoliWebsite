@@ -1,31 +1,40 @@
-
-
 <body>
 
-    <div class="d-flex justify-content-center align-items-center vh-100" style="background-color: {{this.backgroundColour}};">
+    <div class="d-flex justify-content-center align-items-center vh-100"
+        style="background-color: {{backgroundColour}};">
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8 text-center">
 
-                <div *ngIf="isSummer">
+                @if (isSummer) {
+                <div>
                     <h1><b>🌞 IT'S SUMMER! 🏄</b></h1>
                     <br>
                     <h2>EVERYTHING IS RIGHT IN THE WORLD AGAIN, THE SUN DOTH SHINE AND TAPPY DOTH ALSO SHINE!</h2>
                 </div>
+                }
 
-
-                <div *ngIf="isSpring">
+                @if (isSpring) {
+                <div>
                     <h1><b>🌱 IT'S SPRING! 🌸</b></h1>
                     <br>
                     <h2>IT'S ALMOST SUMMER THANK F*CK</h2>
                 </div>
+                }
 
-                <div *ngIf="isWinter">
+
+                @if (isWinter) {
+                <div>
                     <h1><b>❄️ IT'S WINTER! ☕️</b></h1>
                     <br>
-                    <h2>IT'S CURRENTLY FREEZING AND I HATE IT WHEN WILL SUMMER COME BACK TO ME IT'S ALL I WANT IT'S ALL I NEED PLEASE DEAR GOD THE ELECTRIC BLANKET ISN'T HELPING ANYMORE AND I CAN'T CONTINUE TO PUT MY COLD FEET ON MY BOYFRIEND'S WARM BODY BECAUSE HE COMPLAINS THAT IT'S ANNOYING FOR HIM WELL LA-DI-DA I'M COLD MATT CAN'T YOU JUST MAKE ME WARM?</h2>
+                    <h2>IT'S CURRENTLY FREEZING AND I HATE IT WHEN WILL SUMMER COME BACK TO ME IT'S ALL I WANT IT'S ALL
+                        I NEED PLEASE DEAR GOD THE ELECTRIC BLANKET ISN'T HELPING ANYMORE AND I CAN'T CONTINUE TO PUT MY
+                        COLD FEET ON MY BOYFRIEND'S WARM BODY BECAUSE HE COMPLAINS THAT IT'S ANNOYING FOR HIM WELL
+                        LA-DI-DA I'M COLD MATT CAN'T YOU JUST MAKE ME WARM?</h2>
                 </div>
-                
+                }
+
+
                 <div>
                     <br>
                     <p>For reference, Tappy's seasons are as follows:</p>
@@ -38,6 +47,6 @@
             </div>
             <div class="col-md-2"></div>
         </div>
-        
+
     </div>
 </body>

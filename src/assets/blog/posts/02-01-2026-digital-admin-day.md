@@ -35,3 +35,7 @@
 - Setup
 - [ ] MFA, 2FA
 - [ ] a password manager
+- Backup
+- [ ] your phone to your computer
+- [ ] your computer
+- [ ] your photos/videos

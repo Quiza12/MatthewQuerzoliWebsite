@@ -1,0 +1,22 @@
+.bingo-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  /* gap: 0px; */
+  /* width: 300px; */
+}
+
+.cell {
+  border: 1px solid #ccc;
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  background: white;
+  transition: background 0.3s;
+}
+
+.cell.selected {
+  background: #4caf50;
+  color: white;
+  font-weight: bold;
+}

@@ -17,8 +17,8 @@
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8">
-                <button *ngIf="!playing" class="btn btn-outline-dark play-button" (click)="playAudio()">Play</button>
-                <button *ngIf="playing" class="btn btn-outline-dark pause-button" (click)="pauseAudio()">Pause</button>
+                @if (!playing) {<button class="btn btn-outline-dark play-button" (click)="playAudio()">Play</button>}
+                @if (playing) {<button class="btn btn-outline-dark pause-button" (click)="pauseAudio()">Pause</button>}
             </div>
             <div class="col-md-2"></div>
         </div>

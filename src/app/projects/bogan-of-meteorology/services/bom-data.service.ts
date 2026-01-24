@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LocationForecast } from '../classes/location-forecast';
 import { XMLParser } from 'fast-xml-parser';
-import * as moment from 'moment';
+import moment from 'moment';
 import { BlobServiceClient } from "@azure/storage-blob";
 import { Observable } from 'rxjs';
 
