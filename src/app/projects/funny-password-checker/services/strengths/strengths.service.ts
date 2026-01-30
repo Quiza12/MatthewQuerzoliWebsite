@@ -24,7 +24,7 @@ export class StrengthsService {
     { reason: "Your password contains zero references to Jesus, you heathen.", tag: "jesus", hidden: false, answer:"Christ/Jesus/Lord/God on a bike."},
     { reason: "Your password contains racist terms. You need to check your morals more than your password.", tag: "racist", hidden: true, answer:"You've mentioned something like 'wog' or 'n*****' in your password."},
     { reason: "Your password contains a penis. No wonder it's so insecure: it's short as.", tag: "penis", hidden: true, answer:"Remove that dick, cock, willy, prick, knob, rod or phallus reference."},
-    { reason: "Your password does not contain a vagina. Should put one in. They're bloody (sorry) strong.", tag: "vagina", hidden: false, answer:"Include a vagina, coochie, c*** (cunt), pussy, snatch, beaver, flower or peach reference."},
+    // { reason: "Your password does not contain a vagina. Should put one in. They're bloody (sorry) strong.", tag: "vagina", hidden: false, answer:"Include a vagina, coochie, c*** (cunt), pussy, snatch, beaver, flower or peach reference."},
     { reason: "Don't tell me your favourite number is 7? Be original. Get a new one.", tag: "seven", hidden: true, answer:"11 - 4 = Not needed in your password."},
     { reason: "Chuck a cheeky Avenger in there for some more security.", tag: "avengers", hidden: false, answer:"Wrack your brains and think of an Avenger, or get out of that rock you're living under."},
     { reason: "Oh boy. Your password contains the name of a dead Avenger. They're not going to be of much use. #thanosdidnothingwrong", tag: "avengersDead", hidden: true, answer:"Sorry if you haven't seen Infinity War, but Spiderman (and some others) die at the end."},
