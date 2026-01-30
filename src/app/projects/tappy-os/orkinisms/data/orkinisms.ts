@@ -33,12 +33,6 @@ export const orkinisms: Orkinism[] = [
         'A twinkie.'
     ),
     new Orkinism(
-        'Master Jack',
-        'noun',
-        '[mah-ster jak]',
-        'Gran\'s boyfriend name placeholder.'
-    ),
-    new Orkinism(
         'tookalook; tookalooks',
         'noun',
         '[took-A-look]',
@@ -72,7 +66,7 @@ export const orkinisms: Orkinism[] = [
         'rookie',
         'noun',
         '[rook-ee]',
-        'A misspelling of tookie/wookie. Also a televsion show.'
+        'A misspelling of tookie/wookie. Also a television show.'
     ),
     new Orkinism(
         '👍🏼',
@@ -96,13 +90,13 @@ export const orkinisms: Orkinism[] = [
         'kom eetem de spraken',
         'phrase',
         '[N/A]',
-        'Come eat! (Afrikaans)'
+        'Another Chloe special - Come eat!'
     ),
     new Orkinism(
         'padoonkie',
         'noun',
         '[pad-oon-ee]',
-        'A poop, typically human.'
+        'A poop, typically the pug\'s.'
     ),
     new Orkinism(
         '...chicken scratch...',
@@ -120,7 +114,7 @@ export const orkinisms: Orkinism[] = [
         'doodoo; kip',
         'noun',
         '[doo-doo]',
-        'A afternoon nap.'
+        'An afternoon nap.'
     ),
     new Orkinism(
         'dingleberry',
@@ -183,18 +177,6 @@ export const orkinisms: Orkinism[] = [
         'Something Gran says (undefinable).'
     ),
     new Orkinism(
-        'funny-face',
-        'noun',
-        '[fuhn-ee feys]',
-        'When Gran reckons you have a funny face.'
-    ),
-    new Orkinism(
-        'fat-face',
-        'noun',
-        '[fat-feys]',
-        'When Gran reckons you have a fat face/are scratching too much in the cupboards.'
-    ),
-    new Orkinism(
         'weenie',
         'noun',
         '[ween-ee]',
@@ -249,9 +231,9 @@ export const orkinisms: Orkinism[] = [
         'Tysie\'s doodle (refer doodle).'
     ),
     new Orkinism(
-        'mommying',
+        'mummying',
         'noun',
-        '[mom-ee-ing]',
+        '[mum-ee-ing]',
         'Sleeping on your back and not moving - mostly for Hilton.'
     ),
     new Orkinism(
@@ -274,10 +256,3 @@ export const orkinisms: Orkinism[] = [
     ),
 
 ];
-
-
-
-// 
-// Shinkies
-// Shinkalink
-// Shinks

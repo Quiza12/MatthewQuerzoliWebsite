@@ -1,7 +1,6 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter, withHashLocation, withEnabledBlockingInitialNavigation, withInMemoryScrolling } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
-// import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { importProvidersFrom } from '@angular/core';
 
 import { AppComponent } from './app/app.component';
@@ -12,7 +11,6 @@ import { ClipboardModule } from 'ngx-clipboard';
 
 bootstrapApplication(AppComponent, {
   providers: [
-    // provideAnimationsAsync(),
     provideHttpClient(),
 
     importProvidersFrom(

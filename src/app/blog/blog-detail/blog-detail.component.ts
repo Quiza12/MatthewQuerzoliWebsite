@@ -13,9 +13,7 @@ import { marked } from 'marked';
   styleUrl: './blog-detail.component.css'
 })
 export class BlogDetailComponent {
-  // safeMarkdown: SafeHtml = '';
   safeMarkdown = signal<SafeHtml>('' as SafeHtml);
-
 
   private http = inject(HttpClient);
   private route = inject(ActivatedRoute);
