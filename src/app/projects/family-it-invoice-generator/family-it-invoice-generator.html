@@ -6,7 +6,9 @@
       <div class="row">
         <div class="col">
           <!-- <h3>Family IT Invoice Generator</h3> -->
-          <h5>Stop your family from taking advantage of you and your IT skills. Price gouge them accordingly.</h5>
+          <h5>Stop your family from taking advantage of you and your IT skills.</h5>
+          <h5>Price gouge them accordingly.</h5>
+
         </div>
       </div>
     </div>
@@ -16,28 +18,37 @@
     <div class="container inner-container text-left">
       <div class="row">
 
-
         <form [formGroup]="invoiceForm" (ngSubmit)="onSubmit($event)">
 
-          <div class="col-4 mx-auto">
+          <div class="col-lg-4 mx-auto">
 
             <h5 class="mt-4">Basic Information</h5>
 
             <div class="col mb-3">
-              <input class="form-control" type="text" id="name" formControlName="name" placeholder="Your name" />
+              <input class="form-control" type="text" id="payeeName" formControlName="payeeName"
+                placeholder="Payee name"
+                [class.is-invalid]="invoiceForm.get('payeeName')?.invalid && invoiceForm.get('payeeName')?.touched" />
             </div>
 
             <div class="col mb-3">
-              <input class="form-control" type="date" id="date" formControlName="date" />
+              <input class="form-control" type="date" id="date" formControlName="date"
+                [class.is-invalid]="invoiceForm.get('date')?.invalid && invoiceForm.get('date')?.touched" />
             </div>
 
             <div class="col mb-3">
-              <input class="form-control" type="text" id="billTo" formControlName="billTo" placeholder="Bill to" />
+              <input class="form-control" type="text" id="payerName" formControlName="payerName"
+                placeholder="Payer name"
+                [class.is-invalid]="invoiceForm.get('payerName')?.invalid && invoiceForm.get('payerName')?.touched" />
+            </div>
+
+            <div class="col mb-3">
+              <input class="form-control" type="text" id="payerCompany" formControlName="payerCompany"
+                placeholder="Payer company" />
             </div>
 
           </div>
 
-          <div class="col-8 mx-auto">
+          <div class="col-lg-8 mx-auto">
 
             <h5 class="mt-4">Line Items</h5>
 
@@ -46,15 +57,18 @@
               <div class="row align-items-center mb-2" [formGroupName]="i">
 
                 <div class="col-4">
-                  <input class="form-control" formControlName="description" placeholder="Description" />
+                  <input class="form-control" formControlName="description" placeholder="Description"
+                    [class.is-invalid]="item.get('description')?.invalid && item.get('description')?.touched" />
                 </div>
 
                 <div class="col-2">
-                  <input class="form-control" formControlName="quantity" placeholder="Quantity" />
+                  <input class="form-control" formControlName="quantity" placeholder="Quantity"
+                    [class.is-invalid]="item.get('quantity')?.invalid && item.get('quantity')?.touched" />
                 </div>
 
                 <div class="col-4">
-                  <input class="form-control" formControlName="cost" placeholder="Cost" />
+                  <input class="form-control" formControlName="cost" placeholder="Cost"
+                    [class.is-invalid]="item.get('cost')?.invalid && item.get('cost')?.touched" />
                 </div>
 
                 <div class="col-2 d-flex align-items-end">
