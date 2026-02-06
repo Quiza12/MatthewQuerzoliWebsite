@@ -29,6 +29,7 @@ export class HeaderComponent {
   orkisimsRoute: boolean = false;
   trottadvisorRoute: boolean = false;
   bingoRoute: boolean = false;
+  familyItInvoiceGeneratorRoute: boolean = false;
 
   constructor(private router: Router) { }
 
@@ -60,6 +61,7 @@ export class HeaderComponent {
     this.orkisimsRoute = currentRoute.includes('orkinisms') ? true : false;
     this.trottadvisorRoute = currentRoute.includes('trottadvisor') ? true : false;
     this.bingoRoute = currentRoute.includes('bingo') ? true : false;
+    this.familyItInvoiceGeneratorRoute = currentRoute.includes('family-it-invoice-generator') ? true : false;
 
     this.standardRoute =
       !this.theBigOneRoute &&
@@ -73,7 +75,8 @@ export class HeaderComponent {
       !this.internetRecipeRoute &&
       !this.orkisimsRoute &&
       !this.trottadvisorRoute &&
-      !this.bingoRoute;
+      !this.bingoRoute &&
+      !this.familyItInvoiceGeneratorRoute;
 
   }
 
@@ -91,6 +94,7 @@ export class HeaderComponent {
     this.orkisimsRoute = false;
     this.trottadvisorRoute = false;
     this.bingoRoute = false;
+    this.familyItInvoiceGeneratorRoute = false;
   }
 
   collapseNavbar(navToCollapse: string) {

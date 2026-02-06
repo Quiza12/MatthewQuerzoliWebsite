@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UpperCasePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-bingo',
@@ -11,18 +12,27 @@ import { FormsModule } from '@angular/forms';
 })
 export class BingoComponent {
 
-  readonly size = 5;
+  title: string = '🎲 Bingo - Projects'
   selected = new Set<number>();
   tiles: any;
   selectedCard: any;
+  bingoTileSize: number = 0;
+  cards = ['Select a card...', 'Pregnant/newborn', 'Tysie', 'Footy (spectator)', 'Footy (player)', 'Office', 'Harro'];
+
   win: boolean = false;
+  newbornCardSelected: boolean = false;
+  footySpectatorCardSelected: boolean = false;
+  footyPlayerCardSelected: boolean = false;
+  officeCardSelected: boolean = false;
+  harroCardSelected: boolean = false;
+  tysieCardSelected: boolean = false;
 
   newbornTiles: string[] = [
     "Mum and bub are both doing well", "Our family of [number] is about to become [new number]!", "Last weekend as a family of [number] (reference to a babymoon)", "Mum/[partner's name] is an absolute champion", "Our hearts are so full", "Our biggest blessing", "Using the royal 'We'", "Our family is growing", "We can't wait to meet [her/him]", "[name] is going to be a big [brother/sister] (if dog owners or already have an elder sibling)", "My/our world", "[name], born [date], weighing [weight]", "Can't wait to meet our little [guy/girl] on [expected date]", "Our little miracle", "Changing our lives for the better", "We've been keeping a little secret!", "We love you so much already", "We've completed our little family", "Baby [surname] loading, coming [month/year]", "Announcement on onesie with a picture of the ultrasound, surrounded by baby paraphernalia", "If pet owners, announcement with shot of pet, ultrasound and baby paraphernalia", "If not first child, announcement with shot of older sibling, ultrasound and '[older sibling name] can't wait to be a big [brother/sister]'"
   ]
 
   footyPlayerTiles: string[] = [
-    "They can't run without legs", "It's nil-all boys", "When we play our best footy we can beat anyone in the comp", "PRESSURE", "They've run out of legs", "Do the one-percenters"
+    "They can't run without legs", "It's nil-all boys", "When we play our best footy we can beat anyone in the comp", "PRESSURE", "They've run out of legs", "Do the one-percenters", "First to the footy", "Hit the cunt", "DO SOMETHING!", "Beat your man, we win the game", "Stop fucking around with it, get it up forward!", "See the red thing? Fucking get it!"
   ]
 
   footySpectatorTiles: string[] = [
@@ -32,22 +42,16 @@ export class BingoComponent {
   officeTiles: string[] = ["Synergies", "Impost", "Key takeaways", "Take this offline", "Touch base", "Actions out of this meeting/key action items", "On the same page", "Resources", "Moving/going forward", "Hey/hi gents [when a woman also on the email thread]", "Can I ask a dumb question?", "Circle back", "You're on mute", "Win/win", "Aligned", "Bring to the table", "Risk", "Hope this finds you well", "Deliverables", "A Teams/Slack message that is just 'Hi! How are you?'", "Just following up", "Skin in the game", "Move the goalposts", "Deep dive", "On a high level", "Leverage", "That's another discussion", "Benefit", "Agenda", "As discussed"];
 
   harroTiles: string[] = [
-    "HARRO", "TEUTT", "TROTT", "BRAH", "PACK", "YEAH", "NAH", "GOAT", "CHICKS", "___SONS", "LAD", "LEGIT", "SCRUFF", "FIN"
+    "HARRO", "TEUTT", "TROTT", "BRAH", "PCK", "YEAH", "NAH", "GOAT", "CHICKS", "___SONS", "LAD", "LEGIT", "SCRUFF", "FIN", "NIFF", "BEST CHANCE CHOPPA", "HOMMA"
   ]
 
   tysieTiles: string[] = [
     "Tysie", "Tooksie", "Pug", "Puggles", "Puglet", "Pugloot", "Little face", "Handsome", "Bobbinhead", "Zootie", "It's just his hair", "Chickie", "Snorkies/snorkiehead", "Biiiiig stretch", "Want to go on a W?", "Turtling", "Sniff sniff sniff", "Humpy dumpy", "Needs to make a padoonkie", "Made a doodle", "Puggles", "Tookie", "Stop riling Biscuit up", "Noonkie", "Red thing", "Good boy", "Bad", "Cutest little poppie", "He's just a pug", "Little grandpa"
   ]
 
-  cards = ['Select a card...', 'Pregnant/newborn', 'Tysie', 'Footy (spectator)', 'Footy (player)', 'Office', 'Harro'];
-  bingoTileSize: number = 0;
-
-  newbornCardSelected = false;
-  footySpectatorCardSelected = false;
-  footyPlayerCardSelected = false;
-  officeCardSelected = false;
-  harroCardSelected = false;
-  tysieCardSelected = false;
+  constructor(titleService: Title) {
+    titleService.setTitle(this.title);
+  }
 
   onCardChange(event: Event) {
     this.selectedCard = (event.target as HTMLSelectElement).value;

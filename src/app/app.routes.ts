@@ -26,6 +26,7 @@ import { InternetRecipeAboutComponent } from './projects/internet-recipe/compone
 import { OrkinismsComponent } from './projects/tappy-os/orkinisms/orkinisms.component';
 import { TrottadvisorComponent } from './projects/trottadvisor/trottadvisor.component';
 import { BingoComponent } from './projects/bingo/bingo.component';
+import { FamilyItInvoiceGenerator } from './projects/family-it-invoice-generator/family-it-invoice-generator';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -63,4 +64,6 @@ export const routes: Routes = [
 
   { path: 'projects/trottadvisor', component: TrottadvisorComponent },
   { path: 'projects/bingo', component: BingoComponent },
+  { path: 'projects/family-it-invoice-generator', component: FamilyItInvoiceGenerator },
+  
 ];

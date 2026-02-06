@@ -1,0 +1,95 @@
+<body>
+
+  <div class="container">
+    <div class="container inner-container text-center">
+
+      <div class="row">
+        <div class="col">
+          <!-- <h3>Family IT Invoice Generator</h3> -->
+          <h5>Stop your family from taking advantage of you and your IT skills. Price gouge them accordingly.</h5>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="container inner-container text-left">
+      <div class="row">
+
+
+        <form [formGroup]="invoiceForm" (ngSubmit)="onSubmit($event)">
+
+          <div class="col-4 mx-auto">
+
+            <h5 class="mt-4">Basic Information</h5>
+
+            <div class="col mb-3">
+              <input class="form-control" type="text" id="name" formControlName="name" placeholder="Your name" />
+            </div>
+
+            <div class="col mb-3">
+              <input class="form-control" type="date" id="date" formControlName="date" />
+            </div>
+
+            <div class="col mb-3">
+              <input class="form-control" type="text" id="billTo" formControlName="billTo" placeholder="Bill to" />
+            </div>
+
+          </div>
+
+          <div class="col-8 mx-auto">
+
+            <h5 class="mt-4">Line Items</h5>
+
+            <div formArrayName="lineItems">
+              @for (item of lineItems.controls; let i = $index; track i) {
+              <div class="row align-items-center mb-2" [formGroupName]="i">
+
+                <div class="col-4">
+                  <input class="form-control" formControlName="description" placeholder="Description" />
+                </div>
+
+                <div class="col-2">
+                  <input class="form-control" formControlName="quantity" placeholder="Quantity" />
+                </div>
+
+                <div class="col-4">
+                  <input class="form-control" formControlName="cost" placeholder="Cost" />
+                </div>
+
+                <div class="col-2 d-flex align-items-end">
+                  <button type="button" class="btn btn-sm btn-danger w-100" (click)="removeLineItem(i)">
+                    X
+                  </button>
+                </div>
+
+              </div>
+              }
+            </div>
+
+          </div>
+
+          <div class="col mx-auto text-center">
+            <div class="mt-3">
+              <button type="button" class="btn btn-secondary" (click)="addLineItem()">
+                Add Line Item
+              </button>
+            </div>
+
+            <div class="mt-3">
+              <button type="submit" class="btn btn-primary">
+                Generate Invoice
+              </button>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+
+      <br><br>
+
+    </div>
+  </div>
+
+</body>

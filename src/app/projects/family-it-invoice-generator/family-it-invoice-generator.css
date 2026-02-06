@@ -1,0 +1,11 @@
+body {
+  background-color: #ffe4d6;
+  display: flex;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.inner-container {
+  margin-top: 0px;
+}
+
