@@ -18,6 +18,7 @@ export class HeaderComponent {
 
   standardRoute: boolean = false;
   theBigOneRoute: boolean = false;
+  tappyOsRoute: boolean = false;
   tappyStandardTimeRoute: boolean = false;
   tappySeasonTimeRoute: boolean = false;
   boganOfMeteorologyRoute: boolean = false;
@@ -49,19 +50,20 @@ export class HeaderComponent {
 
     this.resetRoutes();
 
-    this.theBigOneRoute = currentRoute.includes('the-big-one') ? true : false;
-    this.tappyStandardTimeRoute = currentRoute.includes('tappy-standard-time') ? true : false;
-    this.boganOfMeteorologyRoute = currentRoute.includes('bogan-of-meteorology') ? true : false;
-    this.ripMeANewOneRoute = currentRoute.includes('rip-me-a-new-one') ? true : false;
-    this.itsFiveOclockSomewhereRoute = currentRoute.includes('its-five-oclock-somewhere') ? true : false;
-    this.tappySeasonTimeRoute = currentRoute.includes('tappy-season-time') ? true : false;
-    this.funnyPasswordCheckerRoute = currentRoute.includes('funny-password-checker') ? true : false;
-    this.quietNearALittleStreamRoute = currentRoute.includes('quiet-near-a-little-stream') ? true : false;
-    this.internetRecipeRoute = currentRoute.includes('internet-recipe') ? true : false;
-    this.orkisimsRoute = currentRoute.includes('orkinisms') ? true : false;
-    this.trottadvisorRoute = currentRoute.includes('trottadvisor') ? true : false;
-    this.bingoRoute = currentRoute.includes('bingo') ? true : false;
-    this.familyItInvoiceGeneratorRoute = currentRoute.includes('family-it-invoice-generator') ? true : false;
+    this.theBigOneRoute = currentRoute == ('/projects/the-big-one') ? true : false;
+    this.boganOfMeteorologyRoute = currentRoute == ('/projects/bogan-of-meteorology') ? true : false;
+    this.ripMeANewOneRoute = currentRoute == ('/projects/rip-me-a-new-one') ? true : false;
+    this.itsFiveOclockSomewhereRoute = currentRoute == ('/projects/its-five-oclock-somewhere') ? true : false;
+    this.funnyPasswordCheckerRoute = currentRoute == ('/projects/funny-password-checker') ? true : false;
+    this.quietNearALittleStreamRoute = currentRoute == ('/projects/quiet-near-a-little-stream') ? true : false;
+    this.internetRecipeRoute = currentRoute == ('/projects/internet-recipe') ? true : false;
+    this.trottadvisorRoute = currentRoute == ('/projects/trottadvisor') ? true : false;
+    this.bingoRoute = currentRoute == ('/projects/bingo') ? true : false;
+    this.familyItInvoiceGeneratorRoute = currentRoute == ('/projects/family-it-invoice-generator') ? true : false;
+    this.tappyOsRoute = currentRoute == ('/projects/tappy-os') ? true : false;
+    this.orkisimsRoute = currentRoute == ('/projects/tappy-os/orkinisms') ? true : false;
+    this.tappySeasonTimeRoute = currentRoute == ('/projects/tappy-os/tappy-season-time') ? true : false;
+    this.tappyStandardTimeRoute = currentRoute == ('/projects/tappy-os/tappy-standard-time') ? true : false;
 
     this.standardRoute =
       !this.theBigOneRoute &&
@@ -76,7 +78,8 @@ export class HeaderComponent {
       !this.orkisimsRoute &&
       !this.trottadvisorRoute &&
       !this.bingoRoute &&
-      !this.familyItInvoiceGeneratorRoute;
+      !this.familyItInvoiceGeneratorRoute &&
+      !this.tappyOsRoute;
 
   }
 
@@ -95,6 +98,7 @@ export class HeaderComponent {
     this.trottadvisorRoute = false;
     this.bingoRoute = false;
     this.familyItInvoiceGeneratorRoute = false;
+    this.tappyOsRoute = false;
   }
 
   collapseNavbar(navToCollapse: string) {
