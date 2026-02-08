@@ -12,62 +12,42 @@
         <br>
         <br>
 
-        <div class="row">
+       <div class="row">
 
-            <div class="col-sm-2"></div>
+            @for(project of projects; track $index) {
+            @if (project.internal && project.active && !project.underConstruction && project.route.match(tappyOsProjectPattern)) {
+            <div class="col-md-4 mb-3 d-flex">
+                <a [routerLink]="project.route"
+                    class="btn btn-light w-100 h-100 d-flex flex-column justify-content-between project-card internal-project-card">
 
-            <div class="col-sm-4 mb-3">
-                <a routerLink="/projects/tappy-os/tappy-standard-time" class="btn btn-light" role="button"
-                    aria-pressed="true">
-                    <h4 class="mt-3">⏰ Tappy Standard Time</h4>
-                    <p>The timezone my illustrious, beloved girlfriend currently operates in.</p>
-                    <img class="tag-icon" src="/assets/images/icons/html-icon.svg">
-                    <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg">
-                    <img class="tag-icon" src="/assets/images/icons/javascript-icon.svg">
-                    <p class="tag-size"><b>64.2 kB</b></p>
+                    <div>
+                        <h4 class="mt-3">{{ project.emoji + ' ' + project.name }}</h4>
+                        <p>{{ project.description }}</p>
+
+                        @if (project.technology.includes(technology.Angular)) {
+                        <img class="tag-icon" src="/assets/images/icons/angular-icon.svg" alt="Angular">
+                        }
+                        @if (project.technology.includes(technology.Bootstrap)) {
+                        <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg" alt="Bootstrap">
+                        }
+                        @if (project.technology.includes(technology.HTML5)) {
+                        <img class="tag-icon" src="/assets/images/icons/html-icon.svg" alt="HTML">
+                        }
+                        @if (project.technology.includes(technology.Javascript)) {
+                        <img class="tag-icon" src="/assets/images/icons/javascript-icon.svg" alt="JavaScript">
+                        }
+                    </div>
+
+                    <p class="mt-3"><b>{{ project.year }}</b></p>
                 </a>
             </div>
 
-            <div class="col-sm-4 mb-3">
-                <a routerLink="/projects/tappy-os/tappy-season-time" class="btn btn-light" role="button"
-                    aria-pressed="true">
-                    <h4 class="mt-3">🌸 Tappy Season Time</h4>
-                    <p>The season my beloved, illustrious girlfriend currently lives in.</p>
-                    <img class="tag-icon" src="/assets/images/icons/html-icon.svg">
-                    <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg">
-                    <img class="tag-icon" src="/assets/images/icons/javascript-icon.svg">
-                    <p class="tag-size"><b>2.1 kB</b></p>
-                </a>
-            </div>
+            }
+            }
 
-            <div class="col-sm-2"></div>
-        </div>
-
-        <div class="row">
-
-            <div class="col-sm-2"></div>
-
-            <div class="col-sm-4 mb-3">
-                <a routerLink="/projects/tappy-os/orkinisms" class="btn btn-light" role="button"
-                    aria-pressed="true">
-                    <h4 class="mt-3">📖 Orkinisms</h4>
-                    <p>What is the difference between a wookie and a tookie? Well, now you can find out.</p>
-                    <img class="tag-icon" src="/assets/images/icons/angular-icon.svg">
-                    <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg">
-                    <p class="tag-size"><b>383 kB</b></p>
-                </a>
-            </div>
-
-            <div class="col-sm-4 mb-3">
-                <!-- for another project -->
-            </div>
-
-            <div class="col-sm-2"></div>
         </div>
 
         <br><br>
 
     </div>
 </body>
-
-<!-- <a routerLink="/projects/tappy-os/orkinisms" class="btn btn-under-construction" role="button" -->

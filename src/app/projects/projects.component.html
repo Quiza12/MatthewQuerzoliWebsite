@@ -1,14 +1,17 @@
 <body>
     <div class="container text-center">
+        
         <div class="row">
             <div class="col-sm-2"></div>
             <div class="col-sm-8">
                 <h3>Projects</h3>
+                
                 <p>Whenever I've got the requisite spare time and motivation on this giant spinning space rock, I work
                     on a few amusing, if less than serious side projects.</p>
             </div>
             <div class="col-sm-2"></div>
         </div>
+        
         <div class="row">
             <div class="col-sm-2"></div>
             <div class="col-sm-8">
@@ -26,228 +29,152 @@
 
         <div class="row">
 
-            <div class="col-sm-2"></div>
+            <h5>Projects Under Construction</h5>
 
-            <div class="col-sm-4 mb-3">
+            @for(project of projects; track $index) {
+            @if (project.underConstruction) {
+            <div class="col-md-4 mb-3 d-flex">
+                <a [routerLink]="project.route"
+                    class="btn btn-light w-100 h-100 d-flex flex-column justify-content-between project-card under-construction-project-card">
 
-                <a routerLink="/projects/the-big-one" class="btn btn-light" role="button" aria-pressed="true">
-                    <h4 class="mt-3">🌏 The Big One FAQ</h4>
-                    <p>A recount of my six-month trip, all around the world, in anticipation for all the 'What was your
-                        favourite...' questions I would receive upon return.</p>
-                    <img class="tag-icon" src="/assets/images/icons/html-icon.svg" alt="HTML">
-                    <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg" alt="Bootstrap">
-                    <img class="tag-icon" src="/assets/images/icons/javascript-icon.svg" alt="JavaScript">
+                    <div>
+                        <h4 class="mt-3">{{ project.emoji + ' ' + project.name }}</h4>
+                        <p>{{ project.description }}</p>
+
+                        @if (project.technology.includes(technology.Angular)) {
+                        <img class="tag-icon" src="/assets/images/icons/angular-icon.svg" alt="Angular">
+                        }
+                        @if (project.technology.includes(technology.Bootstrap)) {
+                        <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg" alt="Bootstrap">
+                        }
+                        @if (project.technology.includes(technology.HTML5)) {
+                        <img class="tag-icon" src="/assets/images/icons/html-icon.svg" alt="HTML">
+                        }
+                        @if (project.technology.includes(technology.Javascript)) {
+                        <img class="tag-icon" src="/assets/images/icons/javascript-icon.svg" alt="JavaScript">
+                        }
+                    </div>
+
+                    <p class="mt-3"><b>{{ project.year }}</b></p>
                 </a>
             </div>
 
-            <div class="col-sm-4 mb-3">
-                <a routerLink="/projects/bogan-of-meteorology" class="btn btn-light" role="button" aria-pressed="true">
-                    <h4 class="mt-3">🌦️ Bogan of Meteorology</h4>
-                    <p>The ultimate Australian weather site. Weather data direct from the Bureau of Meteorology,
-                        translated into <a href="https://en.wikipedia.org/wiki/Bogan" target="_blank">bogan</a>.</p>
-                    <img class="tag-icon" src="/assets/images/icons/angular-icon.svg">
-                    <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg">
-                </a>
-            </div>
+            }
+            }
 
-            <div class="col-sm-2"></div>
         </div>
 
         <div class="row">
-            <div class="col-sm-2"></div>
 
-            <div class="col-sm-4 mb-3">
-                <a routerLink="/projects/funny-password-checker" class="btn btn-light" role="button"
-                    aria-pressed="true">
-                    <h4 class="mt-3">🔑 Funny Password Checker</h4>
-                    <p>A password strength checker, with a humorous side.</p>
-                    <img class="tag-icon" src="/assets/images/icons/angular-icon.svg">
-                    <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg">
+            <h5>Internal Projects</h5>
+
+            @for(project of projects; track $index) {
+            @if (project.internal && project.active && !project.underConstruction && !project.route.match(tappyOsProjectPattern)) {
+            <div class="col-md-4 mb-3 d-flex">
+                <a [routerLink]="project.route"
+                    class="btn btn-light w-100 h-100 d-flex flex-column justify-content-between project-card internal-project-card">
+
+                    <div>
+                        <h4 class="mt-3">{{ project.emoji + ' ' + project.name }}</h4>
+                        <p>{{ project.description }}</p>
+
+                        @if (project.technology.includes(technology.Angular)) {
+                        <img class="tag-icon" src="/assets/images/icons/angular-icon.svg" alt="Angular">
+                        }
+                        @if (project.technology.includes(technology.Bootstrap)) {
+                        <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg" alt="Bootstrap">
+                        }
+                        @if (project.technology.includes(technology.HTML5)) {
+                        <img class="tag-icon" src="/assets/images/icons/html-icon.svg" alt="HTML">
+                        }
+                        @if (project.technology.includes(technology.Javascript)) {
+                        <img class="tag-icon" src="/assets/images/icons/javascript-icon.svg" alt="JavaScript">
+                        }
+                    </div>
+
+                    <p class="mt-3"><b>{{ project.year }}</b></p>
                 </a>
             </div>
 
-            <div class="col-sm-4 mb-3">
-                <a routerLink="/projects/its-five-oclock-somewhere" class="btn btn-light" role="button"
-                    aria-pressed="true">
-                    <h4 class="mt-3">🕔 It's Five O'Clock Somewhere</h4>
-                    <p>Where is it currently five o'clock in the world so that you can justify your beer consumption.
-                    </p>
-                    <img class="tag-icon" src="/assets/images/icons/html-icon.svg">
-                    <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg">
-                    <img class="tag-icon" src="/assets/images/icons/javascript-icon.svg">
-                </a>
-            </div>
+            }
+            }
 
-            <div class="col-sm-2"></div>
         </div>
 
         <div class="row">
-            <div class="col-sm-2"></div>
 
-            <div class="col-sm-4 mb-3">
-                <a routerLink="/projects/rip-me-a-new-one" class="btn btn-light" role="button" aria-pressed="true">
-                    <h4 class="mt-3">🍻 Rip Me A New One</h4>
-                    <p>Find out how much tax the case/bottle you buy is subject to thanks to the Australian Government.
-                    </p>
-                    <img class="tag-icon" src="/assets/images/icons/html-icon.svg">
-                    <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg">
-                    <img class="tag-icon" src="/assets/images/icons/javascript-icon.svg">
+            <h5>External Projects</h5>
+
+            @for(project of projects; track $index) {
+            @if (!project.internal && project.active) {
+            <div class="col-md-4 mb-3 d-flex">
+                <a [href]="project.route" target="_blank"
+                    class="btn btn-light w-100 h-100 d-flex flex-column justify-content-between project-card external-project-card">
+
+                    <div>
+                        <h4 class="mt-3">{{ project.emoji + ' ' + project.name }} <img
+                                src="/assets/images/icons/external-link.svg" class="img-fluid external-link"></h4>
+                        <p>{{ project.description }}</p>
+
+                        @if (project.technology.includes(technology.Angular)) {
+                        <img class="tag-icon" src="/assets/images/icons/angular-icon.svg" alt="Angular">
+                        }
+                        @if (project.technology.includes(technology.Bootstrap)) {
+                        <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg" alt="Bootstrap">
+                        }
+                        @if (project.technology.includes(technology.HTML5)) {
+                        <img class="tag-icon" src="/assets/images/icons/html-icon.svg" alt="HTML">
+                        }
+                        @if (project.technology.includes(technology.Javascript)) {
+                        <img class="tag-icon" src="/assets/images/icons/javascript-icon.svg" alt="JavaScript">
+                        }
+                    </div>
+
+                    <p class="mt-3"><b>{{ project.year }}</b></p>
                 </a>
             </div>
+            }
+            }
 
-            <div class="col-sm-4 mb-3">
-                <a routerLink="/projects/tappy-os" class="btn btn-light" role="button" aria-pressed="true">
-                    <h4 class="mt-3">👧🏽 Tappy OS</h4>
-                    <p>The one-of-a-kind Tappy Operating System.</p>
-                    <p class="tag-size"><b>(3)</b></p>
-                </a>
-            </div>
-
-            <div class="col-sm-2"></div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-2"></div>
-
-            <div class="col-sm-4 mb-3">
-                <a routerLink="/projects/quiet-near-a-little-stream" class="btn btn-light" role="button"
-                    aria-pressed="true">
-                    <h4 class="mt-3">💧 Be Quiet Near a Little Stream and Listen</h4>
-                    <p>Inspired by Ruth Krauss and the Marginalian, a meditative Marcus Sendak illustration, brought to
-                        life.</p>
-                    <img class="tag-icon" src="/assets/images/icons/angular-icon.svg">
-                    <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg">
-                </a>
-            </div>
-
-            <div class="col-sm-4 mb-3">
-                <a routerLink="/projects/internet-recipe" class="btn btn-light" role="button" aria-pressed="true">
-                    <h4 class="mt-3">🍝 INTERNET RECIPE</h4>
-                    <p>JUST YOUR AVERAGE INTERNET RECIPE ©</p>
-                    <img class="tag-icon" src="/assets/images/icons/angular-icon.svg">
-                    <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg">
-                </a>
-            </div>
-
-            <div class="col-sm-2"></div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-2"></div>
-
-
-
-            <div class="col-sm-4 mb-3">
-                <a routerLink="/projects/bingo" class="btn btn-light" role="button" aria-pressed="true">
-                    <h4 class="mt-3">🎲 Bingo</h4>
-                    <p>Esoteric, situational bingo. Legs eleven et al.</p>
-                    <img class="tag-icon" src="/assets/images/icons/angular-icon.svg">
-                    <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg">
-                </a>
-            </div>
-
-            <div class="col-sm-4 mb-3">
-                <a routerLink="/projects/family-it-invoice-generator" class="btn btn-light" role="button"
-                    aria-pressed="true">
-                    <h4 class="mt-3">🧾 Family IT Support Invoice Generator </h4>
-                    <p>Stop your family from taking advantage of you and your IT skills. Price gouge them accordingly.
-                    </p>
-                    <img class="tag-icon" src="/assets/images/icons/angular-icon.svg">
-                    <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg">
-                </a>
-            </div>
-
-            <div class="col-sm-2"></div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-2"></div>
-
-            <div class="col-sm-4 mb-3">
-                <a routerLink="#" class="btn btn-under-construction" role="button" aria-pressed="true" disabled>
-                    <h4 class="mt-3">🚧 Trottadvisor 🚧</h4>
-                    <p>Yeah yeah yeah nah yeah.</p>
-                    <img class="tag-icon" src="/assets/images/icons/angular-icon.svg">
-                    <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg">
-                    <p class="tag-size"><b>? MB</b></p>
-                </a>
-            </div>
-
-            <div class="col-sm-2"></div>
         </div>
 
         <br>
 
         <div class="row">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-8 mb-3">
-                <h5>External Projects</h5>
-            </div>
-            <div class="col-sm-2"></div>
-        </div>
 
-        <div class="row">
+            <h5>Inactive/Past Projects</h5>
 
-            <div class="col-sm-2"></div>
-            <div class="col-sm-4 mb-3">
+            @for(project of projects; track $index) {
+            @if (!project.active) {
+            <div class="col-md-4 mb-3 d-flex">
+                <a [href]="project.route" target="_blank"
+                    class="btn btn-light w-100 h-100 d-flex flex-column justify-content-between project-card inactive-project-card">
 
-                <a href="https://www.orkinbrown.co.za/" target="_blank" class="btn btn-light" role="button"
-                    aria-pressed="true">
-                    <h4 class="mt-3">📒 Orkin Brown & Associates <img src="/assets/images/icons/external-link.svg"
-                            class="img-fluid external-link"></h4>
-                    <p>The undisputed heavyweight accounting firm of South Africa.</p>
-                    <img class="tag-icon" src="/assets/images/icons/angular-icon.svg">
-                    <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg">
-                    <p class="tag-size"></p>
+                    <div>
+                        <h4 class="mt-3">{{ project.emoji + ' ' + project.name }} <img
+                                src="/assets/images/icons/external-link.svg" class="img-fluid external-link"></h4>
+                        <p>{{ project.description }}</p>
+
+                        @if (project.technology.includes(technology.Angular)) {
+                        <img class="tag-icon" src="/assets/images/icons/angular-icon.svg" alt="Angular">
+                        }
+                        @if (project.technology.includes(technology.Bootstrap)) {
+                        <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg" alt="Bootstrap">
+                        }
+                        @if (project.technology.includes(technology.HTML5)) {
+                        <img class="tag-icon" src="/assets/images/icons/html-icon.svg" alt="HTML">
+                        }
+                        @if (project.technology.includes(technology.Javascript)) {
+                        <img class="tag-icon" src="/assets/images/icons/javascript-icon.svg" alt="JavaScript">
+                        }
+                    </div>
+
+                    <p class="mt-3"><b>{{ project.year }}</b></p>
                 </a>
-
             </div>
-            <div class="col-sm-4 mb-3">
+            }
+            }
 
-                <a href="https://palisis-persistent-pursuit-of-places.netlify.app/" target="_blank"
-                    class="btn btn-light" role="button" aria-pressed="true">
-                    <h4 class="mt-3">🌏 Palisi's Persistent Pursuit of Places FAQ</h4>
-                    <p>Anthony's worldwide 1.5 year long trip.</p>
-                    <img class="tag-icon" src="/assets/images/icons/html-icon.svg" alt="HTML">
-                    <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg" alt="Bootstrap">
-                    <img class="tag-icon" src="/assets/images/icons/javascript-icon.svg" alt="JavaScript">
-                    <p class="tag-size"><b>1.1 MB</b></p>
-                </a>
-
-            </div>
-            <div class="col-sm-2"></div>
-        </div>
-
-        <br>
-
-        <div class="row">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-8 mb-3">
-                <h5>Inactive/Past Projects</h5>
-            </div>
-            <div class="col-sm-2"></div>
-        </div>
-
-        <div class="row">
-
-            <div class="col-sm-2"></div>
-            <div class="col-sm-4 mb-3">
-                <div class="btn btn-inactive">
-                    <h4 class="mt-3">🌻 Path to Peace <img src="/assets/images/icons/external-link.svg"
-                            class="img-fluid external-link"></h4>
-                    <p>My brother's non-for-profit mission for mental health (on <b>pause</b> since October 2025).</p>
-                    <img class="tag-icon" src="/assets/images/icons/angular-icon.svg">
-                    <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg">
-                </div>
-                <!-- <a href="https://www.pathtopeace.me/" target="_blank" class="btn btn-inactive" role="button" aria-pressed="true">
-                    <h4 class="mt-3">🌻 Path to Peace <img src="/assets/images/icons/external-link.svg" class="img-fluid external-link"></h4>
-                    <p>My brother's non-for-profit mission for mental health (on <b>pause</b> since October 2025).</p>
-                    <img class="tag-icon" src="/assets/images/icons/angular-icon.svg">
-                    <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg">
-                </a> -->
-            </div>
-            <div class="col-sm-4 mb-3"></div>
-            <div class="col-sm-2"></div>
         </div>
 
         <br>
