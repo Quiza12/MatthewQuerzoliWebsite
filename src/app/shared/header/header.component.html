@@ -324,16 +324,25 @@
 }
 
 @if (trottadvisorRoute) {
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container-fluid">
         <!-- Left side -->
-        <a class="navbar-text d-none d-lg-block" routerLink="/projects" id="leftLink">Projects</a>
-        <a class="navbar-brand d-lg-none" routerLink="/projects" id="leftEmoji">📚</a>
+        <!-- <a class="navbar-text d-none d-lg-block" routerLink="/projects" id="leftLink">Projects</a>
+        <a class="navbar-brand d-lg-none" routerLink="/projects" id="leftEmoji">📚</a> -->
+
+        <a class="navbar-brand" href="#">
+            <a class="navbar-text trottadvisor-nav-text" routerLink="/projects" id="leftLink">Projects</a>
+            <img class="trottadvisor-nav-image" src="/assets/images/trottadvisor/trottadvisor-no-bg.png" alt="Bootstrap" height="30" >
+        </a>
+        <!-- <img class="navbar- d-none d-lg-block" src="/assets/images/trottadvisor/trottadvisor-no-bg.png" class="img-fluid" > -->
+
+        
+
 
         <!-- Middle text -->
-        <div class="position-absolute start-50 translate-middle-x">
+        <!-- <div class="position-absolute start-50 translate-middle-x">
             <a class="navbar-brand" routerLink="/projects/trottadvisor">Trottadvisor</a>
-        </div>
+        </div> -->
 
     </div>
 
@@ -366,7 +375,24 @@
 
         <!-- Middle text -->
         <div class="position-absolute start-50 translate-middle-x">
-            <a class="navbar-brand" routerLink="/projects/family-it-invoice-generator">Family IT Invoice Generator</a>
+            <a class="navbar-brand" routerLink="/projects/family-it-invoice-generator">Family IT Support Invoice Generator</a>
+        </div>
+
+    </div>
+
+</nav>
+}
+
+@if (dontYouForgetAboutJimnyRoute) {
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+        <!-- Left side -->
+        <a class="navbar-text d-none d-lg-block" routerLink="/projects" id="leftLink">Projects</a>
+        <a class="navbar-brand d-lg-none" routerLink="/projects" id="leftEmoji">📚</a>
+
+        <!-- Middle text -->
+        <div class="position-absolute start-50 translate-middle-x">
+            <a class="navbar-brand" routerLink="/projects/family-it-invoice-generator">Don't You Forget About Me</a>
         </div>
 
     </div>

@@ -31,6 +31,7 @@ export class HeaderComponent {
   trottadvisorRoute: boolean = false;
   bingoRoute: boolean = false;
   familyItInvoiceGeneratorRoute: boolean = false;
+  dontYouForgetAboutJimnyRoute: boolean = false;
 
   constructor(private router: Router) { }
 
@@ -64,6 +65,7 @@ export class HeaderComponent {
     this.orkisimsRoute = currentRoute == ('/projects/tappy-os/orkinisms') ? true : false;
     this.tappySeasonTimeRoute = currentRoute == ('/projects/tappy-os/tappy-season-time') ? true : false;
     this.tappyStandardTimeRoute = currentRoute == ('/projects/tappy-os/tappy-standard-time') ? true : false;
+    this.dontYouForgetAboutJimnyRoute = currentRoute == ('/projects/tappy-os/dont-you-forget-about-jimny') ? true : false;
 
     this.standardRoute =
       !this.theBigOneRoute &&
@@ -79,8 +81,8 @@ export class HeaderComponent {
       !this.trottadvisorRoute &&
       !this.bingoRoute &&
       !this.familyItInvoiceGeneratorRoute &&
-      !this.tappyOsRoute;
-
+      !this.tappyOsRoute &&
+      !this.dontYouForgetAboutJimnyRoute;
   }
 
   resetRoutes() {
@@ -99,6 +101,7 @@ export class HeaderComponent {
     this.bingoRoute = false;
     this.familyItInvoiceGeneratorRoute = false;
     this.tappyOsRoute = false;
+    this.dontYouForgetAboutJimnyRoute = false;
   }
 
   collapseNavbar(navToCollapse: string) {
