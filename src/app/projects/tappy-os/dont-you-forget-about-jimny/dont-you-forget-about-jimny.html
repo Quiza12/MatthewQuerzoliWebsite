@@ -1,58 +1,70 @@
 <body>
 
-    <!-- Home -->
-    <!-- <section id="top" class="bg-primary bg-gradient">
-        <div class="container px-4 mt-0 text-center">
-
-            <h1 class="fw-bolder text-white">The Big One (or Matt's Six-Month Trip) FAQ</h1>
-            <p class="lead text-white">So Matt doesn't need to answer 'What was your favourite place?' a thousand times.
-            </p>
-
-        </div>
-    </section> -->
-
-    <section class="pt-1" id="faqs">
+    <section class="pt-1" id="jimny">
         <div class="container px-4">
             <div class="row gx-4 justify-content-center text-center">
                 <div class="col-lg-8">
-                    <h2>Don't You (Forget About <b>Jimny</b>)!</h2>
 
-                    <h5>Sound UP!</h5>
+                    <p>An ode to the tall man with the small car.</p>
+                    <h5 class="d-inline-block me-2">Sound UP!</h5>
 
-                    <audio autoplay controls hidden>
-                        <source src="/assets/audio/dont-you-forget-about-jimny/dont-you-forget-about-me.mp3"
-                            type="audio/mpeg">
-                        Your browser does not support the audio element.
+                    @if (!playing) {
+                    <button class="btn btn-outline-dark play-button" (click)="playAudio()">Play</button>
+                    }
+
+                    @if (playing) {
+                    <button class="btn btn-outline-dark pause-button" (click)="pauseAudio()">Pause</button>
+                    }
+
+                    <audio #jimnyAudio loop>
+                        <source [src]="audioSrc" type="audio/mpeg">
                     </audio>
 
-                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                    <br> <br>
+
+                    <div id="carousel" data-bs-theme="dark" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
 
                             @for (jimnyImage of jimnyImageArray; track $index) {
                             @if ($index != 0) {
-                            <div class="carousel-item">
+                            <div class="carousel-item" data-bs-interval="4000">
                                 <img [src]="'/assets/images/dont-you-forget-about-jimny/' + jimnyImage + '.jpg'"
                                     class="d-block w-100" alt="...">
                             </div>
                             } @else {
-                            <div class="carousel-item active">
-                                <img src="/assets/images/dont-you-forget-about-jimny/jimny1.jpg" class="d-block w-100" alt="...">
+                            <div class="carousel-item active" data-bs-interval="5000">
+                                <img src="/assets/images/dont-you-forget-about-jimny/jimny1.jpg" class="d-block w-100"
+                                    alt="...">
                             </div>
                             }
                             }
 
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel"
                             data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel"
                             data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
                     </div>
+
+                    <br> <br>
+
+                    <p>Think of all the good times.</p>
+                    <p>The camping trip times.</p>
+                    <p>The Tynan hat times.</p>
+                    <p>The smaller-fuel-tank-when-the-fuel-has-been-more-dear times.</p>
+                    <p>The getting-it-stuck-in-the-mud times.</p>
+                    <p>The drowning-the-car times.</p>
+                    <p>The partially-deconstructing-the-car-and-making-the-family-clean-the-car-seat times.</p>
+                    <p>The getting-from-A-to-B-in-a-square-box times.</p>
+                    <p>The fitting-it-into-tight-car-space times.</p>
+                    <br>
+                    <p><b>Don't you (Ryan) (Forget About Jimny).</b></p>
 
                 </div>
             </div>
