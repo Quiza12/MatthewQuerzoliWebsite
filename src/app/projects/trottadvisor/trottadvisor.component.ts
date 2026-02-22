@@ -14,7 +14,7 @@ declare var window: any; // Global JS window handle.
   styleUrl: './trottadvisor.component.css'
 })
 export class TrottadvisorComponent {
-  title: string = 'Trottadvisor - Projects'
+  title: string = '🏖️ Trottadvisor - Projects'
 
   constructor(private externalJsCdnPreloadService: ExternalJavascriptCdnPreloadService, private titleService: Title) {
     titleService.setTitle(this.title);

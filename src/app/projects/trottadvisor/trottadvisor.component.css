@@ -1,0 +1,32 @@
+* {
+    color: #002b10;
+    font-family: "Trip Sans", 'Quicksand', sans-serif;
+}
+
+img {
+    border-radius: 2%;
+}
+
+.award-image {
+    height: 100px; 
+    width: 100px;  
+    margin: 10px;
+}
+
+.bg-image {
+  position: relative;
+}
+
+.bg-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5); /* 30% dark overlay */
+  z-index: 0;
+}
+
+.bg-image > * {
+  position: relative;
+  z-index: 1;
+}
+

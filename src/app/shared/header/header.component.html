@@ -324,29 +324,37 @@
 }
 
 @if (trottadvisorRoute) {
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <div class="container-fluid">
-        <!-- Left side -->
-        <!-- <a class="navbar-text d-none d-lg-block" routerLink="/projects" id="leftLink">Projects</a>
-        <a class="navbar-brand d-lg-none" routerLink="/projects" id="leftEmoji">📚</a> -->
 
-        <a class="navbar-brand" href="#">
-            <a class="navbar-text trottadvisor-nav-text" routerLink="/projects" id="leftLink">Projects</a>
-            <img class="trottadvisor-nav-image" src="/assets/images/trottadvisor/trottadvisor-no-bg.png" alt="Bootstrap" height="30" >
-        </a>
-        <!-- <img class="navbar- d-none d-lg-block" src="/assets/images/trottadvisor/trottadvisor-no-bg.png" class="img-fluid" > -->
+ <nav class="navbar navbar-expand-lg bg-light trottadvisor">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
 
+    <!-- Left -->
+    <div class="navbar-left">
+        <!-- <a class="navbar-brand" href="#">Left</a> -->
+        <a class="navbar-text" routerLink="/projects" id="leftLink">Projects</a>
         
-
-
-        <!-- Middle text -->
-        <!-- <div class="position-absolute start-50 translate-middle-x">
-            <a class="navbar-brand" routerLink="/projects/trottadvisor">Trottadvisor</a>
-        </div> -->
-
     </div>
 
+    <!-- Center -->
+    <div class="navbar-center mx-auto">
+        <div class="d-flex align-items-center">
+            <img class="trottadvisor-nav-image" src="/assets/images/trottadvisor/trottadvisor-no-bg.png" alt="Bootstrap" height="30">
+            <input class="form-control me-2 input-lg" type="search" placeholder="Search" aria-label="Search" />
+            <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+            <button class="btn trottadvisor-button" style="margin-left: 24px;" type="button">Rewards</button>
+            <button class="btn trottadvisor-button" type="button">Discover</button>
+            <button class="btn trottadvisor-button" type="button">Review</button>
+            <button class="btn trottadvisor-button" type="button">AUD</button>
+            <button class="btn trottadvisor-button-sign-in" style="margin-right: 0px;" type="button">Signin</button>
+        </div>
+    </div>
+
+    <!-- Right -->
+
+
+  </div>
 </nav>
+
 }
 
 @if (bingoRoute) {
@@ -375,7 +383,8 @@
 
         <!-- Middle text -->
         <div class="position-absolute start-50 translate-middle-x">
-            <a class="navbar-brand" routerLink="/projects/family-it-invoice-generator">Family IT Support Invoice Generator</a>
+            <a class="navbar-brand" routerLink="/projects/family-it-invoice-generator">Family IT Support Invoice
+                Generator</a>
         </div>
 
     </div>
@@ -392,7 +401,8 @@
 
         <!-- Middle text -->
         <div class="position-absolute start-50 translate-middle-x">
-            <a class="navbar-brand" routerLink="/projects/dont-you-forget-about-jimny">Don't You (Forget About Jimny)</a>
+            <a class="navbar-brand" routerLink="/projects/dont-you-forget-about-jimny">Don't You (Forget About
+                Jimny)</a>
         </div>
 
     </div>

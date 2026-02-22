@@ -254,5 +254,11 @@ export const orkinisms: Orkinism[] = [
         '[thangks muhm]',
         'Appreciation for something done by Hilton.'
     ),
+    new Orkinism(
+        'Humbalumpa',
+        'verb',
+        '[huhm-bah-luhmp-uh]',
+        'Go.'
+    ),
 
 ];

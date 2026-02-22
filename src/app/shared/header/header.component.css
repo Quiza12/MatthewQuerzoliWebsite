@@ -2,10 +2,35 @@
     margin-top: 60px;
 }
 
-.trottadvisor-nav-image {
-    margin-left: 120px;
-}
 
-.trottadvisor-nav-text {
+/* Trottadvisor */
+
+.trottadvisor {
     font-size: 16px;
 }
+
+.trottadvisor-nav-image  {
+    margin-right: 24px;
+}
+
+.trottadvisor-button  {
+    color: #002b11;
+    margin-right: 24px;
+    font-weight: 700;
+    border-radius: 1000px;
+}
+
+.trottadvisor-button-sign-in {
+    color: #fff;
+    background-color: #002b11;
+    margin-right: 24px;
+    font-weight: 700;
+    border-radius: 1000px;
+}
+
+.trottadvisor-button:hover  {
+    margin-right: 24px;
+    background-color: #e5e5e5;
+}
+
+/* normal 700 16px/21px "Trip Sans VF","Trip Sans",arial,sans-serif */
