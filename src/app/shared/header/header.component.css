@@ -6,7 +6,7 @@
 /* Trottadvisor */
 
 .trottadvisor {
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .trottadvisor-nav-image  {
@@ -14,9 +14,10 @@
 }
 
 .trottadvisor-button  {
+    font-size: inherit;
     color: #002b11;
     margin-right: 24px;
-    font-weight: 700;
+    font-weight: 510;
     border-radius: 1000px;
 }
 
@@ -24,7 +25,12 @@
     color: #fff;
     background-color: #002b11;
     margin-right: 24px;
-    font-weight: 700;
+    font-weight: 500;
+    border-radius: 1000px;
+}
+
+.trottadvisor-search {
+    width: clamp(100px, 35vw, 400px);
     border-radius: 1000px;
 }
 

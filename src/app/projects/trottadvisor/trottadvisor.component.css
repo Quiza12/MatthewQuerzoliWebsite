@@ -1,6 +1,6 @@
 * {
     color: #002b10;
-    font-family: "Trip Sans", 'Quicksand', sans-serif;
+    font-family: "Trip Sans", 'Quicksand', sans-serif;  /* "Trip Sans VF","Trip Sans",Arial,sans-serif */
 }
 
 img {
@@ -21,7 +21,7 @@ img {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.5); /* 30% dark overlay */
+  background: rgba(0,0,0,0.4); /* 30% dark overlay */
   z-index: 0;
 }
 
@@ -30,3 +30,20 @@ img {
   z-index: 1;
 }
 
+
+@media (min-width: 1024px) {
+
+.byline-choice-awards {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 6px;
+
+}
+
+.byline-bob-destinations {
+  font-size: 56px;
+  font-weight: 900;
+  font-family: "Trip Sans Ultra";
+}
+
+}
