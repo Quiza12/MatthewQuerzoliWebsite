@@ -8,13 +8,20 @@ img {
 }
 
 .award-image {
-    height: 100px; 
-    width: 100px;  
-    margin: 10px;
+    height: 90px; 
+    width: 90px;  
+    margin: 0 3rem 1rem 0;
 }
 
 .bg-image {
   position: relative;
+  background-image: url('/assets/images/trottadvisor/harro.jpg');
+  height: 60vh;
+}
+
+.bg-overlay {
+  margin-left: 13vw;
+  margin-bottom: 3vw;
 }
 
 .bg-image::before {
@@ -30,6 +37,36 @@ img {
   z-index: 1;
 }
 
+.location-number {
+  margin-bottom: 0px;
+  font-size: 20px;
+}
+
+.location-title {
+  font-size: 44px;
+  font-weight: 400;
+  font-family: "Trip Sans Ultra";
+}
+
+.location-attraction-button  {
+  font-size: 16px;
+  color: #002b11;
+  margin-right: 24px;
+  /* font-weight: 510; */
+
+  border-radius: 1000px;
+  border-color: #002b11;
+}
+
+.location-attraction-button:hover  {
+    background-color: #e5e5e5;
+}
+
+.location-icon {
+  width: 17px;
+  height: 17px;
+  margin-right: 4px;
+}
 
 @media (min-width: 1024px) {
 
@@ -37,13 +74,13 @@ img {
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 6px;
-
 }
 
 .byline-bob-destinations {
   font-size: 56px;
   font-weight: 900;
   font-family: "Trip Sans Ultra";
+  margin-bottom: 0px;
 }
 
 }
