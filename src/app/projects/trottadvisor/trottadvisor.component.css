@@ -52,8 +52,6 @@ img {
   font-size: 16px;
   color: #002b11;
   margin-right: 24px;
-  /* font-weight: 510; */
-
   border-radius: 1000px;
   border-color: #002b11;
 }
@@ -66,6 +64,28 @@ img {
   width: 17px;
   height: 17px;
   margin-right: 4px;
+}
+
+.location-things-to-do {
+  font-weight: bold;
+}
+
+.location-image-overlay {
+  /* margin-left: 13vw; */
+  /* margin-bottom: 3vw; */
+}
+
+.location-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4); /* 30% dark overlay */
+  z-index: 0;
+}
+
+.location-image > * {
+  position: relative;
+  z-index: 1;
 }
 
 @media (min-width: 1024px) {

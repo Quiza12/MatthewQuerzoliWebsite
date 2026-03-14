@@ -22,9 +22,9 @@
 
 @font-face {
   font-family: "Trip Sans";
-  src: url("/assets/fonts/trottadvisor/TripSans-Regular.woff2") format("woff2");
+  src: url("/assets/fonts/trottadvisor/TripSans-Bold.woff2") format("woff2");
   font-weight: 700;
-  font-style: normal;
+  font-style: bold;
   font-display: swap;
 }
 
