@@ -54,6 +54,7 @@ img {
   margin-right: 24px;
   border-radius: 1000px;
   border-color: #002b11;
+  margin: 5px 10px 5px 0px;
 }
 
 .location-attraction-button:hover  {
@@ -88,7 +89,7 @@ img {
   z-index: 1;
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) { */
 
 .byline-choice-awards {
   font-size: 32px;
@@ -102,5 +103,20 @@ img {
   font-family: "Trip Sans Ultra";
   margin-bottom: 0px;
 }
+
+/* } */
+
+@media (max-width: 768px) {
+
+  .bg-overlay {
+    margin: 0vw;
+    margin-bottom: 3vw;
+  }
+
+  .award-image {
+    height: 90px; 
+    width: 90px;  
+    margin: 0 0 1rem 0;
+  }
 
 }

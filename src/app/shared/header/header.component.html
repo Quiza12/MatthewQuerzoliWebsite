@@ -330,29 +330,36 @@
 
     <!-- Left -->
     <div class="navbar-left">
-        <!-- <a class="navbar-brand" href="#">Left</a> -->
-        <a class="navbar-text" routerLink="/projects" id="leftLink">Projects</a>
-        
+      <a class="navbar-text" routerLink="/projects" id="leftLink">Projects</a>
     </div>
 
     <!-- Center -->
     <div class="navbar-center mx-auto">
-        <div class="d-flex align-items-center">
-            <a routerLink="/projects/trottadvisor"><img class="trottadvisor-nav-image" src="/assets/images/trottadvisor/trottadvisor-no-bg.png" alt="Bootstrap" height="30"></a>
-            <input class="form-control me-2 trottadvisor-search" type="search" placeholder="&#xF002; Search" aria-label="Search" />
-            <button class="btn trottadvisor-button" style="margin-left: 24px;" type="button">Rewards</button>
-            <button class="btn trottadvisor-button" type="button">Discover</button>
-            <button class="btn trottadvisor-button" type="button">Review</button>
-            <button class="btn trottadvisor-button" type="button">AUD</button>
-            <button class="btn trottadvisor-button-sign-in" style="margin-right: 0px;" type="button">Sign in</button>
-        </div>
+      <div class="d-flex align-items-center">
+
+        <!-- Logo: always visible -->
+        <a routerLink="/projects/trottadvisor">
+          <img class="trottadvisor-nav-image" 
+               src="/assets/images/trottadvisor/trottadvisor-no-bg.png" 
+               alt="Bootstrap" height="30">
+        </a>
+
+        <!-- Everything below is hidden on small screens -->
+        <input class="form-control me-2 trottadvisor-search d-none d-md-block" 
+               type="search" placeholder="Search" aria-label="Search" />
+
+        <button class="btn trottadvisor-button d-none d-md-block" style="margin-left: 24px;" type="button">Rewards</button>
+        <button class="btn trottadvisor-button d-none d-md-block" type="button">Discover</button>
+        <button class="btn trottadvisor-button d-none d-md-block" type="button">Review</button>
+        <button class="btn trottadvisor-button d-none d-md-block" type="button">AUD</button>
+        <button class="btn trottadvisor-button-sign-in d-none d-md-block" style="margin-right: 0px;" type="button">Sign in</button>
+
+      </div>
     </div>
-
-    <!-- Right -->
-
 
   </div>
 </nav>
+
 
 }
 
