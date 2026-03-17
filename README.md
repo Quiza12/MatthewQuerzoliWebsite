@@ -24,6 +24,9 @@ To earn a crust I've recently traded in software development for middle manageme
       - Orkinisms
     - Be Quiet Near a Little Stream and Listen
     - INTERNET RECIPE
+    - Bingo
+    - Family IT Support Invoice Generator
+    - Trottadvisor
   - External Projects
     - Orkin Brown and Associates
     - Palisi's Persistent Pursuit of Places FAQ
