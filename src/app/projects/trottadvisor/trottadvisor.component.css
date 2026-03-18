@@ -72,24 +72,16 @@ img {
 }
 
 .location-image-overlay {
-  /* margin-left: 13vw; */
-  /* margin-bottom: 3vw; */
-}
-
-.location-image::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.4); /* 30% dark overlay */
-  z-index: 0;
-}
-
-.location-image > * {
   position: relative;
-  z-index: 1;
 }
 
-/* @media (min-width: 1024px) { */
+.overlay-badge {
+  position: absolute;
+  bottom: 10px; 
+  left: 10px; 
+  width: 35px; 
+  height: auto;
+}
 
 .byline-choice-awards {
   font-size: 32px;
@@ -103,8 +95,6 @@ img {
   font-family: "Trip Sans Ultra";
   margin-bottom: 0px;
 }
-
-/* } */
 
 @media (max-width: 768px) {
 
