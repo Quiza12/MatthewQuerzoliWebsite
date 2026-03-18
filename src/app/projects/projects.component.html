@@ -1,17 +1,17 @@
 <body>
     <div class="container text-center">
-        
+
         <div class="row">
             <div class="col-sm-2"></div>
             <div class="col-sm-8">
                 <h3>Projects</h3>
-                
+
                 <p>Whenever I've got the requisite spare time and motivation on this giant spinning space rock, I work
                     on a few amusing, if less than serious side projects.</p>
             </div>
             <div class="col-sm-2"></div>
         </div>
-        
+
         <div class="row">
             <div class="col-sm-2"></div>
             <div class="col-sm-8">
@@ -27,6 +27,7 @@
 
         <br>
 
+        @if (anyUnderConstruction) {
         <div class="row">
 
             <h5>Projects Under Construction</h5>
@@ -63,13 +64,15 @@
             }
 
         </div>
+        }
 
         <div class="row">
 
             <h5>Internal Projects</h5>
 
             @for(project of projects; track $index) {
-            @if (project.internal && project.active && !project.underConstruction && !project.route.match(tappyOsProjectPattern)) {
+            @if (project.internal && project.active && !project.underConstruction &&
+            !project.route.match(tappyOsProjectPattern)) {
             <div class="col-md-4 mb-3 d-flex">
                 <a [routerLink]="project.route"
                     class="btn btn-light w-100 h-100 d-flex flex-column justify-content-between project-card internal-project-card">

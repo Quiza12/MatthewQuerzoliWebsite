@@ -20,7 +20,7 @@ export enum Technology {
 }
 
 export const projects: Project[] = [
-    new Project("Trottadvisor", "🏖️", "/projects/trottadvisor", "Travel trotta like the man, the myth, the legend: Harro.", 2026, true, true, true, [Technology.Angular, Technology.Bootstrap]),
+    new Project("Trottadvisor", "🏖️", "/projects/trottadvisor", "Travel trotta like the man, the myth, the legend: Harro.", 2026, true, true, false, [Technology.Angular, Technology.Bootstrap]),
     new Project("The Big One FAQ", "🌏", "/projects/the-big-one", "A recount of my six-month trip, all around the world, in anticipation for all the 'What was your favourite...' questions I would receive upon return.", 2024, true, true, false, [Technology.HTML5, Technology.Bootstrap, Technology.Javascript]),
     new Project("Bogan of Meteorology", "🌦️", "/projects/bogan-of-meteorology", "The ultimate Australian weather site. Weather data direct from the Bureau of Meteorology, translated into bogan.", 2023, true, true, false, [Technology.Angular, Technology.Bootstrap]),
     new Project("Funny Password Checker", "🔑", "/projects/funny-password-checker", "A password strength checker, with a humorous side.", 2018, true, true, false, [Technology.Angular, Technology.Bootstrap]),
@@ -46,6 +46,8 @@ export const sortedProjects = projects.sort(
   (a, b) =>
     b.year - a.year || a.name.localeCompare(b.name)
 );
+
+export const anyUnderConstruction = projects.some(p => p.underConstruction);
 
 export const tappyOsProjectPattern: RegExp = /^\/projects\/tappy-os\/.+/i;
 
