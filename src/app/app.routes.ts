@@ -7,6 +7,7 @@ import { TheGoodBookComponent } from './the-good-book/the-good-book.component';
 import { WritingComponent } from './writing/writing.component';
 import { NanoNarrativesComponent } from './nano-narratives/nano-narratives.component';
 import { BlogComponent } from './blog/blog.component';
+import { Graphs } from './graphs/graphs';
 
 import { TheBigOneComponent } from './projects/the-big-one/the-big-one.component';
 import { BoganOfMeteorologyComponent } from './projects/bogan-of-meteorology/bogan-of-meteorology.component';
@@ -30,6 +31,7 @@ import { TappyStandardTimeComponent } from './projects/tappy-os/tappy-standard-t
 import { TappySeasonTimeComponent } from './projects/tappy-os/tappy-season-time/tappy-season-time.component';
 import { OrkinismsComponent } from './projects/tappy-os/orkinisms/orkinisms.component';
 import { DontYouForgetAboutJimny } from './projects/tappy-os/dont-you-forget-about-jimny/dont-you-forget-about-jimny';
+import { AverageMafsEpisodeGraph } from './graphs/average-mafs-episode/average-mafs-episode';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -42,6 +44,9 @@ export const routes: Routes = [
   { path: 'nano-narratives', component: NanoNarrativesComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'blog/:slug', component: BlogDetailComponent },
+
+  { path: 'graphs', component: Graphs },
+  { path: 'graphs/average-mafs-episode', component: AverageMafsEpisodeGraph },
 
   { path: 'projects/the-big-one', component: TheBigOneComponent },
   { path: 'projects/its-five-oclock-somewhere', component: ItsFiveOclockSomewhereComponent },

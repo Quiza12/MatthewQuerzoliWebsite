@@ -1,4 +1,4 @@
-@if (standardRoute) {
+@if (standardRoute || graphsRoute) {
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
@@ -16,6 +16,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/blog" (click)="collapseNavbar('standardNavbar')">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/graphs" (click)="collapseNavbar('standardNavbar')">Graphs</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/nano-narratives"
@@ -176,8 +179,8 @@
 @if (itsFiveOclockSomewhereRoute) {
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
-        <!-- Left side -->
 
+        <!-- Left side -->
         <a class="navbar-text d-none d-lg-block" routerLink="/projects" id="leftLink">Projects</a>
         <a class="navbar-brand d-lg-none" routerLink="/projects" id="leftEmoji">📚</a>
 
@@ -410,6 +413,24 @@
         <div class="position-absolute start-50 translate-middle-x">
             <a class="navbar-brand" routerLink="/projects/dont-you-forget-about-jimny">Don't You (Forget About
                 Jimny)</a>
+        </div>
+
+    </div>
+
+</nav>
+}
+
+@if (graphAverageMafsEpisodeRoute) {
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+        
+        <!-- Left side -->
+        <a class="navbar-text d-none d-lg-block" routerLink="/graphs" id="leftLink">Graphs</a>
+        <a class="navbar-brand d-lg-none" routerLink="/graphs" id="leftEmoji">📈</a>
+
+        <!-- Middle text -->
+        <div class="position-absolute start-50 translate-middle-x">
+            <a class="navbar-brand" routerLink="/graphs/average-mafs-episode">Average MAFS Episode</a>
         </div>
 
     </div>
