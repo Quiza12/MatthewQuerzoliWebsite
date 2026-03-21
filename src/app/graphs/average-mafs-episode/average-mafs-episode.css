@@ -1,31 +1,92 @@
-
 /*
 Popover pure CSS: https://codepen.io/chocochip/pen/zYxMgRG
 On click/hover: https://stackoverflow.com/questions/22559756/changing-hover-to-touch-click-for-mobile-devices
 */
 
-.w-10 { flex-basis: 10%; }
-.w-6  { flex-basis: 6%; }
-.w-5  { flex-basis: 5%; }
-.w-4  { flex-basis: 4%; }
-.w-3  { flex-basis: 3%; }
-.w-2  { flex-basis: 2%; }
-.w-1  { flex-basis: 1%; }
+.w-10 {
+  flex-basis: 10%;
+}
+
+.w-9 {
+  flex-basis: 9%;
+}
+
+.w-8 {
+  flex-basis: 8%;
+}
+
+.w-7 {
+  flex-basis: 7%;
+}
+
+.w-6 {
+  flex-basis: 6%;
+}
+
+.w-5 {
+  flex-basis: 5%;
+}
+
+.w-4 {
+  flex-basis: 4%;
+}
+
+.w-3 {
+  flex-basis: 3%;
+}
+
+.w-2 {
+  flex-basis: 2%;
+}
+
+.w-1 {
+  flex-basis: 1%;
+}
 
 .bar {
   width: 100%;
   height: 100px;
-  border-radius: 15px;
-  overflow: hidden;
+  position: relative;
+  overflow: visible; /* let tooltips escape */
+}
+
+.bar-inner {
+  width: 100%;
+  height: 100%;
   display: flex;
 }
 
 .segment {
   height: 100%;
   color: white;
-  display: flex;             
-  justify-content: center;   
+  display: flex;
+  justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.segment:hover::after {
+  content: var(--label);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Rounded segments - first and last */
+.bar-inner .segment:first-child {
+  border-radius: 15px 0 0 15px;
+}
+
+.bar-inner .segment:last-child {
+  border-radius: 0 15px 15px 0;
 }
 
 .legend {
@@ -36,50 +97,80 @@ On click/hover: https://stackoverflow.com/questions/22559756/changing-hover-to-t
   display: flex;
 }
 
-.legend-segment  {
+.legend-segment {
   height: 100%;
   flex: 1;
   color: white;
-  display: flex;             
-  justify-content: center;   
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
 @media (max-width: 768px) {
 
   .bar {
-    flex-direction: column; 
-    width: 150px; 
-    height: 500px; 
-    margin: 0 auto; 
+    width: 150px;
+    height: 500px;
+    margin: 0 auto;
+  }
+
+  .bar-inner {
+    flex-direction: column; /* stack segments vertically */
   }
 
   .segment {
-    width: 100%; 
-    height: auto; 
+    width: 100%;
+    height: auto;
   }
 
   .legend {
-    flex-direction: column; 
-    width: 100px; 
-    height: 200px; 
-    margin: 0 auto; 
+    flex-direction: column;
+    width: 100px;
+    height: 300px;
+    margin: 0 auto;
   }
 
   .segment {
-    width: 100%; 
-    height: auto; 
+    width: 100%;
+    height: auto;
+  }
+
+  .bar-inner .segment:first-child {
+    border-radius: 15px 15px 0 0;
+  }
+
+  .bar-inner .segment:last-child {
+    border-radius: 0 0 15px 15px;
   }
 
 }
 
 /* Ad */
-.ad, .legend-ad {
-    background: #f44336;
+.ad,
+.legend-ad {
+  background: #f44336;
 }
 
-.ad:hover, .legend-ad:hover {
-    background: color-mix(in srgb, #f44336 80%, white);
+.ad:hover,
+.legend-ad:hover {
+  background: color-mix(in srgb, #f44336 80%, white);
+}
+
+.legend-ad:after {
+  content: 'Ad';
+}
+
+.legend-ad:hover::after {
+  position: absolute;
+  content: '36%';
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
 }
 
 .mafs-wrapper:has(.legend-ad:hover) .segment.ad {
@@ -94,13 +185,32 @@ On click/hover: https://stackoverflow.com/questions/22559756/changing-hover-to-t
   background: color-mix(in srgb, #f44336 80%, white);
 }
 
-/* Preview */
-.preview, .legend-preview {
-    background: #3688f4;
+/* Next episode preview */
+.preview,
+.legend-preview {
+  background: #3688f4;
 }
 
-.preview:hover, .legend-preview:hover {
-    background: color-mix(in srgb, #3688f4 80%, white);
+.preview:hover,
+.legend-preview:hover {
+  background: color-mix(in srgb, #3688f4 80%, white);
+}
+
+.legend-preview:after {
+  content: 'Next episode preview';
+}
+
+.legend-preview:hover::after {
+  position: absolute;
+  content: '5%';
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
 }
 
 .mafs-wrapper:has(.legend-preview:hover) .segment.preview {
@@ -116,12 +226,31 @@ On click/hover: https://stackoverflow.com/questions/22559756/changing-hover-to-t
 }
 
 /* Show */
-.show, .legend-show {
-    background: #4caf50;
+.show,
+.legend-show {
+  background: #4caf50;
 }
 
-.show:hover, .legend-show:hover {
-    background: color-mix(in srgb, #4caf50 80%, white);
+.show:hover,
+.legend-show:hover {
+  background: color-mix(in srgb, #4caf50 80%, white);
+}
+
+.legend-show:after {
+  content: 'Show';
+}
+
+.legend-show:hover::after {
+  position: absolute;
+  content: '31%';
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
 }
 
 .mafs-wrapper:has(.legend-show:hover) .segment.show {
@@ -137,12 +266,31 @@ On click/hover: https://stackoverflow.com/questions/22559756/changing-hover-to-t
 }
 
 /* Last Episode */
-.last-ep-recap, .legend-last-ep-recap {
-    background: #ff8300;
+.last-ep-recap,
+.legend-last-ep-recap {
+  background: #ff8300;
 }
 
-.last-ep-recap:hover, .legend-last-ep-recap:hover {
-    background: color-mix(in srgb, #ff8300 80%, white);
+.last-ep-recap:hover,
+.legend-last-ep-recap:hover {
+  background: color-mix(in srgb, #ff8300 80%, white);
+}
+
+.legend-last-ep-recap:after {
+  content: 'Last ep recap';
+}
+
+.legend-last-ep-recap:hover::after {
+  position: absolute;
+  content: '8%';
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
 }
 
 .mafs-wrapper:has(.legend-last-ep-recap:hover) .segment.last-ep-recap {
@@ -153,18 +301,38 @@ On click/hover: https://stackoverflow.com/questions/22559756/changing-hover-to-t
   background: color-mix(in srgb, #ff8300 80%, white);
 }
 
-.mafs-wrapper:has(.segment.last-ep-recap:hover) .segment.last-ep-recap{
+.mafs-wrapper:has(.segment.last-ep-recap:hover) .segment.last-ep-recap {
   background: color-mix(in srgb, #ff8300 80%, white);
 }
 
 /* Recent Recap */
-.recent-recap, .legend-recent-recap {
-    background: #357a38;
+.recent-recap,
+.legend-recent-recap {
+  background: #357a38;
 }
 
-.recent-recap:hover, .legend-recent-recap:hover {
-    background: color-mix(in srgb, #357a38 80%, white);
+.recent-recap:hover,
+.legend-recent-recap:hover {
+  background: color-mix(in srgb, #357a38 80%, white);
 }
+
+.legend-recent-recap:after {
+  content: 'Last segment recap';
+}
+
+.legend-recent-recap:hover::after {
+  position: absolute;
+  content: '20%';
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+}
+
 
 .mafs-wrapper:has(.legend-recent-recap:hover) .segment.recent-recap {
   background: color-mix(in srgb, #357a38 80%, white);
@@ -179,6 +347,5 @@ On click/hover: https://stackoverflow.com/questions/22559756/changing-hover-to-t
 }
 
 .caveats {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 }
-
