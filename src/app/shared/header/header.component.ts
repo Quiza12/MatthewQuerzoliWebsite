@@ -35,6 +35,7 @@ export class HeaderComponent {
   familyItInvoiceGeneratorRoute: boolean = false;
   dontYouForgetAboutJimnyRoute: boolean = false;
   graphAverageMafsEpisodeRoute: boolean = false;
+  graphRageAgainstTheLanyardRoute: boolean = false;
 
   constructor(private router: Router) { }
 
@@ -71,6 +72,7 @@ export class HeaderComponent {
     this.dontYouForgetAboutJimnyRoute = currentRoute == ('/projects/tappy-os/dont-you-forget-about-jimny') ? true : false;
     this.graphsRoute = currentRoute == ('/graphs') ? true : false;
     this.graphAverageMafsEpisodeRoute = currentRoute == ('/graphs/average-mafs-episode') ? true : false;
+    this.graphRageAgainstTheLanyardRoute  = currentRoute == ('/graphs/rage-against-the-lanyard') ? true : false;
 
     this.standardRoute =
       !this.theBigOneRoute &&
@@ -89,7 +91,8 @@ export class HeaderComponent {
       !this.tappyOsRoute &&
       !this.dontYouForgetAboutJimnyRoute &&
       !this.graphsRoute &&
-      !this.graphAverageMafsEpisodeRoute;
+      !this.graphAverageMafsEpisodeRoute &&
+      !this.graphRageAgainstTheLanyardRoute;
   }
 
   resetRoutes() {
@@ -111,6 +114,7 @@ export class HeaderComponent {
     this.dontYouForgetAboutJimnyRoute = false;
     this.graphsRoute = false
     this.graphAverageMafsEpisodeRoute = false;
+    this.graphRageAgainstTheLanyardRoute = false;
   }
 
   collapseNavbar(navToCollapse: string) {

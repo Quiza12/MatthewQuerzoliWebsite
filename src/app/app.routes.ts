@@ -32,6 +32,7 @@ import { TappySeasonTimeComponent } from './projects/tappy-os/tappy-season-time/
 import { OrkinismsComponent } from './projects/tappy-os/orkinisms/orkinisms.component';
 import { DontYouForgetAboutJimny } from './projects/tappy-os/dont-you-forget-about-jimny/dont-you-forget-about-jimny';
 import { AverageMafsEpisodeGraph } from './graphs/average-mafs-episode/average-mafs-episode';
+import { RageAgainstTheLanyardGraph } from './graphs/rage-against-the-lanyard/rage-against-the-lanyard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -47,6 +48,8 @@ export const routes: Routes = [
 
   { path: 'graphs', component: Graphs },
   { path: 'graphs/average-mafs-episode', component: AverageMafsEpisodeGraph },
+  { path: 'graphs/rage-against-the-lanyard', component: RageAgainstTheLanyardGraph },
+
 
   { path: 'projects/the-big-one', component: TheBigOneComponent },
   { path: 'projects/its-five-oclock-somewhere', component: ItsFiveOclockSomewhereComponent },

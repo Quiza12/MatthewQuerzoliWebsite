@@ -17,7 +17,7 @@ export class BingoComponent {
   tiles: any;
   selectedCard: any;
   bingoTileSize: number = 0;
-  cards = ['Select a card...', 'Pregnant/newborn', 'Tysie', 'Footy (spectator)', 'Footy (player)', 'Office', 'Harro'];
+  cards = ['Select a card...', 'Pregnant/newborn', 'Tysie', 'Footy (spectator)', 'Footy (player)', 'Office', 'Harro', 'Average Sydney market'];
 
   win: boolean = false;
   newbornCardSelected: boolean = false;
@@ -26,6 +26,7 @@ export class BingoComponent {
   officeCardSelected: boolean = false;
   harroCardSelected: boolean = false;
   tysieCardSelected: boolean = false;
+  marketCardSelected: boolean = false;
 
   newbornTiles: string[] = [
     "Mum and bub are both doing well", "Our family of [number] is about to become [new number]!", "Last weekend as a family of [number] (reference to a babymoon)", "Mum/[partner's name] is an absolute champion", "Our hearts are so full", "Our biggest blessing", "Using the royal 'We'", "Our family is growing", "We can't wait to meet [her/him]", "[name] is going to be a big [brother/sister] (if dog owners or already have an elder sibling)", "My/our world", "[name], born [date], weighing [weight]", "Can't wait to meet our little [guy/girl] on [expected date]", "Our little miracle", "Changing our lives for the better", "We've been keeping a little secret!", "We love you so much already", "We've completed our little family", "Baby [surname] loading, coming [month/year]", "Announcement on onesie with a picture of the ultrasound, surrounded by baby paraphernalia", "If pet owners, announcement with shot of pet, ultrasound and baby paraphernalia", "If not first child, announcement with shot of older sibling, ultrasound and '[older sibling name] can't wait to be a big [brother/sister]'"
@@ -49,6 +50,8 @@ export class BingoComponent {
     "Tysie", "Tooksie", "Pug", "Puggles", "Puglet", "Pugloot", "Little face", "Handsome", "Bobbinhead", "Zootie", "It's just his hair", "Chickie", "Snorkies/snorkiehead", "Biiiiig stretch", "Want to go on a W?", "Turtling", "Sniff sniff sniff", "Humpy dumpy", "Needs to make a padoonkie", "Made a doodle", "Puggles", "Tookie", "Stop riling Biscuit up", "Noonkie", "Red thing", "Good boy", "Bad", "Cutest little poppie", "He's just a pug", "Little grandpa"
   ]
 
+  marketTiles: string[] = [ "Pet (dog) stall, at minimum offering those harnesses with the custom name labels", "Small label, home-distilled, local gin", "Gozleme food truck", "Chip on a stick", "Clothing boutique", "Multiple jewellery stalls", "Hot sauce stall" ]
+
   constructor(titleService: Title) {
     titleService.setTitle(this.title);
   }
@@ -63,6 +66,7 @@ export class BingoComponent {
       case 'Tysie': this.tysieCardSelected = true; this.loadBingoCard(this.tysieTiles); break;
       case 'Office': this.officeCardSelected = true; this.loadBingoCard(this.officeTiles); break;
       case 'Harro': this.harroCardSelected = true; this.loadBingoCard(this.harroTiles); break;
+      case 'Average Sydney market': this.marketCardSelected = true; this.loadBingoCard(this.marketTiles); break;
       default: this.noCardSelected();
     }
   }
@@ -75,7 +79,7 @@ export class BingoComponent {
   }
 
   isCardSelected(): boolean {
-    return this.newbornCardSelected || this.footySpectatorCardSelected || this.footyPlayerCardSelected || this.officeCardSelected || this.harroCardSelected || this.tysieCardSelected;
+    return this.newbornCardSelected || this.footySpectatorCardSelected || this.footyPlayerCardSelected || this.officeCardSelected || this.harroCardSelected || this.tysieCardSelected || this.marketCardSelected;
   }
 
   noCardSelected() {
@@ -85,6 +89,7 @@ export class BingoComponent {
     this.officeCardSelected = false;
     this.harroCardSelected = false;
     this.tysieCardSelected = false;
+    this.marketCardSelected = false;
   }
 
   isSelected(index: number) {
