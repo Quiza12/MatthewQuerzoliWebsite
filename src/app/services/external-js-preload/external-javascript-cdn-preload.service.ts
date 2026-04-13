@@ -8,7 +8,7 @@ interface Scripts {
 // Add CDN names and links here for different projects.
 export const ScriptStore: Scripts[] = [
   { name: 'moment', src: 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js' },
-  { name: 'chart', src: 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.0/chart.min.js' },
+  { name: 'chart', src: 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js' },
   { name: 'thebigone', src: '../../../assets/custom-js/the-big-one-faq.js' },
   { name: 'ripmeanewone', src: '../../../assets/custom-js/rip-me-a-new-one.js' },
   { name: 'itsfiveoclocksomewhere', src: '../../../assets/custom-js/its-five-oclock-somewhere.js' },

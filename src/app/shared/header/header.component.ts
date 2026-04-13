@@ -55,24 +55,24 @@ export class HeaderComponent {
 
     this.resetRoutes();
 
-    this.theBigOneRoute = currentRoute == ('/projects/the-big-one') ? true : false;
-    this.boganOfMeteorologyRoute = currentRoute == ('/projects/bogan-of-meteorology') ? true : false;
-    this.ripMeANewOneRoute = currentRoute == ('/projects/rip-me-a-new-one') ? true : false;
-    this.itsFiveOclockSomewhereRoute = currentRoute == ('/projects/its-five-oclock-somewhere') ? true : false;
-    this.funnyPasswordCheckerRoute = currentRoute == ('/projects/funny-password-checker') ? true : false;
-    this.quietNearALittleStreamRoute = currentRoute == ('/projects/quiet-near-a-little-stream') ? true : false;
-    this.internetRecipeRoute = currentRoute == ('/projects/internet-recipe') ? true : false;
-    this.trottadvisorRoute = currentRoute == ('/projects/trottadvisor') ? true : false;
-    this.bingoRoute = currentRoute == ('/projects/bingo') ? true : false;
-    this.familyItInvoiceGeneratorRoute = currentRoute == ('/projects/family-it-invoice-generator') ? true : false;
+    this.theBigOneRoute = currentRoute.includes('/projects/the-big-one') ? true : false;
+    this.boganOfMeteorologyRoute = currentRoute.includes('/projects/bogan-of-meteorology') ? true : false;
+    this.ripMeANewOneRoute = currentRoute.includes('/projects/rip-me-a-new-one') ? true : false;
+    this.itsFiveOclockSomewhereRoute = currentRoute.includes('/projects/its-five-oclock-somewhere') ? true : false;
+    this.funnyPasswordCheckerRoute = currentRoute.includes('/projects/funny-password-checker') ? true : false;
+    this.quietNearALittleStreamRoute = currentRoute.includes('/projects/quiet-near-a-little-stream') ? true : false;
+    this.internetRecipeRoute = currentRoute.includes('/projects/internet-recipe') ? true : false;
+    this.trottadvisorRoute = currentRoute.includes('/projects/trottadvisor') ? true : false;
+    this.bingoRoute = currentRoute.includes('/projects/bingo') ? true : false;
+    this.familyItInvoiceGeneratorRoute = currentRoute.includes('/projects/family-it-invoice-generator') ? true : false;
     this.tappyOsRoute = currentRoute == ('/projects/tappy-os') ? true : false;
-    this.orkisimsRoute = currentRoute == ('/projects/tappy-os/orkinisms') ? true : false;
-    this.tappySeasonTimeRoute = currentRoute == ('/projects/tappy-os/tappy-season-time') ? true : false;
-    this.tappyStandardTimeRoute = currentRoute == ('/projects/tappy-os/tappy-standard-time') ? true : false;
-    this.dontYouForgetAboutJimnyRoute = currentRoute == ('/projects/tappy-os/dont-you-forget-about-jimny') ? true : false;
+    this.orkisimsRoute = currentRoute.includes('/projects/tappy-os/orkinisms') ? true : false;
+    this.tappySeasonTimeRoute = currentRoute.includes('/projects/tappy-os/tappy-season-time') ? true : false;
+    this.tappyStandardTimeRoute = currentRoute.includes('/projects/tappy-os/tappy-standard-time') ? true : false;
+    this.dontYouForgetAboutJimnyRoute = currentRoute.includes('/projects/tappy-os/dont-you-forget-about-jimny') ? true : false;
     this.graphsRoute = currentRoute == ('/graphs') ? true : false;
-    this.graphAverageMafsEpisodeRoute = currentRoute == ('/graphs/average-mafs-episode') ? true : false;
-    this.graphRageAgainstTheLanyardRoute  = currentRoute == ('/graphs/rage-against-the-lanyard') ? true : false;
+    this.graphAverageMafsEpisodeRoute = currentRoute.includes('/graphs/average-mafs-episode') ? true : false;
+    this.graphRageAgainstTheLanyardRoute  = currentRoute.includes('/graphs/rage-against-the-lanyard') ? true : false;
 
     this.standardRoute =
       !this.theBigOneRoute &&
