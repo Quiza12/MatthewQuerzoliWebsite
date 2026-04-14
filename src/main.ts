@@ -20,7 +20,6 @@ bootstrapApplication(AppComponent, {
 
     provideRouter(
       routes,
-      withHashLocation(), // replaces useHash: true
       withInMemoryScrolling({ anchorScrolling: 'enabled' }),
       withEnabledBlockingInitialNavigation()
     )
