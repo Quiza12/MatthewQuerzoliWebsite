@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { Collapse } from 'bootstrap';
+// import { Collapse } from 'bootstrap';
 import { faCoffee, faLessThanEqual } from '@fortawesome/free-solid-svg-icons';
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-  imports: [ RouterLink ],
+  imports: [RouterLink],
   standalone: true,
 })
 export class HeaderComponent {
@@ -19,6 +20,7 @@ export class HeaderComponent {
   standardRoute: boolean = false;
   graphsRoute: boolean = false;
 
+  // Projects
   theBigOneRoute: boolean = false;
   tappyOsRoute: boolean = false;
   tappyStandardTimeRoute: boolean = false;
@@ -34,6 +36,9 @@ export class HeaderComponent {
   bingoRoute: boolean = false;
   familyItInvoiceGeneratorRoute: boolean = false;
   dontYouForgetAboutJimnyRoute: boolean = false;
+  outOfOfficeRoute: boolean = false;
+
+  // Graphs
   graphAverageMafsEpisodeRoute: boolean = false;
   graphRageAgainstTheLanyardRoute: boolean = false;
 
@@ -70,9 +75,11 @@ export class HeaderComponent {
     this.tappySeasonTimeRoute = currentRoute.includes('/projects/tappy-os/tappy-season-time') ? true : false;
     this.tappyStandardTimeRoute = currentRoute.includes('/projects/tappy-os/tappy-standard-time') ? true : false;
     this.dontYouForgetAboutJimnyRoute = currentRoute.includes('/projects/tappy-os/dont-you-forget-about-jimny') ? true : false;
+    this.outOfOfficeRoute = currentRoute.includes('/projects/out-of-office') ? true : false;
+
     this.graphsRoute = currentRoute == ('/graphs') ? true : false;
     this.graphAverageMafsEpisodeRoute = currentRoute.includes('/graphs/average-mafs-episode') ? true : false;
-    this.graphRageAgainstTheLanyardRoute  = currentRoute.includes('/graphs/rage-against-the-lanyard') ? true : false;
+    this.graphRageAgainstTheLanyardRoute = currentRoute.includes('/graphs/rage-against-the-lanyard') ? true : false;
 
     this.standardRoute =
       !this.theBigOneRoute &&
@@ -90,6 +97,7 @@ export class HeaderComponent {
       !this.familyItInvoiceGeneratorRoute &&
       !this.tappyOsRoute &&
       !this.dontYouForgetAboutJimnyRoute &&
+      !this.outOfOfficeRoute &&
       !this.graphsRoute &&
       !this.graphAverageMafsEpisodeRoute &&
       !this.graphRageAgainstTheLanyardRoute;
@@ -112,6 +120,8 @@ export class HeaderComponent {
     this.familyItInvoiceGeneratorRoute = false;
     this.tappyOsRoute = false;
     this.dontYouForgetAboutJimnyRoute = false;
+    this.outOfOfficeRoute = false;
+
     this.graphsRoute = false
     this.graphAverageMafsEpisodeRoute = false;
     this.graphRageAgainstTheLanyardRoute = false;
@@ -120,9 +130,10 @@ export class HeaderComponent {
   collapseNavbar(navToCollapse: string) {
     const navbar = document.getElementById(navToCollapse);
     if (navbar?.classList.contains('show')) {
-      const bsCollapse = Collapse.getInstance(navbar) || new Collapse(navbar);
+      const bsCollapse = bootstrap.Collapse.getInstance(navbar) || new bootstrap.Collapse(navbar);
       bsCollapse.hide();
     }
   }
 
 }
+

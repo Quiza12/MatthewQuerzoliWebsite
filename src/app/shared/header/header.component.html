@@ -420,6 +420,23 @@
 </nav>
 }
 
+@if (outOfOfficeRoute) {
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+        <!-- Left side -->
+        <a class="navbar-text d-none d-lg-block" routerLink="/projects" id="leftLink">Projects</a>
+        <a class="navbar-brand d-lg-none" routerLink="/projects" id="leftEmoji">📚</a>
+
+        <!-- Middle text -->
+        <div class="position-absolute start-50 translate-middle-x">
+            <a class="navbar-brand" routerLink="/projects/out-of-office">Out of Office//Pass the Parcel</a>
+        </div>
+
+    </div>
+
+</nav>
+}
+
 @if (graphAverageMafsEpisodeRoute) {
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">

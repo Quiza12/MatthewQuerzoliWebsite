@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RageAgainstTheLanyard } from './rage-against-the-lanyard';
+import { RageAgainstTheLanyardGraph } from './rage-against-the-lanyard';
 
 describe('RageAgainstTheLanyard', () => {
-  let component: RageAgainstTheLanyard;
-  let fixture: ComponentFixture<RageAgainstTheLanyard>;
+  let component: RageAgainstTheLanyardGraph;
+  let fixture: ComponentFixture<RageAgainstTheLanyardGraph>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RageAgainstTheLanyard]
+      imports: [RageAgainstTheLanyardGraph]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RageAgainstTheLanyard);
+    fixture = TestBed.createComponent(RageAgainstTheLanyardGraph);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

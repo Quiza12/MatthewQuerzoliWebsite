@@ -33,6 +33,7 @@ import { OrkinismsComponent } from './projects/tappy-os/orkinisms/orkinisms.comp
 import { DontYouForgetAboutJimny } from './projects/tappy-os/dont-you-forget-about-jimny/dont-you-forget-about-jimny';
 import { AverageMafsEpisodeGraph } from './graphs/average-mafs-episode/average-mafs-episode';
 import { RageAgainstTheLanyardGraph } from './graphs/rage-against-the-lanyard/rage-against-the-lanyard';
+import { OutOfOffice } from './projects/out-of-office/out-of-office';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -77,5 +78,6 @@ export const routes: Routes = [
   { path: 'projects/trottadvisor', component: TrottadvisorComponent },
   { path: 'projects/bingo', component: BingoComponent },
   { path: 'projects/family-it-invoice-generator', component: FamilyItInvoiceGenerator },
+  { path: 'projects/out-of-office', component: OutOfOffice },
   
 ];
