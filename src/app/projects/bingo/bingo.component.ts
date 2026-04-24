@@ -50,7 +50,9 @@ export class BingoComponent {
     "Tysie", "Tooksie", "Pug", "Puggles", "Puglet", "Pugloot", "Little face", "Handsome", "Bobbinhead", "Zootie", "It's just his hair", "Chickie", "Snorkies/snorkiehead", "Biiiiig stretch", "Want to go on a W?", "Turtling", "Sniff sniff sniff", "Humpy dumpy", "Needs to make a padoonkie", "Made a doodle", "Puggles", "Tookie", "Stop riling Biscuit up", "Noonkie", "Red thing", "Good boy", "Bad", "Cutest little poppie", "He's just a pug", "Little grandpa"
   ]
 
-  marketTiles: string[] = [ "Pet (dog) stall, at minimum offering those harnesses with the custom name labels", "Small label, home-distilled, local gin", "Gozleme food truck", "Chip on a stick", "Clothing boutique", "Multiple jewellery stalls", "Hot sauce stall" ]
+  marketTiles: string[] = [
+    "Pet (dog) stall, at minimum offering those harnesses with the custom name labels", "Small label, home-distilled, local gin/vodka", "Gozleme food truck", "Chip-on-a-stick", "Female clothing boutiques (minimum of two)", "Jewellery stalls (minimum of three)", "Hot sauce stall", "Lolly stall", "Second-hand record stall with small selection of other random, vintage paraphernalia"
+  ]
 
   constructor(titleService: Title) {
     titleService.setTitle(this.title);

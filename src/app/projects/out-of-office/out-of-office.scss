@@ -1,0 +1,196 @@
+body {
+  background-color: #f9f5e3;
+  display: flex;
+  align-items: flex-start;
+  min-height: 100vh;
+  --animation-timing: 120s;
+}
+
+.ooo-container {
+  animation: slideAround var(--animation-timing) infinite linear;
+  background: #111;
+  display: grid;
+  height: 80vh;
+  overflow: hidden;
+}
+
+/*
+  Right wall - grid-template-columns: 100% 1fr;
+  Left wall - grid-template-columns: 200px 1fr;
+
+  Top wall - grid-template-rows: 200px 1fr;
+  Bottom wall - grid-template-rows: 100% 1fr;
+*/
+
+@keyframes slideAround {
+
+  0% {
+    grid-template-columns: 70% 1fr;
+    grid-template-rows: 200px 1fr;
+  }
+  5.26% {
+    grid-template-columns: 30% 1fr;
+    grid-template-rows: 100% 1fr;
+  }
+  10.52% {
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 80% 1fr;
+  }
+  15.78% {
+    grid-template-columns: 40% 1fr;
+    grid-template-rows: 200px 1fr;
+  }
+  21.04% {
+    grid-template-columns: 100% 1fr;
+    grid-template-rows: 70% 1fr;
+  }
+  26.30% {
+    grid-template-columns: 80% 1fr;
+    grid-template-rows: 100% 1fr;
+  }
+  31.56% {
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 40% 1fr;
+  }
+  36.82% {
+    grid-template-columns: 30% 1fr;
+    grid-template-rows: 200px 1fr;
+  }
+  42.08% {
+    grid-template-columns: 100% 1fr;
+    grid-template-rows: 100% 1fr;
+  }
+  47.34% {
+    grid-template-columns: 30% 1fr;
+    grid-template-rows: 200px 1fr;
+  }
+  52.60% {
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 50% 1fr;
+  }
+  57.86% {
+    grid-template-columns: 40% 1fr;
+    grid-template-rows: 100% 1fr;
+  }
+  63.12% {
+    grid-template-columns: 80% 1fr;
+    grid-template-rows: 200px 1fr;
+  }
+  68.38% {
+    grid-template-columns: 100% 1fr;
+    grid-template-rows: 50% 1fr;
+  }
+  73.64% {
+    grid-template-columns: 70% 1fr;
+    grid-template-rows: 100% 1fr;
+  }
+  78.90% {
+    grid-template-columns: 30% 1fr;
+    grid-template-rows: 200px 1fr;
+  }
+  84.16% {
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 50% 1fr;
+  }
+  89.42% {
+    grid-template-columns: 60% 1fr;
+    grid-template-rows: 100% 1fr;
+  }
+  94.68% {
+    grid-template-columns: 100% 1fr;
+    grid-template-rows: 50% 1fr;
+  }
+  100% {
+    grid-template-columns: 70% 1fr;
+    grid-template-rows: 200px 1fr;
+  }
+}
+
+//Text in box
+
+.ooo-box {
+  background: white;
+  height: 200px;
+  place-self: flex-end;
+  width: 200px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+.ooo-box::before {
+  content: var(--msg);
+  animation: contentChange var(--animation-timing) infinite;
+}
+
+@keyframes contentChange {
+
+  0% { content: "Hi! I am currently out of office and will be returning when I am back from leave. Regards, Leanne";  }
+  5.26%{ content: "Hi! I am currently out of office and will be returning when I am back from leave. Regards, Leanne";  }
+
+  5.27% { content: "Hi! I am currently out of office on holiday and will be returning in January. Cheers! Mike";  }
+  10.52% { content: "Hi! I am currently out of office on holiday and will be returning in January. Cheers! Mike";  }
+
+  10.53% { content: "Hi, I am on leave. I hope you have a Merry Christmas and see you next year! Kind regards, Mary";  }  
+  15.78% { content: "Hi, I am on leave. I hope you have a Merry Christmas and see you next year! Kind regards, Mary";  }
+
+  15.79% { content: "I am currently out of office and not responding to emails. Please contact my team instead. Thanks, Kevin"; }
+  21.04% { content: "I am currently out of office and not responding to emails. Please contact my team instead. Thanks, Kevin";  }
+
+  21.05% { content: "Hello, I am on a well-deserved break at the moment after a belter of a year. Contact me when I'm back. Best, Juan";  }
+  26.30% { content: "Hello, I am on a well-deserved break at the moment after a belter of a year. Contact me when I'm back. Best, Juan";  }
+
+  26.31% { content: "Alas, your email will not find me while there is a coconut in my hand and its oil on my body. Pauline.";  }
+  31.56% { content: "Alas, your email will not find me while there is a coconut in my hand and its oil on my body. Pauline.";  }
+
+  31.57% { content: "Thanks for reaching out. I'm on leave, please contact Ben in my absence. Thanks! Cameron";  }
+  36.82% { content: "Thanks for reaching out. I'm on leave, please contact Ben in my absence. Thanks! Cameron";  }
+
+  36.83% { content: "G'day - if you're contacting me because you were trying to get a hold of Cameron, don't bother. I'm also away. Cheers, Ben.";  }
+  42.08% { content: "G'day - if you're contacting me because you were trying to get a hold of Cameron, don't bother. I'm also away. Cheers, Ben.";  }
+
+  42.09% { content: "Yo - I'm up, up and away from this place for a while. Jenny - if this is you trying to follow up on that quarterly, it's not happening. Amanda";  }
+  47.34% { content: "Yo - I'm up, up and away from this place for a while. Jenny - if this is you trying to follow up on that quarterly, it's not happening. Amanda";  }
+
+  47.35% { content: "Hello, if you're emailing me now, you should probably rethink your priorities. It's the end of the year! Take some time off, like me. Life's too short for work! Kenneth";  }
+  52.60% { content: "Hello, if you're emailing me now, you should probably rethink your priorities. It's the end of the year! Take some time off, like me. Life's too short for work! Kenneth";  }
+
+  52.61% { content: "Hi! I'll get to this when I'm back. Probably. In all likelihood I'll probably ditch this place early into the New Year. It is one of my resolutions. Thanks! Cindy";  }
+  57.86% { content: "Hi! I'll get to this when I'm back. Probably. In all likelihood I'll probably ditch this place early into the New Year. It is one of my resolutions. Thanks! Cindy";  }
+
+  57.87% { content: "Hello, thanks for reaching out. I am not monitoring my inbox as I am in all likelihood 15 beers deep in Kuta. See you later, nerds! Tristan";  }
+  63.12% { content: "Hello, thanks for reaching out. I am not monitoring my inbox as I am in all likelihood 15 beers deep in Kuta. See you later, nerds! Tristan";  }
+
+  63.13% { content: "Hi, your email is important to me, but not as important as regaining my mental sanity over this holiday period. Best, Isabella";  }
+  68.38% { content: "Hi, your email is important to me,  but not as important as regaining my mental sanity over this holiday period. Best, Isabella";  }
+
+  68.39% { content: "";  }
+  73.64% { content: "";  }
+
+  73.65% { content: "";  }
+  78.90% { content: "";  }
+
+  78.91% { content: "Nup. Whatever you sent me will not be looked at, and I won't go looking for it when I'm back, either. Catch ya later, suckers. Ben";  }
+  84.16% { content: "Nup. Whatever you sent me will not be looked at, and I won't go looking for it when I'm back, either. Catch ya later, suckers. Ben";  }
+
+  84.17% { content: "Hi! I will not look at this. Cheers! Matt";  }
+  89.42% { content: "Hi! I will not look at this. Cheers! Matt";  }
+
+  89.43% { content: "Greetings - the email you have sent me will have the privilege of being mass-deleted by me on my first day back next year. Cheers, big ears! Paul";  }
+  94.68% { content: "Greetings - the email you have sent me will have the privilege of being mass-deleted by me on my first day back next year. Cheers, big ears! Paul";  }
+
+  94.69% { content: "No spreken ze English. Bye bye now. Harry";  }
+  100% { content: "No spreken ze English. Bye bye now. Harry";  }
+
+}
+
+@keyframes colorShift {
+  0%, 24% { fill: #F23337;  }
+  25%, 49% { fill: #64F82A; }
+  50%, 74% { fill: #317CFF; }
+  75%, 99% { fill: #64F82A; }
+  100% { fill: #F23337; }
+}
