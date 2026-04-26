@@ -3,13 +3,13 @@ import { Title } from "@angular/platform-browser";
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-out-of-office',
+  selector: 'app-ooo-about',
   standalone: true,
   imports: [RouterLink],
-  templateUrl: './out-of-office.html',
-  styleUrl: './out-of-office.scss',
+  templateUrl: './ooo-about.html',
+  styleUrl: './ooo-about.scss',
 })
-export class OutOfOffice {
+export class OooAbout {
 
   title: string = '🏢 Out of Office//Pass the Parcel - Projects'
 

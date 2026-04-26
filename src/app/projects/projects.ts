@@ -21,7 +21,7 @@ export enum Technology {
 }
 
 export const projects: Project[] = [
-    new Project("Out of Office//Pass the Parcel", "🏢", "/projects/out-of-office", "The fate of all emails in and around Christmastime.", 2026, true, true, true, [Technology.HTML5, Technology.CSS ]),
+    new Project("Out of Office//Pass the Parcel", "🏢", "/projects/out-of-office", "The fate of all emails in and around Christmastime.", 2026, true, true, false, [Technology.Angular, Technology.HTML5, Technology.CSS]),
     new Project("Trottadvisor", "🏖️", "/projects/trottadvisor", "Travel trotta like the man, the myth, the legend: Harro.", 2026, true, true, false, [Technology.Angular, Technology.Bootstrap]),
     new Project("The Big One FAQ", "🌏", "/projects/the-big-one", "A recount of my six-month trip, all around the world, in anticipation for all the 'What was your favourite...' questions I would receive upon return.", 2024, true, true, false, [Technology.HTML5, Technology.Bootstrap, Technology.Javascript]),
     new Project("Bogan of Meteorology", "🌦️", "/projects/bogan-of-meteorology", "The ultimate Australian weather site. Weather data direct from the Bureau of Meteorology, translated into bogan.", 2023, true, true, false, [Technology.Angular, Technology.Bootstrap]),
@@ -41,7 +41,6 @@ export const projects: Project[] = [
     new Project("Palisi's Persistent Pursuit of Places FAQ", "🌏", "https://palisis-persistent-pursuit-of-places.netlify.app/", "Anthony's worldwide 1.5 year long trip.", 2025, false, true, false, [Technology.Angular, Technology.Bootstrap]),
     new Project("Path to Peace", "🌻", "/projects", "My brother's non-for-profit mission for mental health (on pause since October 2025).", 2023, false, false, false, [Technology.Angular, Technology.Bootstrap]),
     // new Project("", "", "", "", 2026, true, true, true, []),
-
 ];
 
 export const sortedProjects = projects.sort(

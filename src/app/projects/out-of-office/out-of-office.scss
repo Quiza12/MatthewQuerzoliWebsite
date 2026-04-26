@@ -1,17 +1,23 @@
-body {
-  background-color: #f9f5e3;
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
   display: flex;
-  align-items: flex-start;
-  min-height: 100vh;
-  --animation-timing: 120s;
+  --animation-timing: 180s;
+  --starting-colour: #144B66;
 }
 
 .ooo-container {
-  animation: slideAround var(--animation-timing) infinite linear;
-  background: #111;
+  animation: slideAround var(--animation-timing) infinite linear, colourShift var(--animation-timing) infinite linear;
+  background: var(--starting-colour);
   display: grid;
-  height: 80vh;
+  height: 100vh;
+  width: 100vw;
   overflow: hidden;
+}
+
+.navbar-text {
+  color: white;
 }
 
 /*
@@ -23,7 +29,6 @@ body {
 */
 
 @keyframes slideAround {
-
   0% {
     grid-template-columns: 70% 1fr;
     grid-template-rows: 200px 1fr;
@@ -61,7 +66,7 @@ body {
     grid-template-rows: 100% 1fr;
   }
   47.34% {
-    grid-template-columns: 30% 1fr;
+    grid-template-columns: 25% 1fr;
     grid-template-rows: 200px 1fr;
   }
   52.60% {
@@ -107,22 +112,24 @@ body {
 }
 
 //Text in box
-
 .ooo-box {
   background: white;
   height: 200px;
-  place-self: flex-end;
   width: 200px;
+  place-self: flex-end;
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: center;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
   padding: 12px;
+  border-radius: 7%;
 }
 
 .ooo-box::before {
-  content: var(--msg);
+  content: "";
   animation: contentChange var(--animation-timing) infinite;
 }
 
@@ -143,14 +150,14 @@ body {
   21.05% { content: "Hello, I am on a well-deserved break at the moment after a belter of a year. Contact me when I'm back. Best, Juan";  }
   26.30% { content: "Hello, I am on a well-deserved break at the moment after a belter of a year. Contact me when I'm back. Best, Juan";  }
 
-  26.31% { content: "Alas, your email will not find me while there is a coconut in my hand and its oil on my body. Pauline.";  }
-  31.56% { content: "Alas, your email will not find me while there is a coconut in my hand and its oil on my body. Pauline.";  }
+  26.31% { content: "Alas, your email will not find me while there is a coconut in my hand and its oil on my body. Pauline";  }
+  31.56% { content: "Alas, your email will not find me while there is a coconut in my hand and its oil on my body. Pauline";  }
 
   31.57% { content: "Thanks for reaching out. I'm on leave, please contact Ben in my absence. Thanks! Cameron";  }
   36.82% { content: "Thanks for reaching out. I'm on leave, please contact Ben in my absence. Thanks! Cameron";  }
 
-  36.83% { content: "G'day - if you're contacting me because you were trying to get a hold of Cameron, don't bother. I'm also away. Cheers, Ben.";  }
-  42.08% { content: "G'day - if you're contacting me because you were trying to get a hold of Cameron, don't bother. I'm also away. Cheers, Ben.";  }
+  36.83% { content: "G'day - if you're contacting me because you were trying to get a hold of Cameron, don't bother. I'm also away. Cheers, Ben";  }
+  42.08% { content: "G'day - if you're contacting me because you were trying to get a hold of Cameron, don't bother. I'm also away. Cheers, Ben";  }
 
   42.09% { content: "Yo - I'm up, up and away from this place for a while. Jenny - if this is you trying to follow up on that quarterly, it's not happening. Amanda";  }
   47.34% { content: "Yo - I'm up, up and away from this place for a while. Jenny - if this is you trying to follow up on that quarterly, it's not happening. Amanda";  }
@@ -167,17 +174,17 @@ body {
   63.13% { content: "Hi, your email is important to me, but not as important as regaining my mental sanity over this holiday period. Best, Isabella";  }
   68.38% { content: "Hi, your email is important to me,  but not as important as regaining my mental sanity over this holiday period. Best, Isabella";  }
 
-  68.39% { content: "";  }
-  73.64% { content: "";  }
+  68.39% { content: "I'm away, so leave me alone. Especially you, Hayley. Time to rely on yourself for once, you've only been in this role for 22 years! Thanks, Roger";  }
+  73.64% { content: "I'm away, so leave me alone. Especially you, Hayley. Time to rely on yourself for once, you've only been in this role for 22 years! Thanks, Roger";  }
 
-  73.65% { content: "";  }
-  78.90% { content: "";  }
+  73.65% { content: "Bugger off, in the most HR-acceptable way possible. Lauren";  }
+  78.90% { content: "Bugger off, in the most HR-acceptable way possible. Lauren";  }
 
   78.91% { content: "Nup. Whatever you sent me will not be looked at, and I won't go looking for it when I'm back, either. Catch ya later, suckers. Ben";  }
   84.16% { content: "Nup. Whatever you sent me will not be looked at, and I won't go looking for it when I'm back, either. Catch ya later, suckers. Ben";  }
 
-  84.17% { content: "Hi! I will not look at this. Cheers! Matt";  }
-  89.42% { content: "Hi! I will not look at this. Cheers! Matt";  }
+  84.17% { content: "Hi! I am happy to say I will not be looking at this. Cheers! Deb";  }
+  89.42% { content: "Hi! I am happy to say I will not be looking at this. Cheers! Deb";  }
 
   89.43% { content: "Greetings - the email you have sent me will have the privilege of being mass-deleted by me on my first day back next year. Cheers, big ears! Paul";  }
   94.68% { content: "Greetings - the email you have sent me will have the privilege of being mass-deleted by me on my first day back next year. Cheers, big ears! Paul";  }
@@ -187,10 +194,147 @@ body {
 
 }
 
-@keyframes colorShift {
-  0%, 24% { fill: #F23337;  }
-  25%, 49% { fill: #64F82A; }
-  50%, 74% { fill: #317CFF; }
-  75%, 99% { fill: #64F82A; }
-  100% { fill: #F23337; }
+@keyframes colourShift {
+  0% {
+    background: #144b66;
+  }
+  5.26% {
+    background: #496e6f;
+  }
+  10.52% {
+    background: #6D694A;
+  }
+  15.78% {
+    background: #B86200;
+  }
+  21.04% {
+    background: #793E5C;
+  }
+  26.30% {
+    background: #5D2A42;
+  }
+  31.56% {
+    background: #3C1518;
+  }
+  36.82% {
+    background: #803423;
+  }
+  42.08% {
+    background: #4C6B4C;
+  }
+  47.34% {
+    background: #251351;
+  }
+  52.60% {
+    background: #6F6149;
+  }
+  57.86% {
+    background: #887506;
+  }
+  63.12% {
+    background: #588E15;
+  }
+  68.38% {
+    background: #008F1F;
+  }
+  73.64% {
+    background: #02A171;
+  }
+  78.90% {
+    background: #008F51;
+  }
+  84.16% {
+    background: #60435F;
+  }
+  89.42% {
+    background: #584B4F;
+  }
+  94.68% {
+    background: #3A5169;
+  }
+  100% {
+    background: #144b66;
+  }
+
+}
+
+.step::before {
+  content: "";
+  animation: stepUpdate var(--animation-timing) infinite;
+}
+
+@keyframes stepUpdate {
+  0% { content: "1";  }
+  5.26%{ content: "1"; }
+
+  5.27% { content: "2"; }
+  10.52% { content: "2"; }
+
+  10.53% { content: "3"; }  
+  15.78% { content: "3"; }
+
+  15.79% { content: "4"; }
+  21.04% { content: "4"; }
+
+  21.05% { content: "5"; }
+  26.30% { content: "5"; }
+
+  26.31% { content: "6"; }
+  31.56% { content: "6"; }
+
+  31.57% { content: "7"; }
+  36.82% { content: "7"; }
+
+  36.83% { content: "8"; }
+  42.08% { content: "8"; }
+
+  42.09% { content: "9"; }
+  47.34% { content: "9"; }
+
+  47.35% { content: "10"; }
+  52.60% { content: "10"; }
+
+  52.61% { content: "11"; }
+  57.86% { content: "11"; }
+
+  57.87% { content: "12"; }
+  63.12% { content: "12"; }
+
+  63.13% { content: "13"; }
+  68.38% { content: "13"; }
+
+  68.39% { content: "14"; }
+  73.64% { content: "14"; }
+
+  73.65% { content: "15"; }
+  78.90% { content: "15"; }
+
+  78.91% { content: "16"; }
+  84.16% { content: "16"; }
+
+  84.17% { content: "17"; }
+  89.42% { content: "17"; }
+
+  89.43% { content: "18"; }
+  94.68% { content: "18"; }
+
+  94.69% { content: "19"; }
+  100% { content: "19"; }
+
+}
+
+.step {
+  color: white;
+  margin-bottom: 0px; 
+  padding: 8px 0 8px 0;
+}
+
+.navbar-right {
+  padding-right: 12px;
+}
+
+.total-steps {
+  color: white;  
+  margin: 0 12px 0 0; 
+  padding: 8px 0 8px 0;
 }

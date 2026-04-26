@@ -96,6 +96,9 @@
                         @if (project.technology.includes(technology.Javascript)) {
                         <img class="tag-icon" src="/assets/images/icons/javascript-icon.svg" alt="JavaScript">
                         }
+                        @if (project.technology.includes(technology.CSS)) {
+                        <img class="tag-icon" src="/assets/images/icons/css-icon.svg" alt="CSS">
+                        }
                     </div>
 
                     <p class="mt-3"><b>{{ project.year }}</b></p>
@@ -133,6 +136,9 @@
                         }
                         @if (project.technology.includes(technology.Javascript)) {
                         <img class="tag-icon" src="/assets/images/icons/javascript-icon.svg" alt="JavaScript">
+                        }
+                        @if (project.technology.includes(technology.CSS)) {
+                        <img class="tag-icon" src="/assets/images/icons/css-icon.svg" alt="CSS">
                         }
                     </div>
 
@@ -173,6 +179,9 @@
                         @if (project.technology.includes(technology.Javascript)) {
                         <img class="tag-icon" src="/assets/images/icons/javascript-icon.svg" alt="JavaScript">
                         }
+                        @if (project.technology.includes(technology.CSS)) {
+                        <img class="tag-icon" src="/assets/images/icons/css-icon.svg" alt="CSS">
+                        }
                     </div>
 
                     <p class="mt-3"><b>{{ project.year }}</b></p>
@@ -188,7 +197,3 @@
 
     </div>
 </body>
-
-
-<!-- <a routerLink="/projects/quiet-near-a-little-stream" class="btn btn-under-construction" role="button" aria-pressed="true">
-🚧 -->

@@ -1,0 +1,29 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  background: #144B66;
+}
+
+.about-container {
+  display: grid;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.navbar-text, .about-text, p, li, a {
+  color: white;
+}
+
+ol {
+  list-style-position: inside;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+

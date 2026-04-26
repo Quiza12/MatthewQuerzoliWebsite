@@ -34,6 +34,7 @@ import { DontYouForgetAboutJimny } from './projects/tappy-os/dont-you-forget-abo
 import { AverageMafsEpisodeGraph } from './graphs/average-mafs-episode/average-mafs-episode';
 import { RageAgainstTheLanyardGraph } from './graphs/rage-against-the-lanyard/rage-against-the-lanyard';
 import { OutOfOffice } from './projects/out-of-office/out-of-office';
+import { OooAbout } from './projects/out-of-office/components/ooo-about/ooo-about';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -78,6 +79,8 @@ export const routes: Routes = [
   { path: 'projects/trottadvisor', component: TrottadvisorComponent },
   { path: 'projects/bingo', component: BingoComponent },
   { path: 'projects/family-it-invoice-generator', component: FamilyItInvoiceGenerator },
+
   { path: 'projects/out-of-office', component: OutOfOffice },
+  { path: 'projects/out-of-office/about', component: OooAbout },
   
 ];
