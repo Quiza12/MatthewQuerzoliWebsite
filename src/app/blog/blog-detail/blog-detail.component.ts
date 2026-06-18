@@ -24,19 +24,21 @@ export class BlogDetailComponent {
 
     // To render checkboxes interactive
     renderer.listitem = (item: any) => {
-      const text = item.text;
-      if (item.task) {
-        // 1. Remove 'disabled'
+      const html = marked.parseInline(item.text);
+
+      // 1. Remove 'disabled'
         // 2. Add Bootstrap 'form-check-input' for better looks
+      if (item.task) {
         return `
           <li class="task-list-item d-flex align-items-center">
-            <input type="checkbox" 
-                  class="form-check-input me-2" 
+            <input type="checkbox"
+                  class="form-check-input me-2"
                   ${item.checked ? 'checked' : ''}>
-            <span>${text}</span>
+            <span>${html}</span>
           </li>`;
       }
-      return `<li>${text}</li>`;
+
+      return `<li>${html}</li>`;
     };
 
     // Configure marked for GFM (checklists)
