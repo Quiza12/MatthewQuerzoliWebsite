@@ -21,6 +21,7 @@ export enum Technology {
 }
 
 export const projects: Project[] = [
+    new Project("Two-Up", "🇦🇺", "/projects/two-up", "The classic ANZAC Day game, now online.", 2026, true, true, true, [Technology.HTML5, Technology.CSS, Technology.Javascript]),
     new Project("Out of Office//Pass the Parcel", "🏢", "/projects/out-of-office", "The fate of all emails in and around Christmastime.", 2026, true, true, false, [Technology.Angular, Technology.HTML5, Technology.CSS]),
     new Project("Trottadvisor", "🏖️", "/projects/trottadvisor", "Travel trotta like the man, the myth, the legend: Harro.", 2026, true, true, false, [Technology.Angular, Technology.Bootstrap]),
     new Project("The Big One FAQ", "🌏", "/projects/the-big-one", "A recount of my six-month trip, all around the world, in anticipation for all the 'What was your favourite...' questions I would receive upon return.", 2024, true, true, false, [Technology.HTML5, Technology.Bootstrap, Technology.Javascript]),

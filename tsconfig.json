@@ -2,8 +2,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-  "baseUrl": "./",
-  "outDir": "./dist/out-tsc",
+  // "baseUrl": "./",
+  // "outDir": "./dist/out-tsc",
   "forceConsistentCasingInFileNames": true,
   "strict": true,
   "noImplicitOverride": true,
@@ -12,7 +12,7 @@
   "noFallthroughCasesInSwitch": true,
   "sourceMap": true,
   "declaration": false,
-  "downlevelIteration": true,
+  // "downlevelIteration": true,
   "experimentalDecorators": true,
   "moduleResolution": "nodenext",
   "importHelpers": true,

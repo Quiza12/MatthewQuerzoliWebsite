@@ -35,6 +35,7 @@ import { AverageMafsEpisodeGraph } from './graphs/average-mafs-episode/average-m
 import { RageAgainstTheLanyardGraph } from './graphs/rage-against-the-lanyard/rage-against-the-lanyard';
 import { OutOfOffice } from './projects/out-of-office/out-of-office';
 import { OooAbout } from './projects/out-of-office/components/ooo-about/ooo-about';
+import { TwoUp } from './projects/two-up/two-up';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -83,4 +84,5 @@ export const routes: Routes = [
   { path: 'projects/out-of-office', component: OutOfOffice },
   { path: 'projects/out-of-office/about', component: OooAbout },
   
+  { path: 'projects/two-up', component: TwoUp },
 ];

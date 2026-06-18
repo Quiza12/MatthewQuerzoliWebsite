@@ -13,9 +13,9 @@ export const ScriptStore: Scripts[] = [
   { name: 'ripmeanewone', src: '../../../assets/custom-js/rip-me-a-new-one.js' },
   { name: 'itsfiveoclocksomewhere', src: '../../../assets/custom-js/its-five-oclock-somewhere.js' },
   { name: 'tappystandardtime', src: '../../../assets/custom-js/tappy-standard-time.js' },
-  { name: 'trottadvisor', src: '../../../assets/custom-js/trottadvisor.js' },
   { name: 'basic-bootstrap', src: '../../../assets/custom-js/basic-bootstrap.js' },
   { name: 'rageagainstthelanyard', src: '../../../assets/custom-js/rage-against-the-lanyard.js' },
+  { name: 'twoup', src: '../../../assets/custom-js/two-up.js' },
   
 ];
 

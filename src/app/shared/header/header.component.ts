@@ -37,6 +37,7 @@ export class HeaderComponent {
   familyItInvoiceGeneratorRoute: boolean = false;
   dontYouForgetAboutJimnyRoute: boolean = false;
   outOfOfficeRoute: boolean = false;
+  twoUpRoute: boolean = false;
 
   // Graphs
   graphAverageMafsEpisodeRoute: boolean = false;
@@ -76,6 +77,7 @@ export class HeaderComponent {
     this.tappyStandardTimeRoute = currentRoute.includes('/projects/tappy-os/tappy-standard-time') ? true : false;
     this.dontYouForgetAboutJimnyRoute = currentRoute.includes('/projects/tappy-os/dont-you-forget-about-jimny') ? true : false;
     this.outOfOfficeRoute = currentRoute.includes('/projects/out-of-office') ? true : false;
+    this.twoUpRoute = currentRoute.includes('/projects/two-up') ? true : false;
 
     this.graphsRoute = currentRoute == ('/graphs') ? true : false;
     this.graphAverageMafsEpisodeRoute = currentRoute.includes('/graphs/average-mafs-episode') ? true : false;
@@ -98,6 +100,7 @@ export class HeaderComponent {
       !this.tappyOsRoute &&
       !this.dontYouForgetAboutJimnyRoute &&
       !this.outOfOfficeRoute &&
+      !this.twoUpRoute &&
       !this.graphsRoute &&
       !this.graphAverageMafsEpisodeRoute &&
       !this.graphRageAgainstTheLanyardRoute;
@@ -121,7 +124,8 @@ export class HeaderComponent {
     this.tappyOsRoute = false;
     this.dontYouForgetAboutJimnyRoute = false;
     this.outOfOfficeRoute = false;
-
+    this.twoUpRoute = false;
+    
     this.graphsRoute = false
     this.graphAverageMafsEpisodeRoute = false;
     this.graphRageAgainstTheLanyardRoute = false;
