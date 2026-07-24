@@ -22,13 +22,10 @@ export class BlogDetailComponent {
   constructor() {
     const renderer = new marked.Renderer();
 
-    // To render checkboxes interactive
     renderer.listitem = (item: any) => {
-      const html = marked.parseInline(item.text);
+      const html = marked.parseInline(item.text); //make sure that markdown rendering is reapplied after custom renders are done
 
-      // 1. Remove 'disabled'
-        // 2. Add Bootstrap 'form-check-input' for better looks
-      if (item.task) {
+      if (item.task) { // To render checkboxes interactive
         return `
           <li class="task-list-item d-flex align-items-center">
             <input type="checkbox"
