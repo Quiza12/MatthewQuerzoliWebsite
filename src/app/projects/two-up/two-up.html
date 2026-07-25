@@ -1,28 +1,60 @@
 <body>
+    
     <input type="checkbox" id="throw" hidden>
     <div class="two-up">
-
-        <h1 class="win" style="display: none;"></h1>
+        <h2>Two-Up</h2>
+        <h4 id="win">Click the paddle to play</h4>
 
         <label for="throw" class="paddle">
             <div class="coin" id="coin1">
-                <div class="side heads">H</div>
-                <div class="side tails">T</div>
+                <div class="coin-edge"></div>
+                <div class="coin-face heads">H</div>
+                <div class="coin-face tails">T</div>
             </div>
             <div class="coin" id="coin2">
-                <div class="side heads">H</div>
-                <div class="side tails">T</div>
+                <div class="coin-edge"></div>
+                <div class="coin-face heads">H</div>
+                <div class="coin-face tails">T</div>
             </div>
-            <div class="coin" id="coin3">
-                <div class="side heads">H</div>
-                <div class="side tails">T</div>
+            <div class="coin" id="coin3" style="display: none;">
+                <div class="coin-edge"></div>
+                <div class="coin-face heads">H</div>
+                <div class="coin-face tails">T</div>
             </div>
         </label>
 
-        <button onclick="reset()">Reset</button>
-        
+        <button class="reset" onclick="reset()">Reset paddle</button>
+        <div class="results">
+            <p>Spins: </p> 
+            <p id="totalSpins">0</p> 
+            •
+            <p>Wins: </p> 
+            <p id="totalWins">0</p> 
+            •
+            <p>Losses: </p> 
+            <p id="totalLosses">0</p> 
+        </div>
+        <div class="info">
+            <a href="https://manofmany.com/culture/how-to-play-two-up" target="_blank">Two-up explainer</a>
+            •
+            <a href="https://rslqld.org/news/two-up-an-anzac-day-tradition" target="_blank">History of two-up</a>
+        </div>
+        <div class="settings">
+            <form>
+                <div class="radio-group">
+                    <input type="radio" id="twoCoins" name="gameType" class="gameType" value="two" checked="checked">
+                    <label for="twoCoins"> Two coins</label><br>
+                    <input type="radio" id="threeCoins" name="gameType" class="gameType" value="three">
+                    <label for="threeCoins"> Three coins</label><br>
+                </div>
+            </form>
+            
+        </div>
     </div>
+
+    
     
     <br><br>
 </body>
+
 

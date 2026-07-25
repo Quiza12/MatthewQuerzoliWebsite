@@ -1,15 +1,97 @@
 @use "sass:math";
 
+// Slots for variables so that randomness can be injected on throw.
+:root {
+
+  /* ---------- 20% ---------- */
+  --c1-x-20: 0px;
+  --c1-y-20: 0px;
+
+  --c2-x-20: 0px;
+  --c2-y-20: 0px;
+
+  --c3-x-20: 0px;
+  --c3-y-20: 0px;
+
+  /* ---------- 28% ---------- */
+  --c1-x-28: 0px;
+  --c1-y-28: 0px;
+  --c1-r-28: 0deg;
+
+  --c2-x-28: 0px;
+  --c2-y-28: 0px;
+  --c2-r-28: 0deg;
+
+  --c3-x-28: 0px;
+  --c3-y-28: 0px;
+  --c3-r-28: 0deg;
+
+  /* ---------- 42% ---------- */
+  --c1-x-42: 0px;
+  --c1-y-42: 0px;
+  --c1-r-42: 0deg;
+
+  --c2-x-42: 0px;
+  --c2-y-42: 0px;
+  --c2-r-42: 0deg;
+
+  --c3-x-42: 0px;
+  --c3-y-42: 0px;
+  --c3-r-42: 0deg;
+
+  /* ---------- 57% ---------- */
+  --c1-x-57: 0px;
+  --c1-y-57: 0px;
+  --c1-r-57: 0deg;
+
+  --c2-x-57: 0px;
+  --c2-y-57: 0px;
+  --c2-r-57: 0deg;
+
+  --c3-x-57: 0px;
+  --c3-y-57: 0px;
+  --c3-r-57: 0deg;
+
+  /* ---------- 71% ---------- */
+  --c1-x-71: 0px;
+  --c1-y-71: 0px;
+  --c1-r-71: 0deg;
+
+  --c2-x-71: 0px;
+  --c2-y-71: 0px;
+  --c2-r-71: 0deg;
+
+  --c3-x-71: 0px;
+  --c3-y-71: 0px;
+  --c3-r-71: 0deg;
+
+  /* ---------- 85% ---------- */
+  --c1-x-85: 0px;
+  --c1-y-85: 0px;
+  --c1-r-85: 0deg;
+
+  --c2-x-85: 0px;
+  --c2-y-85: 0px;
+  --c2-r-85: 0deg;
+
+  --c3-x-85: 0px;
+  --c3-y-85: 0px;
+  --c3-r-85: 0deg;
+
+  /* ---------- 100% ---------- */
+  --c1-x-100: 0px;
+  --c2-x-100: 0px;
+  --c3-x-100: 0px;
+
+  --c1-r-100: 720deg;
+  --c2-r-100: 720deg;
+  --c3-r-100: 720deg;
+}
+
 // Optional SASS variables (compile‑time)
 $paddle-height: 350px;
 $coin-top: 0px;
-
-@function randomNum($min, $max) {
-  $rand: math.random();
-  $randomNum: $min + math.floor($rand * (($max - $min) + 1));
-
-  @return $randomNum;
-}
+$coin-flip-time: 1.3s;
 
 // Root-level CSS variables (runtime)
 html,
@@ -22,21 +104,56 @@ body {
 
   --paddle-height: #{$paddle-height};
   --coin-top: #{$coin-top};
+  --coin-flip-time: #{$coin-flip-time};
 }
 
 .two-up {
   display: grid;
+  place-items: center;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
   grid-template-columns: auto;
   grid-template-rows: auto;
   align-content: center;
+  perspective: 800px;
 }
 
+.results {
+  margin: 20px;
+}
+
+.results p {
+  display: inline;
+}
+
+.info {
+  margin-bottom: 20px;
+}
+
+.info a {
+  display: inline;
+}
+
+.settings {
+  display: inline;
+}
+
+.reset {
+  width: 100px;
+  height: 50px;
+  border-radius: 20px;
+}
+
+// Thickness of the coin, in px. Used by both the faces (translateZ) and the
+// edge segments (their `height` becomes this depth once rotated onto their side).
+$coin-thickness: 8px;
+$coin-radius: 30px;
+$edge-segments: 24;
+
 .coin {
-  width: 60px;
-  height: 60px;
+  width: $coin-radius * 2;
+  height: $coin-radius * 2;
   position: absolute;
   transform-style: preserve-3d;
   transition: transform 1s linear;
@@ -49,41 +166,64 @@ body {
   top: -40px;
 }
 
+// Arrangement 
 #coin1 { top: calc(var(--coin-top)); }
 #coin2 { top: calc(var(--coin-top) + 75px); }
 #coin3 { top: calc(var(--coin-top) + 150px); }
 
-.side {
+.coin-face {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  clip-path: circle();
+  inset: 0;
+  border-radius: 50%;
+  clip-path: circle(); // border-image (below) ignores border-radius, so force the round shape here
+  backface-visibility: hidden; // hides a face when it's turned away from viewer
   text-align: center;
   line-height: 60px;
   font-weight: bold;
 }
 
-.heads {
+.coin-face.heads {
   --coin-colour: gold;
   background: var(--coin-colour);
   box-shadow: 0 0 0 10px inset var(--coin-colour);
   border-image: conic-gradient(var(--coin-colour) 0 0) 50%/calc(50% - 2px);
+  transform: translateZ(#{math.div($coin-thickness, 2)}); // pushed toward viewer by half the coin's thickness
 }
 
-// .tails {
-//   --coin-colour: silver;
-//   background: var(--coin-colour);
-//   box-shadow: none;
-//   border-image: none;
-//   transform: rotateX(180deg);
-// }
-
-.tails {
+.coin-face.tails {
   --coin-colour: silver;
   background: var(--coin-colour);
   box-shadow: 0 0 0 10px inset var(--coin-colour);
   border-image: conic-gradient(var(--coin-colour) 0 0) 50%/calc(50% - 2px);
+  transform: translateZ(-#{math.div($coin-thickness, 2)}) rotateY(180deg); // pushed back, flipped so text isn't mirrored
+}
+
+// The rim/edge: a ring of thin strips standing on their side, built once by
+// JS (see two-up.js) and shared in local 3D space with the two faces above,
+// so the whole assembly tumbles together during the flip animation.
+.coin-edge {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+
+  // The spans below are created at runtime by two-up.js (document.createElement),
+  // not by Angular's template compiler — so they never get the scoped
+  // `_ngcontent-*` attribute Angular stamps onto template elements, and a plain
+  // `.coin-edge span { ... }` rule would silently never match them. ::ng-deep
+  // strips that scoping for this selector so it still applies.
+  ::ng-deep span {
+    // Chord width per segment ~= 2 * radius * sin(180deg / segments); with
+    // radius 30px and 24 segments that's ~7.8px — 8px with a touch of
+    // overlap so there are no visible gaps between strips.
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 8px;
+    height: $coin-thickness;
+    margin-left: -4px;
+    margin-top: -#{math.div($coin-thickness, 2)};
+    background: #8a7546;
+  }
 }
 
 .paddle {
@@ -112,6 +252,10 @@ body {
   border-right: 2px solid transparent;
 }
 
+.paddle.no-hover {
+  pointer-events: none;
+}
+
 // Make the coins (children of paddle) smaller on hover, right before flick.
 .paddle:hover > .coin {
   width: 58px;
@@ -125,33 +269,16 @@ body {
   }
 
   #coin1 {
-    
-    animation: coin1Flip 1s linear forwards;
+    animation: coin1Flip var(--coin-flip-time) linear forwards;
   }
   #coin2 {
-    animation: coin2Flip 1s linear;
+    animation: coin2Flip var(--coin-flip-time) linear forwards;
   }
   #coin3 {
-    animation: coin3Flip 1s linear;
+    animation: coin3Flip var(--coin-flip-time) linear forwards;
   }
 
 }
-
-// #throw:not(:checked) ~ .two-up {
-//   .paddle {
-//     animation: paddleThrow1 1s linear backwards;
-//   }
-
-//   #coin1 {
-//     animation: coin3Flip 1s linear;
-//   }
-//   #coin2 {
-//     animation: coin1Flip 1s linear;
-//   }
-//   #coin3 {
-//     animation: coin2Flip 1s linear;
-//   }
-// }
 
 @keyframes paddleThrow {
   0% { 
@@ -183,50 +310,16 @@ body {
     border-right: 0px solid transparent;
   }
   30%  { }
-  40%  {  }
-  60%  { border-bottom: var(--paddle-height) solid rgba(0, 0, 0, 0); }
-  80%  { }
-  100% { border-bottom: var(--paddle-height) solid rgba(0, 0, 0, 0); }
-}
-
-@keyframes paddleThrow1 {
-  0% { 
-    border-left: 2px solid transparent;
-    border-right: 2px solid transparent;
-  }
-  2% {
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-  }
-  4% {
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-  }
-  6% {
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-  }
-  8% {
-    border-left: 12px solid transparent;
-    border-right: 12px solid transparent;
-  }
-  10% {
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-  }
-  20%  { 
-    border-left: 0px solid transparent;
-    border-right: 0px solid transparent;
-  }
-  30%  { }
-  40%  {  }
+  40%  { }
   60%  { border-bottom: var(--paddle-height) solid rgba(0, 0, 0, 0); }
   80%  { }
   100% { border-bottom: var(--paddle-height) solid rgba(0, 0, 0, 0); }
 }
 
 /*
-  Start at 20% once the paddle has completed its pre-flip action.
+  Start at 20% once the paddle has completed its pre-flip action (this is matched to the coin's 0-20 jump).
+
+  Randomness injected via Javascript through variables.
 */
 @keyframes coin1Flip {
   0% {}
@@ -235,13 +328,35 @@ body {
   6% { width: 52px; height: 52px; }
   8% { width: 50px; height: 50px; }
   10% { width: 48px; height: 48px; }
-  20%    { transform: translateX(0px) translateY(randomNum(0px, 0px)) rotateX(0deg); width: 58px; height: 58px; }
-  28.6%  { transform: translateX(4px) translateY(randomNum(-91px, -120px)) rotateX(randomNum(190deg, 204deg)); }
-  42.9%  { transform: translateX(6px) translateY(randomNum(-121px, -150px)) rotateX(randomNum(292deg, 306deg));  }
-  57.2%  { transform: translateX(3px) translateY(randomNum(-91px, -120px)) rotateX(randomNum(394deg, 408deg)); }
-  71.5%  { transform: translateX(2px) translateY(randomNum(-61px, -90px)) rotateX(randomNum(496deg, 510deg)); }
-  85.8%  { transform: translateX(1px) translateY(randomNum(-30px, -60px)) rotateX(randomNum(498deg, 612deg)); }
-  100%   { transform: translateX(10px) translateY(0px) rotateX(720deg); }
+
+  20% {
+    transform: translateX(var(--c1-x-20)) translateY(var(--c1-y-20)) rotateX(0deg);
+    width: 58px; height: 58px;
+  }
+
+  28.6% {
+    transform: translateX(var(--c1-x-28)) translateY(var(--c1-y-28)) rotateX(var(--c1-r-28));
+  }
+
+  42.9% {
+    transform: translateX(var(--c1-x-42)) translateY(var(--c1-y-42)) rotateX(var(--c1-r-42));
+  }
+
+  57.2% {
+    transform: translateX(var(--c1-x-57)) translateY(var(--c1-y-57)) rotateX(var(--c1-r-57));
+  }
+
+  71.5% {
+    transform: translateX(var(--c1-x-71)) translateY(var(--c1-y-71)) rotateX(var(--c1-r-71));
+  }
+
+  85.8% {
+    transform: translateX(var(--c1-x-85)) translateY(var(--c1-y-85)) rotateX(var(--c1-r-85));
+  }
+
+  100% {
+    transform: translateX(var(--c1-x-100)) translateY(0px) rotateX(var(--c1-r-100));
+  }
 }
 
 @keyframes coin2Flip {
@@ -251,14 +366,37 @@ body {
   6% { width: 52px; height: 52px; }
   8% { width: 50px; height: 50px; }
   10% { width: 48px; height: 48px; }
-  20%    { transform: translateX(0px) translateY(randomNum(0px, 0px)) rotateX(0deg); width: 58px; height: 58px; }
-  28.6%  { transform: translateY(randomNum(-91px, -120px)) rotateX(randomNum(190deg, 204deg)); }
-  42.9%  { transform: translateY(randomNum(-121px, -150px)) rotateX(randomNum(292deg, 306deg)); }
-  57.2%  { transform: translateY(randomNum(-91px, -120px)) rotateX(randomNum(394deg, 408deg)); }
-  71.5%  { transform: translateY(randomNum(-61px, -90px)) rotateX(randomNum(496deg, 510deg)); }
-  85.8%  { transform: translateY(randomNum(-30px, -60px)) rotateX(randomNum(498deg, 612deg)); }
-  100%   { transform: translateY(0px) rotateX(720deg); }
+
+  20% {
+    transform: translateX(var(--c2-x-20)) translateY(var(--c2-y-20)) rotateX(0deg);
+    width: 58px; height: 58px;
+  }
+
+  28.6% {
+    transform: translateX(var(--c2-x-28)) translateY(var(--c2-y-28)) rotateX(var(--c2-r-28));
+  }
+
+  42.9% {
+    transform: translateX(var(--c2-x-42)) translateY(var(--c2-y-42)) rotateX(var(--c2-r-42));
+  }
+
+  57.2% {
+    transform: translateX(var(--c2-x-57)) translateY(var(--c2-y-57)) rotateX(var(--c2-r-57));
+  }
+
+  71.5% {
+    transform: translateX(var(--c2-x-71)) translateY(var(--c2-y-71)) rotateX(var(--c2-r-71));
+  }
+
+  85.8% {
+    transform: translateX(var(--c2-x-85)) translateY(var(--c2-y-85)) rotateX(var(--c2-r-85));
+  }
+
+  100% {
+    transform: translateX(var(--c2-x-100)) translateY(0px) rotateX(var(--c2-r-100));
+  }
 }
+
 
 @keyframes coin3Flip {
   0% {}
@@ -267,12 +405,34 @@ body {
   6% { width: 52px; height: 52px; }
   8% { width: 50px; height: 50px; }
   10% { width: 48px; height: 48px; }
-  20%    { transform: translateX(0px) translateY(randomNum(0px, 0px)) rotateX(0deg); width: 58px; height: 58px; }
-  28.6%  { transform: translateY(randomNum(-91px, -120px)) rotateX(randomNum(190deg, 204deg)); }
-  42.9%  { transform: translateY(randomNum(-121px, -150px)) rotateX(randomNum(292deg, 306deg)); }
-  57.2%  { transform: translateY(randomNum(-91px, -120px)) rotateX(randomNum(394deg, 408deg)); }
-  71.5%  { transform: translateY(randomNum(-61px, -90px)) rotateX(randomNum(496deg, 510deg)); }
-  85.8%  { transform: translateY(randomNum(-30px, -60px)) rotateX(randomNum(498deg, 612deg)); }
-  100%   { transform: translateY(0px) rotateX(720deg); }
+
+  20% {
+    transform: translateX(var(--c3-x-20)) translateY(var(--c3-y-20)) rotateX(0deg);
+    width: 58px; height: 58px;
+  }
+
+  28.6% {
+    transform: translateX(var(--c3-x-28)) translateY(var(--c3-y-28)) rotateX(var(--c3-r-28));
+  }
+
+  42.9% {
+    transform: translateX(var(--c3-x-42)) translateY(var(--c3-y-42)) rotateX(var(--c3-r-42));
+  }
+
+  57.2% {
+    transform: translateX(var(--c3-x-57)) translateY(var(--c3-y-57)) rotateX(var(--c3-r-57));
+  }
+
+  71.5% {
+    transform: translateX(var(--c3-x-71)) translateY(var(--c3-y-71)) rotateX(var(--c3-r-71));
+  }
+
+  85.8% {
+    transform: translateX(var(--c3-x-85)) translateY(var(--c3-y-85)) rotateX(var(--c3-r-85));
+  }
+
+  100% {
+    transform: translateX(var(--c3-x-100)) translateY(0px) rotateX(var(--c3-r-100));
+  }
 }
 

@@ -1,64 +1,236 @@
-window.onload = function () {
-  console.log("Custom Javascript onload() called.");
-  setup();
-};
+var twoCoinGame = true;
 
 var coin1Boolean = false;
 var coin2Boolean = false;
 var coin3Boolean = false;
+
+var totalSpins = 0;
+var totalWins = 0;
+var totalLosses = 0;
+var totalWins = 0;
 
 function setup() {
   coin1Boolean = getRandomBoolean();
   coin2Boolean = getRandomBoolean();
   coin3Boolean = getRandomBoolean();
 
-  toggleHeadsTails('coin1', coin1Boolean);
-  toggleHeadsTails('coin2', coin2Boolean);
-  toggleHeadsTails('coin3', coin3Boolean);
-  
-  console.log('Coin 1: ' + coin1Boolean);
-  console.log('Coin 2: ' + coin2Boolean);
-  console.log('Coin 3: ' + coin3Boolean);
-  console.log('Win? ' + isWin());
+  document.getElementById("win").innerHTML = "Come in spinner!";
 }
 
-const animated = document.querySelector(".paddle");
+const animated = document.querySelector(".coin");
 
-animated.addEventListener("animationend", () => {
-  document.getElementById("win").style.display = 'block';
-  document.getElementById("win").innerHTML = isWin();
+animated.addEventListener("animationend", () => { //only show result on coin animation end
+
+  var win = isWin();
+  totalSpins += 1;
+  if (win) {
+    totalWins += 1; 
+  } else {
+    totalLosses += 1; 
+  }
+
+  document.getElementById("totalSpins").innerHTML = totalSpins;
+  document.getElementById("totalWins").innerHTML = totalWins;
+  document.getElementById("totalLosses").innerHTML = totalLosses;
+  document.getElementById("win").innerHTML = logWin(win);
+
+  // Disable trigger/hover of paddle when there is none visible.
+  document.getElementById("throw").disabled = true;
+  document.querySelector('.paddle').classList.add('no-hover');
+
+  console.log((coin1Boolean ? 'Heads' : 'Tails') + ' + ' + (coin2Boolean ? 'Heads' : 'Tails') + ' + ' + (coin3Boolean ? 'Heads' : 'Tails') + ' = ' + logWin(win));
+
+});
+
+const gameTypeInputs = document.querySelectorAll('input[name="gameType"]');
+const coin3 = document.getElementById("coin3");
+
+gameTypeInputs.forEach((input) => {
+  input.addEventListener("change", () => {
+    var selectedOption = document.querySelector('input[name="gameType"]:checked').value;
+
+    // Perform actions based on the selectedOption value
+    if (selectedOption === "two") {
+      console.log("Two coin game type selected");
+      coin3.style.display = "none";
+      reset();
+    } else if (selectedOption === "three") {
+      console.log("Three coin game type selected");
+      coin3.style.display = "block";
+      reset();
+    }
+  });
 });
 
 function reset() {
-  setup();
+
+  document.getElementById("win").innerHTML = "Click the paddle to play";
+
+  // Re-enable paddle on hover and trigger.
   document.getElementById('throw').checked = false;
-  document.getElementById('win').style.display = 'none';
+  document.getElementById("throw").disabled = false;
+  document.querySelector('.paddle').classList.remove('no-hover');
 }
 
 function getRandomBoolean() {
-  if ((Math.floor(Math.random() * 2)) == 0) { // either 0 or 1
-    return true;
-  } else {
-    return false;
-  }
+  return Math.random() < 0.5;
 }
 
-function toggleHeadsTails(id, boolean) {
-  var coin = document.getElementById(id);
-  if (boolean) {
-    coin.querySelector('.heads').style.display = 'block';
-    coin.querySelector('.tails').style.display = 'none';
-  } else {
-    coin.querySelector('.heads').style.display = 'none';
-    coin.querySelector('.tails').style.display = 'block';
-  }
+function logWin(win) {
+  return win ? 'You won!' : 'You lost';
 }
 
 function isWin() {
-  var win = (coin1Boolean && (coin2Boolean || coin3Boolean)) || (coin2Boolean && coin3Boolean);
-  if (win) {
-    return 'You Won!';
+  if (twoCoinGame) {
+    if (coin1Boolean && coin2Boolean) {
+      return true;
+    } else if (coin1Boolean || coin2Boolean) {
+      break;
+    } else {
+      return false;
+    }
+    return coin1Boolean && coin2Boolean;
   } else {
-    return 'You Lost';
+    return (coin1Boolean && (coin2Boolean || coin3Boolean)) || (coin2Boolean && coin3Boolean)
   }
 }
+
+/* ----------------------------------------------------------
+   COIN EDGE (rim) — built once at load time.
+
+   Each coin gets a ring of thin <span> strips inside its
+   .coin-edge container. Every strip is rotated to a position
+   around the circle, pushed out to the coin's radius, then
+   tipped onto its side so its CSS `height` becomes the coin's
+   depth. See the SCSS for what each strip looks like; this is
+   just what places each one around the ring.
+---------------------------------------------------------- */
+
+const EDGE_SEGMENTS = 24;
+const COIN_RADIUS = 30; // px — half of the 60px coin width
+
+function buildCoinEdges() {
+  document.querySelectorAll('.coin-edge').forEach((edge) => {
+    for (let i = 0; i < EDGE_SEGMENTS; i++) {
+      const angle = (360 / EDGE_SEGMENTS) * i;
+      const span = document.createElement('span');
+      span.style.transform = `rotateZ(${angle}deg) translateY(-${COIN_RADIUS}px) rotateX(90deg)`;
+      edge.appendChild(span);
+    }
+  });
+}
+
+/* ----------------------------------------------------------
+   RANDOMNESS ENGINE FOR COINS (controlled ranges)
+---------------------------------------------------------- */
+
+function rand(min, max) {
+  return min + Math.random() * (max - min);
+}
+
+function randPx(min, max) {
+  return rand(min, max) + 'px';
+}
+
+function randDeg(min, max) {
+  return rand(min, max) + 'deg';
+}
+
+function randSign() {
+  return Math.random() < 0.5 ? -1 : 1;
+}
+
+function randomiseCoin(sign, coin, landsHeads) {
+
+  /*
+
+  Heads - ends on 720 degrees - {120, 240, 360, 480, 600}, 720
+  Tails - ends on 900 degrees - {150, 300, 450, 600, 750}, 900
+  
+  With sharper start:
+  Heads - ends on 720 degrees - {200, 300, 400, 500, 600}, 720
+  Tails - ends on 900 degrees - {200, 300, 450, 600, 750}, 900
+
+  20 degree variation for randomness in above ranges.
+
+  */
+
+  const root = document.documentElement;
+
+  // 20%
+  root.style.setProperty('--' + coin + '-x-20', sign * rand(3, 8) + 'px');
+  root.style.setProperty('--' + coin + '-y-20', randPx(0, 0));
+
+  // 28.6%
+  root.style.setProperty('--' + coin + '-x-28', sign * rand(8, 13) + 'px');
+  root.style.setProperty('--' + coin + '-y-28', randPx(-91, -120));
+  root.style.setProperty('--' + coin + '-r-28', randDeg(190, 210));
+
+  // 42.9%
+  root.style.setProperty('--' + coin + '-x-42', sign * rand(17, 21) + 'px');
+  root.style.setProperty('--' + coin + '-y-42', randPx(-121, -150));
+  root.style.setProperty('--' + coin + '-r-42', randDeg(290, 310));
+
+  // 57.2%
+  root.style.setProperty('--' + coin + '-x-57', sign * rand(21, 25) + 'px');
+  root.style.setProperty('--' + coin + '-y-57', randPx(-91, -120));
+  if (landsHeads) {
+    root.style.setProperty('--' + coin + '-r-57', randDeg(390, 410));
+  } else {
+    root.style.setProperty('--' + coin + '-r-57', randDeg(440, 460));
+  }
+
+  // 71.5%
+  root.style.setProperty('--' + coin + '-x-71', sign * rand(25, 29) + 'px');
+  root.style.setProperty('--' + coin + '-y-71', randPx(-61, -90));
+  if (landsHeads) {
+    root.style.setProperty('--' + coin + '-r-71', randDeg(490, 510));
+  } else {
+    root.style.setProperty('--' + coin + '-r-71', randDeg(590, 610));
+  }
+
+  // 85.8%
+  root.style.setProperty('--' + coin + '-x-85', sign * rand(29, 33) + 'px');
+  root.style.setProperty('--' + coin + '-y-85', randPx(-30, -60));
+  if (landsHeads) {
+    root.style.setProperty('--' + coin + '-r-85', randDeg(590, 610));
+  } else {
+    root.style.setProperty('--' + coin + '-r-85', randDeg(740, 760));
+  }
+
+  /*
+  2 full spins, then +0deg for heads or +180deg for tails, so the
+  animation's own rotation is what determines the visible result
+  (no more swapping display after the fact).
+  */
+
+  root.style.setProperty('--' + coin + '-x-100', sign * rand(33, 40) + 'px');
+  const finalAngle = 720 + (landsHeads ? 0 : 180);
+  root.style.setProperty('--' + coin + '-r-100', finalAngle + 'deg');
+
+}
+
+/* ----------------------------------------------------------
+   TRIGGER FLIP (inject randomness + restart animation)
+---------------------------------------------------------- */
+
+function triggerFlip() {
+  setup();
+
+  randomiseCoin(randSign(), 'c1', coin1Boolean);
+  randomiseCoin(randSign(), 'c2', coin2Boolean);
+  randomiseCoin(randSign(), 'c3', coin3Boolean);
+}
+
+document.getElementById('throw').addEventListener('change', () => {
+  if (document.getElementById('throw').checked) {
+    triggerFlip();
+  }
+});
+
+// This script is injected by Angular well after the page's own `load`
+// event has already fired, so a `window.onload` handler here would never
+// run. The DOM elements are already present by the time this script
+// executes (Angular has rendered the template first), so just call these
+// directly, once every function/const above has been declared.
+buildCoinEdges();
