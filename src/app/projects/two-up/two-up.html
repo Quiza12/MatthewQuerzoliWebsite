@@ -2,6 +2,7 @@
     
     <input type="checkbox" id="throw" hidden>
     <div class="two-up">
+        <br><br>
         <h2>Two-Up</h2>
         <h4 id="win">Click the paddle to play</h4>
 
@@ -23,13 +24,16 @@
             </div>
         </label>
 
-        <button class="reset" onclick="reset()">Reset paddle</button>
+        <button class="reset" onclick="resetGame()">Reset paddle</button>
         <div class="results">
             <p>Spins: </p> 
             <p id="totalSpins">0</p> 
             •
             <p>Wins: </p> 
             <p id="totalWins">0</p> 
+            •
+            <p>Draws: </p> 
+            <p id="totalDraws">0</p> 
             •
             <p>Losses: </p> 
             <p id="totalLosses">0</p> 
@@ -48,13 +52,9 @@
                     <label for="threeCoins"> Three coins</label><br>
                 </div>
             </form>
-            
         </div>
+        <br><br>
     </div>
-
-    
-    
-    <br><br>
 </body>
 
 

@@ -6,8 +6,15 @@ var coin3Boolean = false;
 
 var totalSpins = 0;
 var totalWins = 0;
+var totalDraws = 0;
 var totalLosses = 0;
 var totalWins = 0;
+
+const RESULT = {
+    WIN: "win",
+    DRAW: "draw",
+    LOSS: "loss"
+};
 
 function setup() {
   coin1Boolean = getRandomBoolean();
@@ -23,14 +30,17 @@ animated.addEventListener("animationend", () => { //only show result on coin ani
 
   var win = isWin();
   totalSpins += 1;
-  if (win) {
+  if (win == RESULT.WIN) {
     totalWins += 1; 
-  } else {
+  } else if (win == RESULT.DRAW)  {
+    totalDraws += 1; 
+  } else if (win == RESULT.LOSS)  {
     totalLosses += 1; 
   }
 
   document.getElementById("totalSpins").innerHTML = totalSpins;
   document.getElementById("totalWins").innerHTML = totalWins;
+  document.getElementById("totalDraws").innerHTML = totalDraws;
   document.getElementById("totalLosses").innerHTML = totalLosses;
   document.getElementById("win").innerHTML = logWin(win);
 
@@ -38,8 +48,7 @@ animated.addEventListener("animationend", () => { //only show result on coin ani
   document.getElementById("throw").disabled = true;
   document.querySelector('.paddle').classList.add('no-hover');
 
-  console.log((coin1Boolean ? 'Heads' : 'Tails') + ' + ' + (coin2Boolean ? 'Heads' : 'Tails') + ' + ' + (coin3Boolean ? 'Heads' : 'Tails') + ' = ' + logWin(win));
-
+  logResult(win);
 });
 
 const gameTypeInputs = document.querySelectorAll('input[name="gameType"]');
@@ -53,23 +62,33 @@ gameTypeInputs.forEach((input) => {
     if (selectedOption === "two") {
       console.log("Two coin game type selected");
       coin3.style.display = "none";
-      reset();
+      twoCoinGame = true;
     } else if (selectedOption === "three") {
       console.log("Three coin game type selected");
       coin3.style.display = "block";
-      reset();
+      twoCoinGame = false;
     }
+
+    resetGame();
+    resetScores();
   });
 });
 
-function reset() {
+function resetGame() {
 
   document.getElementById("win").innerHTML = "Click the paddle to play";
 
   // Re-enable paddle on hover and trigger.
-  document.getElementById('throw').checked = false;
+  document.getElementById("throw").checked = false;
   document.getElementById("throw").disabled = false;
-  document.querySelector('.paddle').classList.remove('no-hover');
+  document.querySelector(".paddle").classList.remove("no-hover");
+}
+
+function resetScores() {
+  document.getElementById("totalSpins").innerHTML = 0;
+  document.getElementById("totalWins").innerHTML = 0;
+  document.getElementById("totalDraws").innerHTML = 0;
+  document.getElementById("totalLosses").innerHTML = 0;
 }
 
 function getRandomBoolean() {
@@ -77,21 +96,37 @@ function getRandomBoolean() {
 }
 
 function logWin(win) {
-  return win ? 'You won!' : 'You lost';
+  if (win == RESULT.WIN) {
+    return "You won!";
+  } else if (win == RESULT.DRAW)  {
+    return "Draw";
+  } else if (win == RESULT.LOSS)  {
+    return "You lost";
+  } else {
+    return "You lost";
+  }
+}
+
+function logResult(win) {
+  if (twoCoinGame) {
+    console.log((coin1Boolean ? 'Heads' : 'Tails') + ' + ' + (coin2Boolean ? 'Heads' : 'Tails') + ' = ' + logWin(win));
+  } else {
+    console.log((coin1Boolean ? 'Heads' : 'Tails') + ' + ' + (coin2Boolean ? 'Heads' : 'Tails') + ' + ' + (coin3Boolean ? 'Heads' : 'Tails') + ' = ' + logWin(win));
+  }
 }
 
 function isWin() {
   if (twoCoinGame) {
     if (coin1Boolean && coin2Boolean) {
-      return true;
+      return RESULT.WIN;
     } else if (coin1Boolean || coin2Boolean) {
-      break;
+      return RESULT.DRAW;
     } else {
-      return false;
+      return RESULT.LOSS;
     }
-    return coin1Boolean && coin2Boolean;
   } else {
-    return (coin1Boolean && (coin2Boolean || coin3Boolean)) || (coin2Boolean && coin3Boolean)
+    var threeGameWin = (coin1Boolean && (coin2Boolean || coin3Boolean)) || (coin2Boolean && coin3Boolean);
+    return threeGameWin ? RESULT.WIN : RESULT.LOSS;
   }
 }
 
