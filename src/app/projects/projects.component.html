@@ -38,7 +38,7 @@
                 @for(project of group.projects; track project.name) {
                 <div class="col-md-4 mb-3 d-flex">
                     <a [routerLink]="project.route"
-                        class="btn btn-light w-100 h-100 d-flex flex-column justify-content-between project-card under-construction-project-card">
+                        class="btn btn-light w-100 h-100 d-flex flex-column justify-content-center project-card under-construction-project-card">
 
                         <div>
                             <h4 class="mt-3">{{ project.emoji + ' ' + project.name }}</h4>
@@ -81,7 +81,7 @@
                 @for(project of group.projects; track project.name) {
                 <div class="col-md-4 mb-3 d-flex">
                     <a [routerLink]="project.route"
-                        class="btn btn-light w-100 h-100 d-flex flex-column justify-content-between project-card internal-project-card">
+                        class="btn btn-light w-100 h-100 d-flex flex-column justify-content-center project-card internal-project-card">
 
                         <div>
                             <h4 class="mt-3">{{ project.emoji + ' ' + project.name }}</h4>
@@ -123,7 +123,7 @@
                 @for(project of group.projects; track project.name) {
                 <div class="col-md-4 mb-3 d-flex">
                     <a [href]="project.route" target="_blank"
-                        class="btn btn-light w-100 h-100 d-flex flex-column justify-content-between project-card external-project-card">
+                        class="btn btn-light w-100 h-100 d-flex flex-column justify-content-center project-card external-project-card">
 
                         <div>
                             <h4 class="mt-3">{{ project.emoji + ' ' + project.name }} <img
@@ -168,7 +168,7 @@
                 @for(project of group.projects; track project.name) {
                 <div class="col-md-4 mb-3 d-flex">
                     <a [href]="project.route" target="_blank"
-                        class="btn btn-light w-100 h-100 d-flex flex-column justify-content-between project-card inactive-project-card">
+                        class="btn btn-light w-100 h-100 d-flex flex-column justify-content-center project-card inactive-project-card">
 
                         <div>
                             <h4 class="mt-3">{{ project.emoji + ' ' + project.name }} <img
