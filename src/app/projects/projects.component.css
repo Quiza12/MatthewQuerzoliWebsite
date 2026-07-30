@@ -42,3 +42,9 @@
 h5 {
     text-align: left;
 }
+
+.year-sub-row {
+    text-align: left;
+    color: #6c757d;
+    margin-top: 0.5rem;
+}

@@ -1,4 +1,14 @@
 <body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid d-flex align-items-center">
+
+            <!-- Left side -->
+            <a class="navbar-text d-none d-lg-block" routerLink="/projects" id="leftLink">More fun projects...</a>
+            <a class="navbar-brand d-lg-none" routerLink="/projects" id="leftEmoji">📚</a>
+
+        </div>
+    </nav>
     
     <input type="checkbox" id="throw" hidden>
     <div class="two-up">
@@ -37,11 +47,8 @@
             •
             <p>Losses: </p> 
             <p id="totalLosses">0</p> 
-        </div>
-        <div class="info">
-            <a href="https://manofmany.com/culture/how-to-play-two-up" target="_blank">Two-up explainer</a>
             •
-            <a href="https://rslqld.org/news/two-up-an-anzac-day-tradition" target="_blank">History of two-up</a>
+            <p id="totalWager">$0 wagered</p> 
         </div>
         <div class="settings">
             <form>
@@ -49,9 +56,22 @@
                     <input type="radio" id="twoCoins" name="gameType" class="gameType" value="two" checked="checked">
                     <label for="twoCoins"> Two coins</label><br>
                     <input type="radio" id="threeCoins" name="gameType" class="gameType" value="three">
-                    <label for="threeCoins"> Three coins</label><br>
+                    <label for="threeCoins"> Three coins (guaranteed result)</label><br>
+                </div>
+                <div class="wager-group">
+                    <input type="text" id="wager" name="wager" maxlength="6" size="6" placeholder="$0" inputmode="numeric" pattern="[0-9]*">
+                    <label for="wager">wager</label>
                 </div>
             </form>
+        </div>
+         <div class="info">
+            <a href="https://manofmany.com/culture/how-to-play-two-up" target="_blank">Two-up explainer</a>
+            •
+            <a href="https://rslqld.org/news/two-up-an-anzac-day-tradition" target="_blank">History of two-up</a>
+        </div>
+        <div class="credits">
+            <p><i>Playing Northies (Cronulla) rules, cause I've help host there a few times (must win three heads in a row to cash out, bet is matched and doubled each time).</i></p>
+            <p><i>Thanks to the ANZACs, Hughesy, a crisp beverage, free time and cold, hard cash.</i></p>
         </div>
         <br><br>
     </div>

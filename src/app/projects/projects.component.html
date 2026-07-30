@@ -32,38 +32,40 @@
 
             <h5>Projects Under Construction</h5>
 
-            @for(project of projects; track $index) {
-            @if (project.underConstruction) {
-            <div class="col-md-4 mb-3 d-flex">
-                <a [routerLink]="project.route"
-                    class="btn btn-light w-100 h-100 d-flex flex-column justify-content-between project-card under-construction-project-card">
+            @for(group of underConstructionGroups; track group.year) {
+            <h6 class="year-sub-row">{{ group.year }}</h6>
+            <div class="row mb-3">
+                @for(project of group.projects; track project.name) {
+                <div class="col-md-4 mb-3 d-flex">
+                    <a [routerLink]="project.route"
+                        class="btn btn-light w-100 h-100 d-flex flex-column justify-content-between project-card under-construction-project-card">
 
-                    <div>
-                        <h4 class="mt-3">{{ project.emoji + ' ' + project.name }}</h4>
-                        <p>{{ project.description }}</p>
+                        <div>
+                            <h4 class="mt-3">{{ project.emoji + ' ' + project.name }}</h4>
+                            <p>{{ project.description }}</p>
 
-                        @if (project.technology.includes(technology.Angular)) {
-                        <img class="tag-icon" src="/assets/images/icons/angular-icon.svg" alt="Angular">
-                        }
-                        @if (project.technology.includes(technology.Bootstrap)) {
-                        <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg" alt="Bootstrap">
-                        }
-                        @if (project.technology.includes(technology.HTML5)) {
-                        <img class="tag-icon" src="/assets/images/icons/html-icon.svg" alt="HTML">
-                        }
-                        @if (project.technology.includes(technology.Javascript)) {
-                        <img class="tag-icon" src="/assets/images/icons/javascript-icon.svg" alt="JavaScript">
-                        }
-                        @if (project.technology.includes(technology.CSS)) {
-                        <img class="tag-icon" src="/assets/images/icons/css-icon.svg" alt="CSS">
-                        }
-                    </div>
+                            @if (project.technology.includes(technology.Angular)) {
+                            <img class="tag-icon" src="/assets/images/icons/angular-icon.svg" alt="Angular">
+                            }
+                            @if (project.technology.includes(technology.Bootstrap)) {
+                            <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg" alt="Bootstrap">
+                            }
+                            @if (project.technology.includes(technology.HTML5)) {
+                            <img class="tag-icon" src="/assets/images/icons/html-icon.svg" alt="HTML">
+                            }
+                            @if (project.technology.includes(technology.Javascript)) {
+                            <img class="tag-icon" src="/assets/images/icons/javascript-icon.svg" alt="JavaScript">
+                            }
+                            @if (project.technology.includes(technology.CSS)) {
+                            <img class="tag-icon" src="/assets/images/icons/css-icon.svg" alt="CSS">
+                            }
+                        </div>
 
-                    <p class="mt-3"><b>{{ project.year }}</b></p>
-                </a>
+                        <!-- <p class="mt-3"><b>{{ project.year }}</b></p> -->
+                    </a>
+                </div>
+                }
             </div>
-
-            }
             }
 
         </div>
@@ -73,39 +75,40 @@
 
             <h5>Internal Projects</h5>
 
-            @for(project of projects; track $index) {
-            @if (project.internal && project.active && !project.underConstruction &&
-            !project.route.match(tappyOsProjectPattern)) {
-            <div class="col-md-4 mb-3 d-flex">
-                <a [routerLink]="project.route"
-                    class="btn btn-light w-100 h-100 d-flex flex-column justify-content-between project-card internal-project-card">
+            @for(group of internalGroups; track group.year) {
+            <h6 class="year-sub-row">{{ group.year }}</h6>
+            <div class="row mb-3">
+                @for(project of group.projects; track project.name) {
+                <div class="col-md-4 mb-3 d-flex">
+                    <a [routerLink]="project.route"
+                        class="btn btn-light w-100 h-100 d-flex flex-column justify-content-between project-card internal-project-card">
 
-                    <div>
-                        <h4 class="mt-3">{{ project.emoji + ' ' + project.name }}</h4>
-                        <p>{{ project.description }}</p>
+                        <div>
+                            <h4 class="mt-3">{{ project.emoji + ' ' + project.name }}</h4>
+                            <p>{{ project.description }}</p>
 
-                        @if (project.technology.includes(technology.Angular)) {
-                        <img class="tag-icon" src="/assets/images/icons/angular-icon.svg" alt="Angular">
-                        }
-                        @if (project.technology.includes(technology.Bootstrap)) {
-                        <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg" alt="Bootstrap">
-                        }
-                        @if (project.technology.includes(technology.HTML5)) {
-                        <img class="tag-icon" src="/assets/images/icons/html-icon.svg" alt="HTML">
-                        }
-                        @if (project.technology.includes(technology.Javascript)) {
-                        <img class="tag-icon" src="/assets/images/icons/javascript-icon.svg" alt="JavaScript">
-                        }
-                        @if (project.technology.includes(technology.CSS)) {
-                        <img class="tag-icon" src="/assets/images/icons/css-icon.svg" alt="CSS">
-                        }
-                    </div>
+                            @if (project.technology.includes(technology.Angular)) {
+                            <img class="tag-icon" src="/assets/images/icons/angular-icon.svg" alt="Angular">
+                            }
+                            @if (project.technology.includes(technology.Bootstrap)) {
+                            <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg" alt="Bootstrap">
+                            }
+                            @if (project.technology.includes(technology.HTML5)) {
+                            <img class="tag-icon" src="/assets/images/icons/html-icon.svg" alt="HTML">
+                            }
+                            @if (project.technology.includes(technology.Javascript)) {
+                            <img class="tag-icon" src="/assets/images/icons/javascript-icon.svg" alt="JavaScript">
+                            }
+                            @if (project.technology.includes(technology.CSS)) {
+                            <img class="tag-icon" src="/assets/images/icons/css-icon.svg" alt="CSS">
+                            }
+                        </div>
 
-                    <p class="mt-3"><b>{{ project.year }}</b></p>
-                </a>
+                        <!-- <p class="mt-3"><b>{{ project.year }}</b></p> -->
+                    </a>
+                </div>
+                }
             </div>
-
-            }
             }
 
         </div>
@@ -114,38 +117,41 @@
 
             <h5>External Projects</h5>
 
-            @for(project of projects; track $index) {
-            @if (!project.internal && project.active) {
-            <div class="col-md-4 mb-3 d-flex">
-                <a [href]="project.route" target="_blank"
-                    class="btn btn-light w-100 h-100 d-flex flex-column justify-content-between project-card external-project-card">
+            @for(group of externalGroups; track group.year) {
+            <h6 class="year-sub-row">{{ group.year }}</h6>
+            <div class="row mb-3">
+                @for(project of group.projects; track project.name) {
+                <div class="col-md-4 mb-3 d-flex">
+                    <a [href]="project.route" target="_blank"
+                        class="btn btn-light w-100 h-100 d-flex flex-column justify-content-between project-card external-project-card">
 
-                    <div>
-                        <h4 class="mt-3">{{ project.emoji + ' ' + project.name }} <img
-                                src="/assets/images/icons/external-link.svg" class="img-fluid external-link"></h4>
-                        <p>{{ project.description }}</p>
+                        <div>
+                            <h4 class="mt-3">{{ project.emoji + ' ' + project.name }} <img
+                                    src="/assets/images/icons/external-link.svg" class="img-fluid external-link"></h4>
+                            <p>{{ project.description }}</p>
 
-                        @if (project.technology.includes(technology.Angular)) {
-                        <img class="tag-icon" src="/assets/images/icons/angular-icon.svg" alt="Angular">
-                        }
-                        @if (project.technology.includes(technology.Bootstrap)) {
-                        <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg" alt="Bootstrap">
-                        }
-                        @if (project.technology.includes(technology.HTML5)) {
-                        <img class="tag-icon" src="/assets/images/icons/html-icon.svg" alt="HTML">
-                        }
-                        @if (project.technology.includes(technology.Javascript)) {
-                        <img class="tag-icon" src="/assets/images/icons/javascript-icon.svg" alt="JavaScript">
-                        }
-                        @if (project.technology.includes(technology.CSS)) {
-                        <img class="tag-icon" src="/assets/images/icons/css-icon.svg" alt="CSS">
-                        }
-                    </div>
+                            @if (project.technology.includes(technology.Angular)) {
+                            <img class="tag-icon" src="/assets/images/icons/angular-icon.svg" alt="Angular">
+                            }
+                            @if (project.technology.includes(technology.Bootstrap)) {
+                            <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg" alt="Bootstrap">
+                            }
+                            @if (project.technology.includes(technology.HTML5)) {
+                            <img class="tag-icon" src="/assets/images/icons/html-icon.svg" alt="HTML">
+                            }
+                            @if (project.technology.includes(technology.Javascript)) {
+                            <img class="tag-icon" src="/assets/images/icons/javascript-icon.svg" alt="JavaScript">
+                            }
+                            @if (project.technology.includes(technology.CSS)) {
+                            <img class="tag-icon" src="/assets/images/icons/css-icon.svg" alt="CSS">
+                            }
+                        </div>
 
-                    <p class="mt-3"><b>{{ project.year }}</b></p>
-                </a>
+                        <!-- <p class="mt-3"><b>{{ project.year }}</b></p> -->
+                    </a>
+                </div>
+                }
             </div>
-            }
             }
 
         </div>
@@ -156,38 +162,41 @@
 
             <h5>Inactive/Past Projects</h5>
 
-            @for(project of projects; track $index) {
-            @if (!project.active) {
-            <div class="col-md-4 mb-3 d-flex">
-                <a [href]="project.route" target="_blank"
-                    class="btn btn-light w-100 h-100 d-flex flex-column justify-content-between project-card inactive-project-card">
+            @for(group of inactiveGroups; track group.year) {
+            <h6 class="year-sub-row">{{ group.year }}</h6>
+            <div class="row mb-3">
+                @for(project of group.projects; track project.name) {
+                <div class="col-md-4 mb-3 d-flex">
+                    <a [href]="project.route" target="_blank"
+                        class="btn btn-light w-100 h-100 d-flex flex-column justify-content-between project-card inactive-project-card">
 
-                    <div>
-                        <h4 class="mt-3">{{ project.emoji + ' ' + project.name }} <img
-                                src="/assets/images/icons/external-link.svg" class="img-fluid external-link"></h4>
-                        <p>{{ project.description }}</p>
+                        <div>
+                            <h4 class="mt-3">{{ project.emoji + ' ' + project.name }} <img
+                                    src="/assets/images/icons/external-link.svg" class="img-fluid external-link"></h4>
+                            <p>{{ project.description }}</p>
 
-                        @if (project.technology.includes(technology.Angular)) {
-                        <img class="tag-icon" src="/assets/images/icons/angular-icon.svg" alt="Angular">
-                        }
-                        @if (project.technology.includes(technology.Bootstrap)) {
-                        <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg" alt="Bootstrap">
-                        }
-                        @if (project.technology.includes(technology.HTML5)) {
-                        <img class="tag-icon" src="/assets/images/icons/html-icon.svg" alt="HTML">
-                        }
-                        @if (project.technology.includes(technology.Javascript)) {
-                        <img class="tag-icon" src="/assets/images/icons/javascript-icon.svg" alt="JavaScript">
-                        }
-                        @if (project.technology.includes(technology.CSS)) {
-                        <img class="tag-icon" src="/assets/images/icons/css-icon.svg" alt="CSS">
-                        }
-                    </div>
+                            @if (project.technology.includes(technology.Angular)) {
+                            <img class="tag-icon" src="/assets/images/icons/angular-icon.svg" alt="Angular">
+                            }
+                            @if (project.technology.includes(technology.Bootstrap)) {
+                            <img class="tag-icon" src="/assets/images/icons/bootstrap-icon.svg" alt="Bootstrap">
+                            }
+                            @if (project.technology.includes(technology.HTML5)) {
+                            <img class="tag-icon" src="/assets/images/icons/html-icon.svg" alt="HTML">
+                            }
+                            @if (project.technology.includes(technology.Javascript)) {
+                            <img class="tag-icon" src="/assets/images/icons/javascript-icon.svg" alt="JavaScript">
+                            }
+                            @if (project.technology.includes(technology.CSS)) {
+                            <img class="tag-icon" src="/assets/images/icons/css-icon.svg" alt="CSS">
+                            }
+                        </div>
 
-                    <p class="mt-3"><b>{{ project.year }}</b></p>
-                </a>
+                        <!-- <p class="mt-3"><b>{{ project.year }}</b></p> -->
+                    </a>
+                </div>
+                }
             </div>
-            }
             }
 
         </div>

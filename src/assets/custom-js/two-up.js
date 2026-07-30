@@ -4,6 +4,9 @@ var coin1Boolean = false;
 var coin2Boolean = false;
 var coin3Boolean = false;
 
+var wager = 0;
+var winCount = 0;
+
 var totalSpins = 0;
 var totalWins = 0;
 var totalDraws = 0;
@@ -19,9 +22,19 @@ const RESULT = {
 function setup() {
   coin1Boolean = getRandomBoolean();
   coin2Boolean = getRandomBoolean();
+  // coin1Boolean = true;
+  // coin2Boolean = true;
   coin3Boolean = getRandomBoolean();
 
   document.getElementById("win").innerHTML = "Come in spinner!";
+
+  if (winCount == 0) {
+    wager = Number(document.getElementById("wager").value);
+    document.getElementById("wager").disabled = true;
+    if (wager > 0) {
+      document.getElementById("totalWager").innerHTML = "Staked $" + wager;
+    }
+  } 
 }
 
 const animated = document.querySelector(".coin");
@@ -30,18 +43,33 @@ animated.addEventListener("animationend", () => { //only show result on coin ani
 
   var win = isWin();
   totalSpins += 1;
+  
   if (win == RESULT.WIN) {
     totalWins += 1; 
+    winCount += 1;
+    wager = wager * 2;
+    if (winCount == 3) { 
+      
+      winCount = 0;
+      document.getElementById("wager").disabled = false;
+      if (wager > 0) {
+        document.getElementById("totalWager").innerHTML = "You won $" + wager + "!";
+      }
+    }
   } else if (win == RESULT.DRAW)  {
     totalDraws += 1; 
   } else if (win == RESULT.LOSS)  {
     totalLosses += 1; 
+    winCount = 0;
+    document.getElementById("wager").disabled = true;
+    document.getElementById("totalWager").innerHTML = "Lost $" + wager + "..." ;
   }
 
   document.getElementById("totalSpins").innerHTML = totalSpins;
   document.getElementById("totalWins").innerHTML = totalWins;
   document.getElementById("totalDraws").innerHTML = totalDraws;
   document.getElementById("totalLosses").innerHTML = totalLosses;
+  
   document.getElementById("win").innerHTML = logWin(win);
 
   // Disable trigger/hover of paddle when there is none visible.
@@ -49,6 +77,12 @@ animated.addEventListener("animationend", () => { //only show result on coin ani
   document.querySelector('.paddle').classList.add('no-hover');
 
   logResult(win);
+});
+
+const wagerInput = document.getElementById("wager");
+
+wagerInput.addEventListener("input", () => {
+  wagerInput.value = wagerInput.value.replace(/[^0-9]/g, "");
 });
 
 const gameTypeInputs = document.querySelectorAll('input[name="gameType"]');
@@ -67,6 +101,7 @@ gameTypeInputs.forEach((input) => {
       console.log("Three coin game type selected");
       coin3.style.display = "block";
       twoCoinGame = false;
+      winCount = 0;
     }
 
     resetGame();
@@ -77,6 +112,7 @@ gameTypeInputs.forEach((input) => {
 function resetGame() {
 
   document.getElementById("win").innerHTML = "Click the paddle to play";
+  document.getElementById("wager").disabled = false;
 
   // Re-enable paddle on hover and trigger.
   document.getElementById("throw").checked = false;
@@ -85,10 +121,12 @@ function resetGame() {
 }
 
 function resetScores() {
+  winCount = 0;
   document.getElementById("totalSpins").innerHTML = 0;
   document.getElementById("totalWins").innerHTML = 0;
   document.getElementById("totalDraws").innerHTML = 0;
   document.getElementById("totalLosses").innerHTML = 0;
+  document.getElementById("wager").innerHTML = 0;
 }
 
 function getRandomBoolean() {

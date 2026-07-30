@@ -119,27 +119,9 @@ body {
   perspective: 800px;
 }
 
-@media (max-width: 480px), (max-height: 700px) {
-  html,
-  body {
-    --paddle-height: 300px;
-  }
-
-  .paddle {
-    margin: 25px auto;
-  }
-
-  .results {
-    margin: 12px;
-  }
-
-  .info {
-    margin-bottom: 12px;
-  }
-}
-
 .results {
   margin: 20px;
+  text-align: center;
 }
 
 .results p {
@@ -147,7 +129,8 @@ body {
 }
 
 .info {
-  margin-bottom: 20px;
+  margin: 20px;
+  text-align: center;
 }
 
 .info a {
@@ -156,13 +139,33 @@ body {
 
 .settings {
   display: inline;
+  text-align: center;
 }
 
 .reset {
   width: 100px;
   height: 50px;
   border-radius: 20px;
+  line-height: 1;
 }
+
+.wager {
+  size: 20px;
+}
+
+label {
+  margin-left: 5px;
+}
+
+.wager-group {
+  margin-top: 20px;
+}
+
+.credits {
+  text-align: center;
+  width: 300px;
+}
+
 
 // Thickness of the coin, in px. Used by both the faces (translateZ) and the
 // edge segments (their `height` becomes this depth once rotated onto their side).
@@ -454,4 +457,25 @@ $edge-segments: 24;
     transform: translateX(var(--c3-x-100)) translateY(0px) rotateX(var(--c3-r-100));
   }
 }
+
+
+@media (max-width: 480px), (max-height: 700px) {
+  html,
+  body {
+    --paddle-height: 300px;
+  }
+
+  .paddle {
+    margin: 25px auto;
+  }
+
+  .results {
+    margin: 12px;
+  }
+
+  .info {
+    margin-bottom: 12px;
+  }
+}
+
 

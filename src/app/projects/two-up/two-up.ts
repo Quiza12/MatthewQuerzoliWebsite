@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ExternalJavascriptCdnPreloadService } from '../../services/external-js-preload/external-javascript-cdn-preload.service';
 import { Title } from "@angular/platform-browser";
+import { RouterLink } from '@angular/router';
 
 const preloadJsCdns: string[] = ['twoup'];
 
@@ -8,7 +9,7 @@ declare var window: any; // Global JS window handle.
 
 @Component({
   selector: 'app-two-up',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './two-up.html',
   styleUrl: './two-up.scss',
 })
