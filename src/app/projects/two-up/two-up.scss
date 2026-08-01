@@ -204,7 +204,7 @@ $edge-segments: 24;
   // covering it at all — a real gap, not just an antialiasing artefact,
   // that only shows once the coin rotates away from face-on. Extending
   // the face out by the border width keeps it flush with the rim.
-  inset: -2px;
+  inset: -1px;
   border-radius: 50%;
   clip-path: circle(); // border-image (below) ignores border-radius, so force the round shape here
   backface-visibility: hidden; // hides a face when it's turned away from viewer
