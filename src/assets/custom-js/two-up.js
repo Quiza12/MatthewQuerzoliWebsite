@@ -22,34 +22,51 @@ const RESULT = {
 function setup() {
   coin1Boolean = getRandomBoolean();
   coin2Boolean = getRandomBoolean();
-  // coin1Boolean = true;
-  // coin2Boolean = true;
   coin3Boolean = getRandomBoolean();
 
   document.getElementById("win").innerHTML = "Come in spinner!";
 
+  captureWager(Number(document.getElementById("wager").value));
+}
+
+function captureWager(capturedWager) {
   if (winCount == 0) {
-    wager = Number(document.getElementById("wager").value);
-    document.getElementById("wager").disabled = true;
-    if (wager > 0) {
-      document.getElementById("totalWager").innerHTML = "Staked $" + wager;
+    if (capturedWager == 0) {
+      wager = 0;
+      document.getElementById("wagerWrapper").style.display = "none";
+    } else {
+      wager = capturedWager;
+      document.getElementById("wagerWrapper").style.display = "block";
     }
+    document.getElementById("wager").disabled = true;
+    document.getElementById("totalWager").innerHTML = "Staked $" + wager;
   } 
 }
 
-const animated = document.querySelector(".coin");
+const coin = document.querySelector(".coin");
 
-animated.addEventListener("animationend", () => { //only show result on coin animation end
-
+coin.addEventListener("animationend", () => { // only show result on coin animation end
   var win = isWin();
-  totalSpins += 1;
+  processResult(win)
+  updateStats();
   
+  document.getElementById("win").innerHTML = logWin(win);
+
+  // Disable trigger/hover of paddle when there is none visible.
+  document.getElementById("throw").disabled = true;
+  document.querySelector('.paddle').classList.add('no-hover');
+
+  logResult(win);
+});
+
+function processResult(win) {
+  totalSpins += 1;
+
   if (win == RESULT.WIN) {
     totalWins += 1; 
     winCount += 1;
     wager = wager * 2;
     if (winCount == 3) { 
-      
       winCount = 0;
       document.getElementById("wager").disabled = false;
       if (wager > 0) {
@@ -61,26 +78,19 @@ animated.addEventListener("animationend", () => { //only show result on coin ani
   } else if (win == RESULT.LOSS)  {
     totalLosses += 1; 
     winCount = 0;
-    document.getElementById("wager").disabled = true;
+    document.getElementById("wager").disabled = false;
     document.getElementById("totalWager").innerHTML = "Lost $" + wager + "..." ;
   }
+}
 
+function updateStats() {
   document.getElementById("totalSpins").innerHTML = totalSpins;
   document.getElementById("totalWins").innerHTML = totalWins;
   document.getElementById("totalDraws").innerHTML = totalDraws;
   document.getElementById("totalLosses").innerHTML = totalLosses;
-  
-  document.getElementById("win").innerHTML = logWin(win);
-
-  // Disable trigger/hover of paddle when there is none visible.
-  document.getElementById("throw").disabled = true;
-  document.querySelector('.paddle').classList.add('no-hover');
-
-  logResult(win);
-});
+}
 
 const wagerInput = document.getElementById("wager");
-
 wagerInput.addEventListener("input", () => {
   wagerInput.value = wagerInput.value.replace(/[^0-9]/g, "");
 });
@@ -110,9 +120,7 @@ gameTypeInputs.forEach((input) => {
 });
 
 function resetGame() {
-
   document.getElementById("win").innerHTML = "Click the paddle to play";
-  document.getElementById("wager").disabled = false;
 
   // Re-enable paddle on hover and trigger.
   document.getElementById("throw").checked = false;
@@ -180,7 +188,7 @@ function isWin() {
 ---------------------------------------------------------- */
 
 const EDGE_SEGMENTS = 24;
-const COIN_RADIUS = 30; // px — half of the 60px coin width
+const COIN_RADIUS = 30;
 
 function buildCoinEdges() {
   document.querySelectorAll('.coin').forEach((coin) => {

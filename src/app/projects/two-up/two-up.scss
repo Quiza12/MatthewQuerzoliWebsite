@@ -166,7 +166,6 @@ label {
   width: 300px;
 }
 
-
 // Thickness of the coin, in px. Used by both the faces (translateZ) and the
 // edge segments (their `height` becomes this depth once rotated onto their side).
 $coin-thickness: 8px;
@@ -197,7 +196,15 @@ $edge-segments: 24;
 
 .coin-face {
   position: absolute;
-  inset: 0;
+  // .coin's border sits outside its 60px content box (default box-sizing:
+  // content-box), pushing the coin's true on-screen radius to 30px + 2px
+  // border = 32px. If this face only covered the 60px content box (radius
+  // 30px) it would fall 2px short of that, and since the rim (below) is
+  // built to the same 32px radius, that 2px band would have no 3D geometry
+  // covering it at all — a real gap, not just an antialiasing artefact,
+  // that only shows once the coin rotates away from face-on. Extending
+  // the face out by the border width keeps it flush with the rim.
+  inset: -2px;
   border-radius: 50%;
   clip-path: circle(); // border-image (below) ignores border-radius, so force the round shape here
   backface-visibility: hidden; // hides a face when it's turned away from viewer
