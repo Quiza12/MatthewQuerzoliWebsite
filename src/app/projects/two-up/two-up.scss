@@ -223,19 +223,19 @@ $edge-segments: 24;
 }
 
 // The rim/edge: a ring of thin strips standing on their side, built once by
-// JS (see two-up.js) and shared in local 3D space with the two faces above,
-// so the whole assembly tumbles together during the flip animation.
-.coin-edge {
-  position: absolute;
-  inset: 0;
-  transform-style: preserve-3d;
-
-  // The spans below are created at runtime by two-up.js (document.createElement),
-  // not by Angular's template compiler — so they never get the scoped
-  // `_ngcontent-*` attribute Angular stamps onto template elements, and a plain
-  // `.coin-edge span { ... }` rule would silently never match them. ::ng-deep
-  // strips that scoping for this selector so it still applies.
-  ::ng-deep span {
+// JS (see two-up.js) and appended directly to .coin so they share its single
+// 3D context — nesting a second transform-style: preserve-3d container here
+// (e.g. a wrapping .coin-edge) gets flattened by Safari/WebKit, which doesn't
+// correctly compose more than one level of nested preserve-3d, making the
+// rim invisible on iOS/macOS Safari.
+//
+// The spans are created at runtime by two-up.js (document.createElement),
+// not by Angular's template compiler — so they never get the scoped
+// `_ngcontent-*` attribute Angular stamps onto template elements, and a plain
+// `.coin > span { ... }` rule would silently never match them. ::ng-deep
+// strips that scoping for this selector so it still applies.
+.coin {
+  ::ng-deep .coin-edge-segment {
     // Chord width per segment ~= 2 * radius * sin(180deg / segments); with
     // radius 30px and 24 segments that's ~7.8px — 8px with a touch of
     // overlap so there are no visible gaps between strips.

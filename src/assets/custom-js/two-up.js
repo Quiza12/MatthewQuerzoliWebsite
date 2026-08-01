@@ -183,12 +183,13 @@ const EDGE_SEGMENTS = 24;
 const COIN_RADIUS = 30; // px — half of the 60px coin width
 
 function buildCoinEdges() {
-  document.querySelectorAll('.coin-edge').forEach((edge) => {
+  document.querySelectorAll('.coin').forEach((coin) => {
     for (let i = 0; i < EDGE_SEGMENTS; i++) {
       const angle = (360 / EDGE_SEGMENTS) * i;
       const span = document.createElement('span');
+      span.className = 'coin-edge-segment';
       span.style.transform = `rotateZ(${angle}deg) translateY(-${COIN_RADIUS}px) rotateX(90deg)`;
-      edge.appendChild(span);
+      coin.appendChild(span);
     }
   });
 }
