@@ -182,7 +182,9 @@ $edge-segments: 24;
   cursor: pointer;
   border-radius: 50%;
   border: 2px solid #333;
-  margin: 5px;
+  margin-top: 5px;
+  left: 50%;
+  margin-left: -$coin-radius;
   justify-self: center;
   z-index: 1;
   top: -40px;
@@ -282,6 +284,7 @@ $edge-segments: 24;
 .paddle:hover > .coin {
   width: 58px;
   height: 58px;
+  margin-left: -29px;
   font-size: 14px;
 }
 

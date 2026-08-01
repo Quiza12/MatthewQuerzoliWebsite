@@ -27,13 +27,6 @@ export class TwoUp implements OnInit {
 
   async preloadExternalCdnsOnLoad(): Promise<void> {
     await this.externalJsCdnPreloadService.preloadExternalCdnsOnLoad(preloadJsCdns, 'Two Up');
-    // this.initialiseCustomJs();
   }
-
-  // initialiseCustomJs() {
-  //   if (typeof window.onload === 'function') {
-  //     window.onload(); // Calling the function
-  //   }
-  // }
 
 }
