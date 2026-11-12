@@ -31,11 +31,14 @@ import { TappyStandardTimeComponent } from './projects/tappy-os/tappy-standard-t
 import { TappySeasonTimeComponent } from './projects/tappy-os/tappy-season-time/tappy-season-time.component';
 import { OrkinismsComponent } from './projects/tappy-os/orkinisms/orkinisms.component';
 import { DontYouForgetAboutJimny } from './projects/tappy-os/dont-you-forget-about-jimny/dont-you-forget-about-jimny';
+import { FashionFaves } from './projects/tappy-os/fashion-faves/fashion-faves';
 import { AverageMafsEpisodeGraph } from './graphs/average-mafs-episode/average-mafs-episode';
 import { RageAgainstTheLanyardGraph } from './graphs/rage-against-the-lanyard/rage-against-the-lanyard';
 import { OutOfOffice } from './projects/out-of-office/out-of-office';
 import { OooAbout } from './projects/out-of-office/components/ooo-about/ooo-about';
 import { TwoUp } from './projects/two-up/two-up';
+import { CoveredInChromeBrowser } from './projects/covered-in-chrome-browser/covered-in-chrome-browser';
+import { CoveredInChromeAbout } from './projects/covered-in-chrome-browser/about/cic-about';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -71,6 +74,7 @@ export const routes: Routes = [
   { path: 'projects/tappy-os/tappy-season-time', component: TappySeasonTimeComponent },
   { path: 'projects/tappy-os/orkinisms', component: OrkinismsComponent },
   { path: 'projects/tappy-os/dont-you-forget-about-jimny', component: DontYouForgetAboutJimny },
+  { path: 'projects/tappy-os/taps-fashion-faves', component: FashionFaves },
 
   { path: 'projects/quiet-near-a-little-stream', component: QuietNearALittleStreamComponent },
 
@@ -85,4 +89,7 @@ export const routes: Routes = [
   { path: 'projects/out-of-office/about', component: OooAbout },
   
   { path: 'projects/two-up', component: TwoUp },
+
+  { path: 'projects/covered-in-chrome-browser', component: CoveredInChromeBrowser },
+  { path: 'projects/covered-in-chrome-browser/about', component: CoveredInChromeAbout },
 ];

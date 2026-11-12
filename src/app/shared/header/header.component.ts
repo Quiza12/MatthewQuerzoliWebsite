@@ -38,6 +38,8 @@ export class HeaderComponent {
   dontYouForgetAboutJimnyRoute: boolean = false;
   outOfOfficeRoute: boolean = false;
   twoUpRoute: boolean = false;
+  tapsFashionFaves: boolean = false;
+  coveredInChromeBrowserRoute: boolean = false;
 
   // Graphs
   graphAverageMafsEpisodeRoute: boolean = false;
@@ -78,6 +80,8 @@ export class HeaderComponent {
     this.dontYouForgetAboutJimnyRoute = currentRoute.includes('/projects/tappy-os/dont-you-forget-about-jimny') ? true : false;
     this.outOfOfficeRoute = currentRoute.includes('/projects/out-of-office') ? true : false;
     this.twoUpRoute = currentRoute.includes('/projects/two-up') ? true : false;
+    this.tapsFashionFaves = currentRoute.includes('/projects/tappy-os/taps-fashion-faves') ? true : false;
+    this.coveredInChromeBrowserRoute = currentRoute.includes('/projects/covered-in-chrome-browser') ? true : false;
 
     this.graphsRoute = currentRoute == ('/graphs') ? true : false;
     this.graphAverageMafsEpisodeRoute = currentRoute.includes('/graphs/average-mafs-episode') ? true : false;
@@ -101,6 +105,8 @@ export class HeaderComponent {
       !this.dontYouForgetAboutJimnyRoute &&
       !this.outOfOfficeRoute &&
       !this.twoUpRoute &&
+      !this.tapsFashionFaves &&
+      !this.coveredInChromeBrowserRoute &&
       !this.graphsRoute &&
       !this.graphAverageMafsEpisodeRoute &&
       !this.graphRageAgainstTheLanyardRoute;
@@ -125,6 +131,8 @@ export class HeaderComponent {
     this.dontYouForgetAboutJimnyRoute = false;
     this.outOfOfficeRoute = false;
     this.twoUpRoute = false;
+    this.tapsFashionFaves = false;
+    this.coveredInChromeBrowserRoute = false;
     
     this.graphsRoute = false
     this.graphAverageMafsEpisodeRoute = false;

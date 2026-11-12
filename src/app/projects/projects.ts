@@ -21,6 +21,7 @@ export enum Technology {
 }
 
 export const projects: Project[] = [
+    new Project("Covered in Chrome Browser", "🎸", "/projects/covered-in-chrome-browser", "Hell Browse Yeah", 2026, true, true, false, [Technology.Angular, Technology.HTML5, Technology.CSS]),
     new Project("Two-Up", "🇦🇺", "/projects/two-up", "The classic ANZAC Day game, now online.", 2026, true, true, false, [Technology.HTML5, Technology.CSS, Technology.Javascript]),
     new Project("Out of Office//Pass the Parcel", "🏢", "/projects/out-of-office", "The fate of all emails in and around Christmastime.", 2026, true, true, false, [Technology.Angular, Technology.HTML5, Technology.CSS]),
     new Project("Trottadvisor", "🏖️", "/projects/trottadvisor", "Travel trotta like the man, the myth, the legend: Harro.", 2026, true, true, false, [Technology.Angular, Technology.Bootstrap]),
@@ -34,6 +35,7 @@ export const projects: Project[] = [
     new Project("Tappy Season Time", "🌸", "/projects/tappy-os/tappy-season-time", "The season my beloved, illustrious girlfriend currently lives in.", 2025, true, true, false, [Technology.HTML5, Technology.Bootstrap, Technology.Javascript]),
     new Project("Orkinisms", "📖", "/projects/tappy-os/orkinisms", "What is the difference between a wookie and a tookie? Well, now you can find out.", 2025, true, true, false, [Technology.Angular, Technology.Bootstrap]),
     new Project("Don't You (Forget About Jimny)", "🚙", "/projects/tappy-os/dont-you-forget-about-jimny", "Reminding Ryan of his Jimny love, however much the Isuzu D-Max tries to break them up.", 2026, true, true, false, [Technology.Angular, Technology.Bootstrap]),
+    // new Project("Tap's Fashion Faves", "👗", "/projects/tappy-os/taps-fashion-faves", "Tappy's favourites fashion brands. In non-notepad form.", 2026, true, true, true, [Technology.Angular, Technology.Bootstrap]),
     new Project("Be Quiet Near a Little Stream and Listen", "💧", "/projects/quiet-near-a-little-stream", "Inspired by Ruth Krauss and the Marginalian, a meditative Marcus Sendak illustration, brought to life.", 2025, true, true, false, [Technology.Angular, Technology.Bootstrap]),
     new Project("INTERNET RECIPE", "🍝", "/projects/internet-recipe", "JUST YOUR AVERAGE INTERNET RECIPE ©", 2025, true, true, false, [Technology.Angular, Technology.Bootstrap]),
     new Project("Bingo", "🎲", "/projects/bingo", "Esoteric, situational bingo. Legs eleven et al.", 2026, true, true, false, [Technology.Angular, Technology.Bootstrap]),

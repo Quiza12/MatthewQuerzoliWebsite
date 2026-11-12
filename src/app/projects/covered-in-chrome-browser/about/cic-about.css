@@ -1,0 +1,26 @@
+:host { display: block; }
+
+::ng-deep body.cic-body {
+  --frame: #dee1e6;
+  --text: #202124;
+  --accent: #1a73e8;
+  background-color: var(--frame);
+}
+
+::ng-deep body.cic-body.cic-dark {
+  --frame: #202124;
+  --text: #e8eaed;
+  --accent: #8ab4f8;
+}
+
+.navbar * { color: var(--text); }
+.navbar-brand { font-weight: 600; }
+
+.cic-about {
+  max-width: 860px;
+  margin: 60px auto 0 auto;
+  padding: 20px 16px 40px;
+  text-align: center;
+}
+.cic-about * { color: var(--text); }
+.cic-about a { color: var(--accent); }

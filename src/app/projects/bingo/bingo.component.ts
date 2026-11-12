@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UpperCasePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Title } from "@angular/platform-browser";
+import { setFavicon } from '../../shared/libs/common';
 
 @Component({
   selector: 'app-bingo',
@@ -12,7 +13,7 @@ import { Title } from "@angular/platform-browser";
 })
 export class BingoComponent {
 
-  title: string = '🎲 Bingo - Projects'
+  title: string = 'Bingo - Projects'
   selected = new Set<number>();
   tiles: any;
   selectedCard: any;
@@ -51,11 +52,17 @@ export class BingoComponent {
   ]
 
   marketTiles: string[] = [
-    "Pet (dog) stall, at minimum offering those harnesses with the custom name labels", "Small label, home-distilled, local gin/vodka", "Gozleme food truck", "Chip-on-a-stick", "Female clothing boutiques (minimum of two)", "Jewellery stalls (minimum of three)", "Hot sauce stall", "Lolly stall", "Second-hand record stall with small selection of other random, vintage paraphernalia"
+    "Pet (dog) stall, at minimum offering those harnesses with the custom name labels", "Small label, home-distilled, local gin/vodka (minimum of three)", "Gözleme food truck", "Chip-on-a-stick", "Female clothing boutiques (minimum of two)", "Local jewellery stalls (minimum of three)", "Hot sauce/relish stall", "Lolly stall", "Second-hand record stall with small selection of other random, vintage paraphernalia", "Candle store", "Slightly edgy/cool poster stall"
   ]
+  private previousFavicon: string | null = null;
 
   constructor(titleService: Title) {
     titleService.setTitle(this.title);
+    this.previousFavicon = setFavicon('assets/images/icons/dice-icon.png');
+  }
+
+  ngOnDestroy(): void {
+    if (this.previousFavicon) setFavicon(this.previousFavicon, this.previousFavicon.endsWith('.ico') ? 'image/x-icon' : 'image/png');
   }
 
   onCardChange(event: Event) {

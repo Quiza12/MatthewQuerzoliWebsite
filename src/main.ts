@@ -20,7 +20,7 @@ bootstrapApplication(AppComponent, {
 
     provideRouter(
       routes,
-      withInMemoryScrolling({ anchorScrolling: 'enabled' }),
+      withInMemoryScrolling({ anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled' }),
       withEnabledBlockingInitialNavigation()
     )
   ]

@@ -2,7 +2,7 @@ const rageCtx = document.getElementById('rageAgainstTheLanyard');
 
 const labels = ['2017','2018','2019','2020','2021','2022','2023','2024','2025','2026'];
 
-const data = {
+const rageData = {
   labels: labels,
   datasets: [
     // OPTION A background (2017–2024)
@@ -76,6 +76,6 @@ const options = {
 
 new Chart(rageCtx, {
   type: 'line',
-  data: data,
+  data: rageData,
   options: options
 });

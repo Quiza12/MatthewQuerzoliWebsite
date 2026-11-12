@@ -421,6 +421,43 @@
 </nav>
 }
 
+<!-- @if (coveredInChromeBrowserRoute) {
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+
+        <a class="navbar-text d-none d-lg-block" routerLink="/projects" id="leftLink">Projects</a>
+        <a class="navbar-brand d-lg-none" routerLink="/projects" id="leftEmoji">📚</a>
+
+        <div class="position-absolute start-50 translate-middle-x">
+            <a class="navbar-brand" routerLink="/projects/covered-in-chrome-browser">Covered in Chrome Browser</a>
+        </div>
+
+    </div>
+
+</nav>
+
+} -->
+
+@if (tapsFashionFaves) {
+
+<nav class="navbar navbar-expand-lg taps-fashion-faves-nav fixed-top">
+    <div class="container-fluid">
+        <!-- Left side -->
+
+        <a class="navbar-text d-none d-lg-block" routerLink="/projects/tappy-os" id="leftLink">Tappy OS</a>
+        <a class="navbar-brand d-lg-none" routerLink="/projects/tappy-os" id="leftEmoji">📚</a>
+
+        <!-- Middle text -->
+        <div class="position-absolute start-50 translate-middle-x">
+            <a class="navbar-brand" routerLink="/projects/tappy-os/taps-fashion-faves">Tap's Fashion Faves</a>
+        </div>
+
+    </div>
+
+</nav>
+
+}
+
 @if (graphAverageMafsEpisodeRoute) {
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
@@ -457,5 +494,6 @@
 </nav>
 }
 
+
 <!-- No navbar, defined on page -->
-@if (twoUpRoute || outOfOfficeRoute) { }
+@if (twoUpRoute || outOfOfficeRoute || coveredInChromeBrowserRoute) { }

@@ -1,0 +1,137 @@
+<head>
+  <link rel="icon" href="assets/images/icons/google-chrome-icon.png">
+</head>
+
+<nav class="navbar navbar-expand-lg taps-fashion-faves-nav">
+  <div class="container-fluid">
+    <!-- Left side -->
+    <a class="navbar-text d-none d-lg-block" routerLink="/projects" id="leftLink">Other projects</a>
+    <a class="navbar-brand d-lg-none" routerLink="/projects" id="leftEmoji">📚</a>
+
+    <!-- Middle -->
+    <div class="position-absolute start-50 translate-middle-x">
+      <a class="navbar-brand" routerLink="/projects/covered-in-chrome-browser">(Covered in) Chrome Browser</a>
+    </div>
+
+    <!-- Right side -->
+    <a class="navbar-text ms-auto" routerLink="/projects/covered-in-chrome-browser/about">About</a>
+  </div>
+</nav>
+
+<div class="cic-page">
+
+  <div class="info">
+    <p style="margin-bottom: 5px;">A browser for fans of the greatest band ever to come back from hiatus. A fully-workable, in-browser (Covered in) Chrome browser.</p>
+    <p style="margin-top: 0px; margin-bottom: 30px;"><i>Try searching for something or opening a new tab.</i></p>
+  </div>
+
+  <div class="browser">
+    <div class="tabstrip">
+      <div class="traffic" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="tabs" role="tablist">
+        @for (tab of tabs(); track tab.id) {
+        <div class="tab" role="tab" [class.active]="tab.id === activeId()" [attr.aria-selected]="tab.id === activeId()"
+          (click)="selectTab(tab)" (auxclick)="closeTab(tab, $event)">
+          <span class="fav"></span>
+          <span class="title">{{ tabTitle(tab) }}</span>
+          <button type="button" class="close" title="Close tab" aria-label="Close tab" (click)="closeTab(tab, $event)">
+            <svg viewBox="0 0 10 10">
+              <path d="M1 1l8 8M9 1L1 9" />
+            </svg>
+          </button>
+        </div>
+        }
+      </div>
+      <button type="button" class="new-tab" title="New tab" aria-label="New tab" (click)="newTab()">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 5v14M5 12h14" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="toolbar">
+      <button type="button" class="icon-btn" title="Back" aria-label="Back" [disabled]="!canGoBack()" (click)="back()">
+        <svg viewBox="0 0 24 24">
+          <path d="M15 5l-7 7 7 7" />
+        </svg>
+      </button>
+      <button type="button" class="icon-btn" title="Forward" aria-label="Forward" [disabled]="!canGoForward()"
+        (click)="forward()">
+        <svg viewBox="0 0 24 24">
+          <path d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+      <button type="button" class="icon-btn" title="Reload" aria-label="Reload" (click)="reload()">
+        <svg viewBox="0 0 24 24">
+          <path d="M19 12a7 7 0 1 1-2.1-5M19 4v4.5h-4.5" />
+        </svg>
+      </button>
+
+      <form class="omnibox" autocomplete="off" (submit)="submitOmnibox($event)">
+        <svg class="lock" viewBox="0 0 24 24">
+          <path d="M7 11V8a5 5 0 0 1 10 0v3M6 11h12v9H6z" />
+        </svg>
+        <input #urlInput type="text" spellcheck="false" aria-label="Address and search bar" [value]="url()"
+          (focus)="urlInput.select()" (keydown.escape)="resetOmnibox()">
+        <!-- Every song is bookmarked, so the star is always on. -->
+        <svg class="star on" viewBox="0 0 24 24">
+          <path d="M12 3l2.7 5.7 6.3.8-4.6 4.3 1.2 6.2L12 17l-5.6 3 1.2-6.2L3 9.5l6.3-.8z" />
+        </svg>
+      </form>
+
+      <button type="button" class="icon-btn" [title]="dark() ? 'Switch to light theme' : 'Switch to dark theme'"
+        [attr.aria-label]="dark() ? 'Switch to light theme' : 'Switch to dark theme'" (click)="toggleTheme()">
+        @if (dark()) {
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6L7 7M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4" />
+        </svg>
+        } @else {
+        <svg viewBox="0 0 24 24">
+          <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" />
+        </svg>
+        }
+      </button>
+      <div class="avatar" aria-hidden="true">V</div>
+      <button type="button" class="icon-btn" title="Customise and control" aria-label="Menu">
+        <svg viewBox="0 0 24 24" class="fill">
+          <circle cx="12" cy="5" r="1.8" />
+          <circle cx="12" cy="12" r="1.8" />
+          <circle cx="12" cy="19" r="1.8" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="bookmarks">
+      <div class="bookmark-list" #bookmarkList>
+        @for (song of songs; track song.id; let i = $index) {
+        <a class="bookmark" [class.gone]="i >= hiddenFrom()" [title]="song.title"
+          href="https://www.youtube.com/watch?v={{ song.id }}" (click)="openBookmark(song, $event)">
+          <span class="fav"></span><span class="label">{{ song.title }}</span>
+        </a>
+        }
+      </div>
+      <button type="button" class="overflow-btn" [class.invisible]="!overflowSongs().length" title="Other bookmarks"
+        aria-label="More bookmarks" (click)="toggleOverflow($event)">»</button>
+      @if (overflowOpen()) {
+      <div class="overflow-menu">
+        @for (song of overflowSongs(); track song.id) {
+        <a class="bookmark" [title]="song.title" href="https://www.youtube.com/watch?v={{ song.id }}"
+          (click)="openBookmark(song, $event)">
+          <span class="fav"></span><span class="label">{{ song.title }}</span>
+        </a>
+        }
+      </div>
+      }
+    </div>
+
+    <div class="content">
+      @for (tab of tabs(); track tab.id) {
+      <iframe [src]="tab.src" [hidden]="tab.id !== activeId()" [title]="tabTitle(tab)"
+        allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen
+        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      }
+    </div>
+  </div>
+
+</div>
