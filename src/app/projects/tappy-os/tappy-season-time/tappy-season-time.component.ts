@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Title } from "@angular/platform-browser";
+import { setFavicon } from '../../../shared/libs/common';
 
 @Component({
   selector: 'app-tappy-season-time',
@@ -9,7 +10,7 @@ import { Title } from "@angular/platform-browser";
   templateUrl: './tappy-season-time.component.html',
   styleUrl: './tappy-season-time.component.css'
 })
-export class TappySeasonTimeComponent implements OnInit {
+export class TappySeasonTimeComponent implements OnInit, OnDestroy {
 
   isSummer: boolean = false;
   isSpring: boolean = false;
@@ -38,10 +39,12 @@ export class TappySeasonTimeComponent implements OnInit {
     day: 'numeric'
   };
 
-  title: string = '🌸 Tappy Season Time - Tappy OS - Projects'
+  title: string = 'Tappy Season Time - Tappy OS - Projects'
+  private previousFavicon: string | null = null;
 
   constructor(private titleService: Title) {
     titleService.setTitle(this.title);
+    this.previousFavicon = setFavicon('assets/images/favicons/tappy-season-time-favicon.png');
   }
 
   ngOnInit(): void {
@@ -70,4 +73,7 @@ export class TappySeasonTimeComponent implements OnInit {
     return startDate.toLocaleDateString(undefined, this.dayMonthOptions) + ' to ' + endDateMinusDay.toLocaleDateString(undefined, this.dayMonthOptions);
   }
 
+  ngOnDestroy(): void {
+    if (this.previousFavicon) setFavicon(this.previousFavicon, this.previousFavicon.endsWith('.ico') ? 'image/x-icon' : 'image/png');
+  }
 }

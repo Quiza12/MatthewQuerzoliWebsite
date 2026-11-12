@@ -58,7 +58,7 @@ export class BingoComponent {
 
   constructor(titleService: Title) {
     titleService.setTitle(this.title);
-    this.previousFavicon = setFavicon('assets/images/icons/dice-icon.png');
+    this.previousFavicon = setFavicon('assets/images/favicons/bingo-favicon.png');
   }
 
   ngOnDestroy(): void {

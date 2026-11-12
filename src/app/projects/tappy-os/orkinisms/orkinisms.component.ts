@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Orkinism } from './classes/orkinism';
 import { orkinisms } from './data/orkinisms';
 import { sortObjectArray } from '../../../shared/libs/common';
 import { Title } from "@angular/platform-browser";
+import { setFavicon } from '../../../shared/libs/common';
 
 @Component({
   selector: 'app-orkinisms',
@@ -11,14 +12,16 @@ import { Title } from "@angular/platform-browser";
   templateUrl: './orkinisms.component.html',
   styleUrl: './orkinisms.component.css'
 })
-export class OrkinismsComponent {
+export class OrkinismsComponent implements OnDestroy {
 
   orkinismList: Orkinism[] = [];
   filteredOrkinismList: Orkinism[] = [];
-  title: string = '📖 Orkinisms - Tappy OS - Projects'
+  title: string = 'Orkinisms - Tappy OS - Projects'
+  private previousFavicon: string | null = null;
 
   constructor(private titleService: Title) {
     titleService.setTitle(this.title);
+    this.previousFavicon = setFavicon('assets/images/favicons/orkinisms-favicon.png');
     this.orkinismList = sortObjectArray(orkinisms, 'word');
     this.filteredOrkinismList = this.orkinismList; 
   }
@@ -34,4 +37,7 @@ export class OrkinismsComponent {
     ), "word");
   }
 
+  ngOnDestroy(): void {
+    if (this.previousFavicon) setFavicon(this.previousFavicon, this.previousFavicon.endsWith('.ico') ? 'image/x-icon' : 'image/png');
+  }
 }

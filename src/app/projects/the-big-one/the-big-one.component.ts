@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
 import { ExternalJavascriptCdnPreloadService } from '../../services/external-js-preload/external-javascript-cdn-preload.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Title } from "@angular/platform-browser";
+import { setFavicon } from '../../shared/libs/common';
 
 const preloadJsCdns: string[] = ['chart', 'thebigone'];
 
@@ -13,15 +14,19 @@ const preloadJsCdns: string[] = ['chart', 'thebigone'];
   styleUrl: './the-big-one.component.css',
   encapsulation: ViewEncapsulation.None //disable global Bootstrap
 })
-export class TheBigOneComponent implements OnInit {
-  title: string = '🌏 The Big One FAQ - Projects'
+export class TheBigOneComponent implements OnInit, OnDestroy {
+  title: string = 'The Big One FAQ - Projects'
+  private previousFavicon: string | null = null;
 
   constructor(
     private externalJsCdnPreloadService: ExternalJavascriptCdnPreloadService,
     private route: ActivatedRoute,
     private titleService: Title
 
-  ) { titleService.setTitle(this.title); }
+  ) {
+    titleService.setTitle(this.title);
+    this.previousFavicon = setFavicon('assets/images/favicons/the-big-one-favicon.png');
+  }
 
   ngOnInit(): void {
     this.preloadExternalCdnsOnLoad();
@@ -38,4 +43,7 @@ export class TheBigOneComponent implements OnInit {
     await this.externalJsCdnPreloadService.preloadExternalCdnsOnLoad(preloadJsCdns, 'The Big One');
   }
 
+  ngOnDestroy(): void {
+    if (this.previousFavicon) setFavicon(this.previousFavicon, this.previousFavicon.endsWith('.ico') ? 'image/x-icon' : 'image/png');
+  }
 }

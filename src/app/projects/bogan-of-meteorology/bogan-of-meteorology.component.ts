@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BomDataService } from './services/bom-data.service';
@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Title } from "@angular/platform-browser";
+import { setFavicon } from '../../shared/libs/common';
 
 @Component({
   selector: 'app-bogan-of-meteorology',
@@ -16,8 +17,8 @@ import { Title } from "@angular/platform-browser";
   templateUrl: './bogan-of-meteorology.component.html',
   styleUrl: './bogan-of-meteorology.component.css'
 })
-export class BoganOfMeteorologyComponent implements OnInit {
-  title: string = '🌦️ Bogan of Meteorology - Projects'
+export class BoganOfMeteorologyComponent implements OnInit, OnDestroy {
+  title: string = 'Bogan of Meteorology - Projects'
 
   dropdownDefault = 'Where the bloody hell are ya? ⬇'
 
@@ -42,6 +43,7 @@ export class BoganOfMeteorologyComponent implements OnInit {
   resultsArray: LocationForecast[] = [];
 
   locationSelectionForm: FormGroup;
+  private previousFavicon: string | null = null;
 
   constructor(private bomDataService: BomDataService, private boganService: BoganService, private fb: FormBuilder, private titleService: Title,
     private cdr: ChangeDetectorRef
@@ -50,6 +52,7 @@ export class BoganOfMeteorologyComponent implements OnInit {
       location: new FormControl('')
     });
     titleService.setTitle(this.title);
+    this.previousFavicon = setFavicon('assets/images/favicons/bogan-of-meteorology-favicon.png');
   }
 
   ngOnInit() {
@@ -130,4 +133,7 @@ export class BoganOfMeteorologyComponent implements OnInit {
     return this.boganService.boganise(resultsArray);
   }
 
+  ngOnDestroy(): void {
+    if (this.previousFavicon) setFavicon(this.previousFavicon, this.previousFavicon.endsWith('.ico') ? 'image/x-icon' : 'image/png');
+  }
 }

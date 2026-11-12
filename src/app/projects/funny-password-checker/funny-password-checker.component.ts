@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { StrengthsService } from './services/strengths/strengths.service';
 import { PasswordService } from './services/password/password.service';
 import { FormComponent } from './components/form/form.component';
 import { CommonModule } from '@angular/common';
 import { Title } from "@angular/platform-browser";
+import { setFavicon } from '../../shared/libs/common';
 
 @Component({
   selector: 'app-funny-password-checker',
@@ -12,18 +13,21 @@ import { Title } from "@angular/platform-browser";
   templateUrl: './funny-password-checker.component.html',
   styleUrl: './funny-password-checker.component.css'
 })
-export class FunnyPasswordCheckerComponent implements OnInit {
+export class FunnyPasswordCheckerComponent implements OnInit, OnDestroy {
 
-  title: string = '🔑 Funny Password Checker - Projects'
+  title: string = 'Funny Password Checker - Projects'
   filteredReasons: any[] = [];
   password: any;
   passwordStrength: any = this.passwordService.passwordStrength;
   strengthListLength: number = 0;
   tempListLength: number = 0;
   reasons: string[] = [];
+  private previousFavicon: string | null = null;
+
   
   constructor(private strengthsService: StrengthsService, private passwordService: PasswordService, private titleService: Title) { 
     titleService.setTitle(this.title);
+    this.previousFavicon = setFavicon('assets/images/favicons/funny-password-checker-favicon.png');
   }
 
   ngOnInit() {
@@ -107,4 +111,7 @@ export class FunnyPasswordCheckerComponent implements OnInit {
     }
   }
 
+  ngOnDestroy(): void {
+    if (this.previousFavicon) setFavicon(this.previousFavicon, this.previousFavicon.endsWith('.ico') ? 'image/x-icon' : 'image/png');
+  }
 }

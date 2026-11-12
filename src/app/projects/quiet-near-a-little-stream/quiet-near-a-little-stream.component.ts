@@ -1,6 +1,7 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Title } from "@angular/platform-browser";
+import { setFavicon } from '../../shared/libs/common';
 
 @Component({
   selector: 'app-quiet-near-a-little-stream',
@@ -9,15 +10,17 @@ import { Title } from "@angular/platform-browser";
   templateUrl: './quiet-near-a-little-stream.component.html',
   styleUrl: './quiet-near-a-little-stream.component.css'
 })
-export class QuietNearALittleStreamComponent {
+export class QuietNearALittleStreamComponent implements OnDestroy {
   @ViewChild('audioRef') audioElement!: ElementRef<HTMLAudioElement>;
   audioSrc: string = '/assets/audio/quiet-near-a-little-stream/water-small-stream-25614.mp3';
   playing: boolean = true;
 
-  title: string = '💧 Be Quiet Near a Little Stream and Listen - Projects'
+  title: string = 'Be Quiet Near a Little Stream and Listen - Projects'
+  private previousFavicon: string | null = null;
 
   constructor(private titleService: Title) {  
     titleService.setTitle(this.title);
+    this.previousFavicon = setFavicon('assets/images/favicons/quiet-near-a-little-stream-favicon.png');
   }
 
   ngAfterViewInit() {
@@ -34,5 +37,9 @@ export class QuietNearALittleStreamComponent {
     console.log("Audio playing");
     this.playing = true;
     this.audioElement.nativeElement.play();
+  }
+
+  ngOnDestroy(): void {
+    if (this.previousFavicon) setFavicon(this.previousFavicon, this.previousFavicon.endsWith('.ico') ? 'image/x-icon' : 'image/png');
   }
 }

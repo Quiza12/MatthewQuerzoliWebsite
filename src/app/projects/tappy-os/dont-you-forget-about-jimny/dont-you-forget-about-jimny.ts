@@ -1,6 +1,7 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Title } from "@angular/platform-browser";
+import { setFavicon } from '../../../shared/libs/common';
 import * as bootstrap from 'bootstrap';
 
 const preloadJsCdns: string[] = ['basic-bootstrap'];
@@ -12,18 +13,22 @@ const preloadJsCdns: string[] = ['basic-bootstrap'];
   templateUrl: './dont-you-forget-about-jimny.html',
   styleUrl: './dont-you-forget-about-jimny.css',
 })
-export class DontYouForgetAboutJimny {
+export class DontYouForgetAboutJimny implements OnDestroy {
   @ViewChild('jimnyAudio') audio!: ElementRef<HTMLAudioElement>;
-  title: string = '🚙 Don\'t You (Forget About Jimny)'
+  title: string = 'Don\'t You (Forget About Jimny)'
   audioSrc: string = '/assets/audio/dont-you-forget-about-jimny/dont-you-forget-about-me.mp3';
   playing: boolean = true;
   jimnyImageArray: string[] = ["jimny1", "jimny2", "jimny3", "jimny4", "jimny5", "jimny6", "jimny7", "jimny8", "jimny9", "jimny10", "jimny11", "jimny12", "jimny13", "jimny14", "jimny15", "jimny16", "jimny17", "jimny19", "jimny20", "jimny21", "jimny22", "jimny23", "jimny24", "jimny25", "jimny26"];
+  private previousFavicon: string | null = null;
 
   constructor(
     private route: ActivatedRoute,
     private titleService: Title
 
-  ) { titleService.setTitle(this.title); }
+  ) {
+    titleService.setTitle(this.title);
+    this.previousFavicon = setFavicon('assets/images/favicons/jimny-favicon.png');
+  }
 
   ngAfterViewInit() {
     this.audio.nativeElement.play(); // Auto-play 
@@ -51,4 +56,7 @@ export class DontYouForgetAboutJimny {
     this.audio.nativeElement.play();
   }
 
+  ngOnDestroy(): void {
+    if (this.previousFavicon) setFavicon(this.previousFavicon, this.previousFavicon.endsWith('.ico') ? 'image/x-icon' : 'image/png');
+  }
 }

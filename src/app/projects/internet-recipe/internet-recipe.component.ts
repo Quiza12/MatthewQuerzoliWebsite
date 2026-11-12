@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { initialParagraphs, fillerParagraphs } from './data/paragraphs';
@@ -6,6 +6,7 @@ import { imageIndex } from './data/image-index';
 import { Popover } from 'bootstrap';
 import { ContentItem } from './interfaces/ir-interfaces';
 import { Title } from "@angular/platform-browser";
+import { setFavicon } from '../../shared/libs/common';
 
 
 @Component({
@@ -15,8 +16,8 @@ import { Title } from "@angular/platform-browser";
   templateUrl: './internet-recipe.component.html',
   styleUrl: './internet-recipe.component.css'
 })
-export class InternetRecipeComponent {
-  title: string = '🍝 INTERNET RECIPE - Projects'
+export class InternetRecipeComponent implements OnDestroy {
+  title: string = 'INTERNET RECIPE - Projects'
   initialArray: ContentItem[] = [];
   array: ContentItem[] = [];
   imageIndex: string[] = [];
@@ -28,10 +29,12 @@ export class InternetRecipeComponent {
   prevIndex = 0;
   itemsToAppend = 7;
   imgBaseSlug ='/assets/images/internet-recipe/';
+  private previousFavicon: string | null = null;
 
   constructor(titleService: Title) {
     this.imageIndex = imageIndex;
     titleService.setTitle(this.title);
+    this.previousFavicon = setFavicon('assets/images/favicons/internet-recipe-favicon.png');
 
     this.sum = initialParagraphs.length;
     this.loadInitialItems("push");
@@ -113,4 +116,7 @@ export class InternetRecipeComponent {
     return '';
   }
 
+  ngOnDestroy(): void {
+    if (this.previousFavicon) setFavicon(this.previousFavicon, this.previousFavicon.endsWith('.ico') ? 'image/x-icon' : 'image/png');
+  }
 }

@@ -3,6 +3,7 @@ import { Title } from "@angular/platform-browser";
 import { jsPDF } from "jspdf";
 import autoTable from 'jspdf-autotable';
 import { FormArray, FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { setFavicon } from '../../shared/libs/common';
 
 interface LineItem {
   description: string;
@@ -22,7 +23,7 @@ export class FamilyItInvoiceGenerator {
   lineItemTableY: number = 0;
   totalTableY: number = 0;
 
-  title: string = '🧾 Family IT Support Invoice Generator - Projects'
+  title: string = 'Family IT Support Invoice Generator - Projects'
   doc: jsPDF = new jsPDF();
   invoiceForm = new FormGroup({
     payeeName: new FormControl<string>('', { validators: [Validators.required] }),
@@ -38,9 +39,15 @@ export class FamilyItInvoiceGenerator {
       })
     ])
   });
+  private previousFavicon: string | null = null;
 
   constructor(titleService: Title) {
     titleService.setTitle(this.title);
+    this.previousFavicon = setFavicon('assets/images/favicons/family-it-invoice-favicon.png');
+  }
+
+  ngOnDestroy(): void {
+    if (this.previousFavicon) setFavicon(this.previousFavicon, this.previousFavicon.endsWith('.ico') ? 'image/x-icon' : 'image/png');
   }
 
   getCurrentDate() {

@@ -56,7 +56,7 @@ export class CoveredInChromeBrowser implements AfterViewInit, OnDestroy {
 
   constructor(private sanitizer: DomSanitizer, private titleService: Title) {
     titleService.setTitle(this.title);
-    this.previousFavicon = setFavicon('assets/images/icons/google-chrome-icon.png');
+    this.previousFavicon = setFavicon('assets/images/favicons/cic-favicon.png');
     document.body.classList.add('cic-body');
     document.body.classList.add('info-dark');
     effect(() => document.body.classList.toggle('cic-dark', this.dark()));
