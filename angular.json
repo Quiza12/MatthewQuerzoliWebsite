@@ -13,10 +13,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": {
-              "base": "dist/matthew-querzoli",
-              "browser": ""
-            },
+            "outputPath": "dist/matthew-querzoli",
             "index": "src/index.html",
             "polyfills": [
               "zone.js"

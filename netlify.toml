@@ -1,3 +1,6 @@
+[build]
+  publish = "dist/matthew-querzoli/browser"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
