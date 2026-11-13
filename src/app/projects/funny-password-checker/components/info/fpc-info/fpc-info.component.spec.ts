@@ -8,10 +8,9 @@ describe('FpcInfoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FpcInfoComponent]
-    })
-    .compileComponents();
-    
+      imports: [FpcInfoComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(FpcInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -19,5 +18,9 @@ describe('FpcInfoComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('renders its content', () => {
+    expect((fixture.nativeElement as HTMLElement).textContent!.trim().length).toBeGreaterThan(0);
   });
 });

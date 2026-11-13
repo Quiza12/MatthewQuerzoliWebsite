@@ -67,7 +67,7 @@ export class BingoComponent {
 
   onCardChange(event: Event) {
     this.selectedCard = (event.target as HTMLSelectElement).value;
-    console.log('Selected card:', this.selectedCard);
+    // console.log('Selected card:', this.selectedCard);
     switch (this.selectedCard) {
       case 'Pregnant/newborn': this.newbornCardSelected = true; this.loadBingoCard(this.newbornTiles); break;
       case 'Footy (spectator)': this.footySpectatorCardSelected = true; this.loadBingoCard(this.footySpectatorTiles); break;

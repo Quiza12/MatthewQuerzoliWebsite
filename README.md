@@ -27,6 +27,9 @@ To earn a crust I've recently traded in software development for middle manageme
     - Bingo
     - Family IT Support Invoice Generator
     - Trottadvisor
+    - Two-Up
+    - Out of Office//Pass the Parcel
+    - (Covered in) Chrome Browser
   - External Projects
     - Orkin Brown and Associates
     - Palisi's Persistent Pursuit of Places FAQ
@@ -50,7 +53,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test` to execute the unit tests via [Vitest](https://vitest.dev).
 
 ## Running end-to-end tests
 

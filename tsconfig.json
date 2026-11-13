@@ -19,7 +19,7 @@
   "target": "ES2022",
   "module": "NodeNext",
   "useDefineForClassFields": false,
-  "types": ["node"],
+  "types": ["node", "vitest/globals"],
   "lib": ["ES2022", "dom"]
 },
   "angularCompilerOptions": {

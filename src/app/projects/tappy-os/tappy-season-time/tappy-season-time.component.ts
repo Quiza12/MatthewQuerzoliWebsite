@@ -18,7 +18,7 @@ export class TappySeasonTimeComponent implements OnInit, OnDestroy {
 
   today = new Date();
 
-  springStart = new Date(new Date().getFullYear()+1, 0, 7);
+  springStart = new Date(new Date().getFullYear(), 0, 7);
   summerStart = new Date(new Date().getFullYear(), 0, 25);
   winterStart = new Date(new Date().getFullYear(), 1, 15);
 
@@ -52,7 +52,8 @@ export class TappySeasonTimeComponent implements OnInit, OnDestroy {
   }
 
   determineSeason() {
-    console.log('Today: ' + this.today.toLocaleDateString(undefined, this.dayMonthYearOptions));
+    // Winter runs from mid-February through to the new year, so it also covers 1-6 January, before spring starts.
+    const isWinterPeriod = this.today.getTime() >= this.winterStart.getTime() || this.today.getTime() < this.springStart.getTime();
 
     if (this.today.getTime() >= this.springStart.getTime() && this.today.getTime() < this.summerStart.getTime()) {
       this.isSpring = true;
@@ -60,7 +61,7 @@ export class TappySeasonTimeComponent implements OnInit, OnDestroy {
     } else if (this.today.getTime() >= this.summerStart.getTime() && this.today.getTime() < this.winterStart.getTime()) {
       this.isSummer = true;
       this.backgroundColour = this.summerColour;
-    } else if (this.today.getTime() >= this.winterStart.getTime() && this.today.getTime() < this.springStart.getTime()) {
+    } else if (isWinterPeriod) {
       this.isWinter = true;
       this.backgroundColour = this.winterColour;
     } 

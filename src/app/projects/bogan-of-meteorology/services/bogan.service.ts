@@ -86,13 +86,13 @@ export class BoganService {
     replacedPop = Number(replacedPop);
     if (replacedPop >= 0 && replacedPop <= 20) {
       return this.getRandomChoice(this.pop1);
-    } else if (replacedPop > 21 && replacedPop <= 40) {
+    } else if (replacedPop > 20 && replacedPop <= 40) {
       return this.getRandomChoice(this.pop2);
-    } else if (replacedPop > 41 && replacedPop <= 60) {
+    } else if (replacedPop > 40 && replacedPop <= 60) {
       return this.getRandomChoice(this.pop3);
-    } else if (replacedPop > 61 && replacedPop <= 80) {
+    } else if (replacedPop > 60 && replacedPop <= 80) {
       return this.getRandomChoice(this.pop4);
-    } else if (replacedPop > 81 && replacedPop <= 100) {
+    } else if (replacedPop > 80 && replacedPop <= 100) {
       return this.getRandomChoice(this.pop5);
     }
   }

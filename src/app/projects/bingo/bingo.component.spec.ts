@@ -31,7 +31,7 @@ describe('BingoComponent', () => {
     it('should load the newborn tiles and mark the newborn card selected', () => {
       selectCard('Pregnant/newborn');
 
-      expect(component.newbornCardSelected).toBeTrue();
+      expect(component.newbornCardSelected).toBe(true);
       expect(component.tiles).toBe(component.newbornTiles);
       expect(component.bingoTileSize).toBe(component.newbornTiles.length);
     });
@@ -39,42 +39,42 @@ describe('BingoComponent', () => {
     it('should load the footy spectator tiles', () => {
       selectCard('Footy (spectator)');
 
-      expect(component.footySpectatorCardSelected).toBeTrue();
+      expect(component.footySpectatorCardSelected).toBe(true);
       expect(component.tiles).toBe(component.footySpectatorTiles);
     });
 
     it('should load the footy player tiles', () => {
       selectCard('Footy (player)');
 
-      expect(component.footyPlayerCardSelected).toBeTrue();
+      expect(component.footyPlayerCardSelected).toBe(true);
       expect(component.tiles).toBe(component.footyPlayerTiles);
     });
 
     it('should load the tysie tiles', () => {
       selectCard('Tysie');
 
-      expect(component.tysieCardSelected).toBeTrue();
+      expect(component.tysieCardSelected).toBe(true);
       expect(component.tiles).toBe(component.tysieTiles);
     });
 
     it('should load the office tiles', () => {
       selectCard('Office');
 
-      expect(component.officeCardSelected).toBeTrue();
+      expect(component.officeCardSelected).toBe(true);
       expect(component.tiles).toBe(component.officeTiles);
     });
 
     it('should load the harro tiles', () => {
       selectCard('Harro');
 
-      expect(component.harroCardSelected).toBeTrue();
+      expect(component.harroCardSelected).toBe(true);
       expect(component.tiles).toBe(component.harroTiles);
     });
 
     it('should load the market tiles', () => {
       selectCard('Average Sydney market');
 
-      expect(component.marketCardSelected).toBeTrue();
+      expect(component.marketCardSelected).toBe(true);
       expect(component.tiles).toBe(component.marketTiles);
     });
 
@@ -82,8 +82,8 @@ describe('BingoComponent', () => {
       selectCard('Harro');
       selectCard('Select a card...');
 
-      expect(component.isCardSelected()).toBeFalse();
-      expect(component.harroCardSelected).toBeFalse();
+      expect(component.isCardSelected()).toBe(false);
+      expect(component.harroCardSelected).toBe(false);
     });
 
     it('should reset selected tiles and win state when a new card is loaded', () => {
@@ -94,19 +94,19 @@ describe('BingoComponent', () => {
       selectCard('Tysie');
 
       expect(component.selected.size).toBe(0);
-      expect(component.win).toBeFalse();
+      expect(component.win).toBe(false);
     });
   });
 
   describe('isCardSelected', () => {
     it('should be false before any card is chosen', () => {
-      expect(component.isCardSelected()).toBeFalse();
+      expect(component.isCardSelected()).toBe(false);
     });
 
     it('should be true once a card is chosen', () => {
       selectCard('Office');
 
-      expect(component.isCardSelected()).toBeTrue();
+      expect(component.isCardSelected()).toBe(true);
     });
   });
 
@@ -118,20 +118,20 @@ describe('BingoComponent', () => {
     it('should select an unselected tile', () => {
       component.toggle(2);
 
-      expect(component.isSelected(2)).toBeTrue();
+      expect(component.isSelected(2)).toBe(true);
     });
 
     it('should deselect an already selected tile', () => {
       component.toggle(2);
       component.toggle(2);
 
-      expect(component.isSelected(2)).toBeFalse();
+      expect(component.isSelected(2)).toBe(false);
     });
 
     it('should not report win while tiles remain unselected', () => {
       component.toggle(0);
 
-      expect(component.win).toBeFalse();
+      expect(component.win).toBe(false);
     });
 
     it('should report win once every tile is selected', () => {
@@ -139,7 +139,7 @@ describe('BingoComponent', () => {
         component.toggle(i);
       }
 
-      expect(component.win).toBeTrue();
+      expect(component.win).toBe(true);
     });
   });
 
@@ -149,12 +149,12 @@ describe('BingoComponent', () => {
       for (let i = 0; i < component.harroTiles.length; i++) {
         component.toggle(i);
       }
-      expect(component.win).toBeTrue();
+      expect(component.win).toBe(true);
 
       component.replay();
 
       expect(component.selected.size).toBe(0);
-      expect(component.win).toBeFalse();
+      expect(component.win).toBe(false);
     });
   });
 });

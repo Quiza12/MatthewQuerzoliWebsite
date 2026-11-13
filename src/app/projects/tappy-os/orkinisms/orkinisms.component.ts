@@ -27,7 +27,6 @@ export class OrkinismsComponent implements OnDestroy {
   }
 
   filterResults(text: string) {
-    console.log(text);
     if (!text) {
       this.filteredOrkinismList = this.orkinismList;
       return;

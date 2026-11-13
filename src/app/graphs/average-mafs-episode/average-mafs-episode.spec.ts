@@ -8,9 +8,8 @@ describe('AverageMafsEpisodeGraph', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AverageMafsEpisodeGraph]
-    })
-    .compileComponents();
+      imports: [AverageMafsEpisodeGraph],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AverageMafsEpisodeGraph);
     component = fixture.componentInstance;
@@ -19,5 +18,11 @@ describe('AverageMafsEpisodeGraph', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('shows a legend', () => {
+    const el: HTMLElement = fixture.nativeElement;
+    expect(el.querySelector('h4')!.textContent).toBe('Legend');
+    expect(el.querySelectorAll('.legend-segment').length).toBeGreaterThan(0);
   });
 });

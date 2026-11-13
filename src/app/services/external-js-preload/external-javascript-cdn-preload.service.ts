@@ -35,21 +35,22 @@ export class ExternalJavascriptCdnPreloadService {
     });
   }
 
+  /** Loads the scripts in order. Resolves true only if every script loaded. */
   async preloadExternalCdnsOnLoad(preloadJsCdns: string[], project: string): Promise<boolean> {
-    let result = false;
+    let allLoaded = true;
     console.log(`Loading external scripts for the ${project} project...`);
     try {
       for (const cdn of preloadJsCdns) {
-        const result = await (async () => {
-          return await this.loadScript(cdn);
-        })();
+        const result: any = await this.loadScript(cdn);
+        if (!result.loaded) allLoaded = false;
         console.log(result);
       }
       console.log('External scripts loaded.');
     } catch (error) {
       console.error('Error loading script:', error);
+      allLoaded = false;
     }
-    return result;
+    return allLoaded;
   }
 
   load(...scripts: string[]) {
@@ -73,7 +74,7 @@ export class ExternalJavascriptCdnPreloadService {
           console.log(`${name} loaded.`);
           resolve({ script: name, loaded: true, status: 'loaded' });
         };
-        script.onerror = (error: any) => resolve({ script: name, loaded: false, status: 'loaded' });
+        script.onerror = () => resolve({ script: name, loaded: false, status: 'error' });
         document.getElementsByTagName('head')[0].appendChild(script);
       }
     });

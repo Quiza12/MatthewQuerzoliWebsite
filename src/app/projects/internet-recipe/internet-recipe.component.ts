@@ -105,15 +105,14 @@ export class InternetRecipeComponent implements OnDestroy {
   }
 
   getRandomImageIndexNoRepeat() {
+    if (imageIndex.length === 0) return '';
     let index = Math.floor(Math.random() * imageIndex.length);
-    for (let i = 0; i < imageIndex.length; i++) {
-      if (index != this.prevIndex) {
-        this.prevIndex = index;
-        console.log(this.imgBaseSlug + imageIndex[index]);
-        return this.imgBaseSlug + imageIndex[index];
-      }
+    // Re-roll until it differs from the last image (a single image can't avoid repeating).
+    while (index === this.prevIndex && imageIndex.length > 1) {
+      index = Math.floor(Math.random() * imageIndex.length);
     }
-    return '';
+    this.prevIndex = index;
+    return this.imgBaseSlug + imageIndex[index];
   }
 
   ngOnDestroy(): void {
